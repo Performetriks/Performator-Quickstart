@@ -33,26 +33,37 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 		String url = Globals.ENV.url;
 		Response r = null;
 		
+		// PFRHttp.debugLogAll(true);
+		// PFRHttp.debugLogFail(true);
+		
 		//-------------------------------
 		// 
 		r = PFRHttp.create("000_Open_LoginPage", url+"/app/login") 
-							.GET()
-							.checkBodyContains("Sign In")
-							.send()
-							;
+				.GET()
+				.checkBodyContains("Sign In")
+				.send()
+				;
 		
-		if( r.isSuccess() ) { return; }
+		if( !r.isSuccess() ) { return; }
 		
 		//-------------------------------
 		// 
 		r = PFRHttp.create("010_Do_Login", url+"/app/login") 
-							.POST()
-							.param("username", "admin")
-							.param("password", "admin")
-							.param("url", "/app/dashboard/list") //redirect url
-							.checkBodyContains("My Dashboards")
-							.send()
-							;
+				.POST()
+				.param("username", "admin")
+				.param("password", "admin")
+				.param("url", "/app/dashboard/list") //redirect url
+				.checkBodyContains("cfwMenuTools-Dashboards")
+				.send()
+				;
+		
+		//-------------------------------
+		// 
+		r = PFRHttp.create("999_Do_Logout", url+"/app/logout") 
+				.GET()
+				.checkBodyContains("Sign In")
+				.send()
+				;
 		
 		if( !r.isSuccess() ) { return; }
 		
