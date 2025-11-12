@@ -1,5 +1,8 @@
 package com.performetriks.performator.quickstart.globals;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.xresch.hsr.base.HSRConfig;
 import com.xresch.hsr.reporting.HSRReporterCSV;
 import com.xresch.hsr.reporting.HSRReporterDatabasePostGres;
@@ -9,10 +12,40 @@ import com.xresch.hsr.reporting.HSRReporterSysoutCSV;
 
 import ch.qos.logback.classic.Level;
 
+
 public class Globals {
-	
+	 
 	public static final String DIR_RESULTS = "./target";
 	public static final int REPORT_INTERVAL_SECONDS = 5;
+	
+	private static final Logger logger = LoggerFactory.getLogger(Globals.class);
+	
+	//================================================================
+	// Define your Environments here
+	//================================================================
+	public enum Environment {
+		
+		  DEV ("http://localhost:8888/")
+		, TEST("http://localhost:7777/")
+		;
+
+		public final String url;
+		
+		Environment(String url) {
+			this.url = url;
+		}
+				
+		// example on how to keep things in one place
+		public String getAPIURL() { return url + "/rest/api"; }
+		public String getXDynatraceHeader() { return "PerformatorTest"; }
+		
+	}
+	
+	//================================================================
+	// Set the Environment to run your Test against
+	//================================================================
+	public static Environment ENV = Environment.DEV;
+	
 	
 	/************************************************************************
 	 * 

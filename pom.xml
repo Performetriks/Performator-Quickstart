@@ -57,6 +57,21 @@
 		    <version>1.0.0</version>
 		</dependency>
 		
+				<!-- https://mvnrepository.com/artifact/com.xresch/hsr -->
+		<dependency>
+		    <groupId>com.performetriks</groupId>
+		    <artifactId>performator-http</artifactId>
+		    <version>1.0.0</version>
+		</dependency>
+		
+						
+		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+		<dependency>
+		    <groupId>ch.qos.logback</groupId>
+		    <artifactId>logback-classic</artifactId>
+		    <version>1.5.21</version>
+		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -180,15 +195,19 @@
 		            <goals>
 		              <goal>java</goal>
 		            </goals>
+		             <!--configuration>
+				        <executable>java</executable>
+				        <arguments>
+				          <argument>-jar</argument>
+				          <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
+				        </arguments>
+				      </configuration-->
 		          </execution>
 		        </executions>
 		        <configuration>
 		          <mainClass>com.performetriks.performator.base.Main</mainClass>
-		          <!--arguments>
-		            <argument>argument1</argument>
-		          </arguments-->
 		          <systemProperties>
-		            <projectProperties />
+		            <projectProperties /> <!-- automatically propagate all -D argument values -->
 		          </systemProperties>
 		        </configuration>
 		    </plugin>

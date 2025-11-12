@@ -7,7 +7,7 @@ import com.performetriks.performator.base.PFRUsecase;
 import com.xresch.hsr.base.HSR;
 import com.xresch.hsr.stats.HSRRecord.HSRRecordStatus;
 
-public class UsecaseExample extends PFRUsecase {
+public class UsecaseExampleHSR extends PFRUsecase {
 
 	/************************************************************************
 	 * 
