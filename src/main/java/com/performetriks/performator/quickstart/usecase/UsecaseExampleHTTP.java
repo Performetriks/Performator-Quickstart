@@ -1,16 +1,19 @@
 package com.performetriks.performator.quickstart.usecase;
 
-import java.math.BigDecimal;
+import org.slf4j.LoggerFactory;
 
 import com.performetriks.performator.base.PFRContext;
 import com.performetriks.performator.base.PFRUsecase;
 import com.performetriks.performator.http.PFRHttp;
+import com.performetriks.performator.http.PFRHttp.Response;
 import com.performetriks.performator.quickstart.globals.Globals;
-import com.xresch.hsr.base.HSR;
-import com.xresch.hsr.stats.HSRRecord.HSRRecordStatus;
+
+import ch.qos.logback.classic.Logger;
 
 public class UsecaseExampleHTTP extends PFRUsecase {
 
+	private static Logger logger = (ch.qos.logback.classic.Logger)LoggerFactory.getLogger(UsecaseExampleHTTP.class.getName());
+	
 	
 	/************************************************************************
 	 * 
@@ -28,15 +31,33 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 	public void execute(PFRContext context) throws Throwable {
 
 		String url = Globals.ENV.url;
+		Response r = null;
 		
 		//-------------------------------
 		// 
-		PFRHttp.create("01_Homepage", url) 
-				.send()
-				;
+		r = PFRHttp.create("000_Open_LoginPage", url+"/app/login") 
+							.GET()
+							.checkBodyContains("Sign In")
+							.send()
+							;
+		
+		if( r.isSuccess() ) { return; }
+		
+		//-------------------------------
+		// 
+		r = PFRHttp.create("010_Do_Login", url+"/app/login") 
+							.POST()
+							.param("username", "admin")
+							.param("password", "admin")
+							.param("url", "/app/dashboard/list") //redirect url
+							.checkBodyContains("My Dashboards")
+							.send()
+							;
+		
+		if( !r.isSuccess() ) { return; }
 		
 	}
-
+	
 	/************************************************************************
 	 * 
 	 ************************************************************************/

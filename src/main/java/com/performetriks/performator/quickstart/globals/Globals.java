@@ -25,8 +25,8 @@ public class Globals {
 	//================================================================
 	public enum Environment {
 		
-		  DEV ("http://localhost:8888/")
-		, TEST("http://localhost:7777/")
+		  DEV ("http://localhost:8888")
+		, TEST("http://localhost:7777")
 		;
 
 		public final String url;
