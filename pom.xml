@@ -64,6 +64,12 @@
 		    <version>1.0.0</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.7.8</version>
+		</dependency>
 						
 		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
 		<dependency>
@@ -72,12 +78,7 @@
 		    <version>1.5.21</version>
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>42.7.4</version>
-		</dependency>
+
 		
 		<!-- ========================================================================== -->
 		<!-- ============================ SCOPE: TESTING ============================== -->

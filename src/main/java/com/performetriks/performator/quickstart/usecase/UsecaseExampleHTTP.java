@@ -3,6 +3,7 @@ package com.performetriks.performator.quickstart.usecase;
 import org.apache.hc.client5.http.impl.cookie.BasicClientCookie;
 import org.slf4j.LoggerFactory;
 
+import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.base.PFRContext;
 import com.performetriks.performator.base.PFRUsecase;
 import com.performetriks.performator.http.PFRHttp;
@@ -22,7 +23,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 	 * 
 	 ************************************************************************/
 	@Override
-	public void initializeUser(PFRContext context) {
+	public void initializeUser() {
 		url = Globals.ENV.url;
 	}
 
@@ -30,15 +31,19 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 	 * 
 	 ************************************************************************/
 	@Override
-	public void execute(PFRContext context) throws Throwable {
+	public void execute() throws Throwable {
 
+		String user = PFR.Random.fromStrings("Alejandra", "Mariachetta", "Jettera");
+		String data = PFR.Random.fromStrings("X", "Y", "Z");
+		
 		//-------------------------------
 		// Configuration
 		PFRHttp.clearCookies();			// Makes sure we always start with a blank user session
 		PFRHttp.addCookie(new BasicClientCookie("myCustomCookie", "baked-20-minutes-at-230-degrees-celsius"));
 		PFRHttp.debugLogFail(true);		// log details for requests that fail
-		// PFRHttp.debugLogAll(true); 	// log all request details
-		
+		//PFRHttp.debugLogAll(true); 	// log all request details
+		PFRContext.logDetailsAdd("user", user); // add custom details to logs, very useful to find failing test data
+		PFRContext.logDetailsAdd("data", data); 
 		try {
 			
 			PFRHttpResponse r = null;
@@ -61,6 +66,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 					.param("password", "admin")
 					.param("url", "/app/dashboard/list") //redirect url
 					.checkBodyContains("cfwMenuTools-Dashboards")
+					.checkBodyContainsNot("Sign In")
 					.send()
 					.throwOnFail()
 					;
@@ -74,6 +80,17 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 					.throwOnFail()
 					;
 
+			//-------------------------------
+			// 
+			// This will always fail for demo purposes
+			r = PFRHttp.create("030_UnkownPage", url+"/app/doesNotExist") 
+					.POST()
+					.allowHTTPErrors() // disables auto-fail when you want to test pages that return HTTP status >= 400
+					.checkStatusEquals(405) // Method Not Allowed
+					.checkBodyRegex(".*Error.*")
+					.send()
+					
+					;
 			//-------------------------------
 			// 
 			doLogout(true);
@@ -103,7 +120,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 	 * 
 	 ************************************************************************/
 	@Override
-	public void terminate(PFRContext context) {
+	public void terminate() {
 		// nothing todo
 	}
 

@@ -1,6 +1,5 @@
 package com.performetriks.performator.quickstart.usecase;
 
-import com.performetriks.performator.base.PFRContext;
 import com.performetriks.performator.base.PFRUsecase;
 import com.xresch.hsr.base.HSR;
 import com.xresch.hsr.stats.HSRExpression.Operator;
@@ -23,7 +22,7 @@ public class UsecaseExampleSLA extends PFRUsecase {
 	 * 
 	 ************************************************************************/
 	@Override
-	public void initializeUser(PFRContext context) {
+	public void initializeUser() {
 		// TODO Auto-generated method stub
 		// nothing todo
 	}
@@ -32,7 +31,7 @@ public class UsecaseExampleSLA extends PFRUsecase {
 	 * 
 	 ************************************************************************/
 	@Override
-	public void execute(PFRContext context) throws Throwable {
+	public void execute() throws Throwable {
 
 		HSR.start("010_SLA_P90-NOK", SLA_P90_LTE_100MS);
 			Thread.sleep(HSR.Random.integer(80, 120));
@@ -80,7 +79,7 @@ public class UsecaseExampleSLA extends PFRUsecase {
 	 * 
 	 ************************************************************************/
 	@Override
-	public void terminate(PFRContext context) {
+	public void terminate() {
 		// nothing todo
 	}
 

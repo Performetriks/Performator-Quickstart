@@ -12,8 +12,7 @@ import com.performetriks.performator.quickstart.usecase.UsecaseExampleSLA;
 
 public class PFRTestExample extends PFRTest {
 
-	public PFRTestExample(PFRContext context) {
-		super(context);
+	public PFRTestExample() {
 		
 		Globals.commonInitialization();
 		
