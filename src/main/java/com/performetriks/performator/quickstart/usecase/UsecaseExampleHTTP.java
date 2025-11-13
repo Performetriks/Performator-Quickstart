@@ -86,11 +86,11 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			r = PFRHttp.create("030_UnkownPage", url+"/app/doesNotExist") 
 					.POST()
 					.allowHTTPErrors() // disables auto-fail when you want to test pages that return HTTP status >= 400
-					.checkStatusEquals(405) // Method Not Allowed
+					.checkStatusEquals(405) // HTTP 405: Method Not Allowed
 					.checkBodyRegex(".*Error.*")
 					.send()
-					
 					;
+			
 			//-------------------------------
 			// 
 			doLogout(true);
