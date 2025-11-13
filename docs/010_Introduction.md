@@ -1,8 +1,5 @@
-# Performator-Quickstart Project
-This is the Quickstart project of the Performator load testing framework!
-This project contains lots of examples and is used as a base project that you can use to start your own projects.
-It also contains all the documentation of all the plugins, so that everything is shipped and documented with your project and not somewhere in the depths of the internet.
-
+# Introduction
+This page gives you an introduction into this quickstart project and an actual "quickstart" on how to use the Performator framework.
 
 # Known Limitations
 Here a list of known limitation of this project:
