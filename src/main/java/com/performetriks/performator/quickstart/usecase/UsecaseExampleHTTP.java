@@ -14,11 +14,18 @@ import com.performetriks.performator.http.PFRHttp;
 import com.performetriks.performator.http.PFRHttpResponse;
 import com.performetriks.performator.http.ResponseFailedException;
 import com.performetriks.performator.quickstart.globals.Globals;
+import com.xresch.hsr.stats.HSRSLA;
+import com.xresch.hsr.stats.HSRExpression.Operator;
+import com.xresch.hsr.stats.HSRRecordStats.HSRMetric;
 
 import ch.qos.logback.classic.Logger;
 
 public class UsecaseExampleHTTP extends PFRUsecase {
 
+	private static final HSRSLA SLA_P90_AND_FAILRATE = 
+			new HSRSLA(HSRMetric.p90, Operator.LTE, 500) // p90 <= 500ms
+				  .and(HSRMetric.failrate, Operator.LTE, 5); // failure rate <= 5%
+	
 	private static Logger logger = (ch.qos.logback.classic.Logger)LoggerFactory.getLogger(UsecaseExampleHTTP.class.getName());
 	
 	private String url;
@@ -55,6 +62,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			//=======================================
 			// Simple GET Request
 			r = PFRHttp.create("000_Open_LoginPage", url+"/app/login") 
+					.sla(SLA_P90_AND_FAILRATE)
 					.GET()
 					.checkBodyContains("Sign In")
 					.send()
@@ -65,6 +73,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			//=======================================
 			// POST with params
 			r = PFRHttp.create("010_Do_Login", url+"/app/login") 
+					.sla(SLA_P90_AND_FAILRATE)
 					.POST()
 					.param("username", "admin")
 					.param("password", "admin")
@@ -78,6 +87,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			//=======================================
 			// JSON Request
 			r = PFRHttp.create("020_Load_DashboardList", url+"/app/dashboard/list?action=fetch&item=mydashboards") 
+					.sla(SLA_P90_AND_FAILRATE)
 					.POST()
 					.checkBodyContains("\"success\": true")
 					.checkBodyContains("\"payload\"")
@@ -87,7 +97,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			
 				//-------------------------------
 				// Manual Printing of Debug Log
-				r.printDebugLog();
+				//r.printDebugLog();
 				
 				//-------------------------------
 				// Extract Bounds example
@@ -109,6 +119,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			//=======================================
 			// Testing Failing Requests
 			r = PFRHttp.create("030_UnkownPage", url+"/app/doesNotExist") 
+					.sla(SLA_P90_AND_FAILRATE)
 					.POST()
 					.allowHTTPErrors() // disables auto-fail when you want to test pages that return HTTP status >= 400
 					.checkStatusEquals(405) // HTTP 405: Method Not Allowed
@@ -132,6 +143,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 	private void doLogout(boolean throwOnFail) throws ResponseFailedException {
 		PFRHttpResponse r;
 		r = PFRHttp.create("999_Do_Logout", url+"/app/logout") 
+				.sla(SLA_P90_AND_FAILRATE)
 				.GET()
 				.checkBodyContains("Sign In")
 				.send();
