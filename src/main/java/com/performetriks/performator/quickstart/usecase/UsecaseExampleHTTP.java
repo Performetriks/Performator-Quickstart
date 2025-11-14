@@ -113,7 +113,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 				// Working with Json
 				JsonObject object = r.getBodyAsJsonObject();
 				JsonArray dashboardArray = object.get("payload").getAsJsonArray();
-				logger.info("List of Dashboards: "+ PFR.JSON.toJSONPretty(dashboardArray));
+				//logger.info("List of Dashboards: "+ PFR.JSON.toJSONPretty(dashboardArray));
 				
 			
 			//=======================================
@@ -132,6 +132,9 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			doLogout(true);
 			
 		}catch(ResponseFailedException e) {
+			// Custom logging if you don't want to use PFRHttp.debugLogFail(true);
+			//e.getResponse().printDebugLog();
+
 			doLogout(false);
 		}
 		
