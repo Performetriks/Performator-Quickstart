@@ -36,11 +36,11 @@ mvn clean verify -Dpfr_test=com.performetriks.performator.quickstart.tests.PFRTe
 
 # Terminology
 For you to understand what you are gonna read, here a list of definitions:
-**HSR:** Short for [HieraStatsReport](https://github.com/xresch/HieraStatsReport), the reporting framework used by Performator. Ased as a prefix for most of the classes of the framework 
-**PFR:** Short for Performator, used as a prefix for most of the classes of the framework.
-**Use Case:** A set of steps that make up a test case.
-**Executor:** A mechanism that takes exactly one use case and executes it with a defined amount of load.
-**Test:** One or multiple combinations of (Executor + Usecase) and the configuration of the test itself, like test duration.
+* **HSR:** Short for [HieraStatsReport](https://github.com/xresch/HieraStatsReport), the reporting framework used by Performator. Ased as a prefix for most of the classes of the framework 
+* **PFR:** Short for Performator, used as a prefix for most of the classes of the framework.
+* **Use Case:** A set of steps that make up a test case.
+* **Executor:** A mechanism that takes exactly one use case and executes it with a defined amount of load.
+* **Test:** One or multiple combinations of (Executor + Usecase) and the configuration of the test itself, like test duration.
 
 
 # Writing and Running Tests
@@ -48,9 +48,10 @@ Example code that uses Performator can be found in this repository under `src/ma
 
 The following classes are needed to implement a load test with Performator:
 * **com.performetriks.performator.base.PFRUsecase:** Is extended to define the actual steps of a test case. Usecases are added to tests and are then run in parallel to create an actual simulation of concurrent user actions.
-* **com.performetriks.performator.base.PFRTest:** Is extended and in the constructor the configuration for the test is setup, and the use cases are added with load executors.
 * **com.performetriks.performator.base.PFRExec*:** Classes that extend PFRExec, like PFRExecStandard, are used to define the load patterns of your PFRUsecases. There are various default classes that help you create your load pattern.
- 
+* **com.performetriks.performator.base.PFRTest:** Is extended and in the constructor the configuration for the test is setup, and the use cases are added with load executors.
+
+
 **Creating a PFRUsecase:** To implement a use case, create a class that extends `PFRUsecase.java`.
 The following code does a minimal implementation. As you see we are using the [HieraStatsReport(HSR)](https://github.com/xresch/HieraStatsReport) framework for our reporting, and we just simulate one step named "000_Open_Homepage":
 
