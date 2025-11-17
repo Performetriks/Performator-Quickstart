@@ -14,9 +14,10 @@ import com.performetriks.performator.http.PFRHttp;
 import com.performetriks.performator.http.PFRHttpResponse;
 import com.performetriks.performator.http.ResponseFailedException;
 import com.performetriks.performator.quickstart.globals.Globals;
-import com.xresch.hsr.stats.HSRSLA;
 import com.xresch.hsr.stats.HSRExpression.Operator;
 import com.xresch.hsr.stats.HSRRecordStats.HSRMetric;
+import com.xresch.hsr.stats.HSRSLA;
+import com.xresch.hsr.utils.ByteSize;
 
 import ch.qos.logback.classic.Logger;
 
@@ -89,6 +90,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			r = PFRHttp.create("020_Load_DashboardList", url+"/app/dashboard/list?action=fetch&item=mydashboards") 
 					.sla(SLA_P90_AND_FAILRATE)
 					.POST()
+					.measureSize(ByteSize.KB)
 					.checkBodyContains("\"success\": true")
 					.checkBodyContains("\"payload\"")
 					.send()
