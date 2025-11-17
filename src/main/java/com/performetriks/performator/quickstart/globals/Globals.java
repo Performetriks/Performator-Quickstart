@@ -1,8 +1,11 @@
 package com.performetriks.performator.quickstart.globals;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.performetriks.performator.data.PFRDataSource;
+import com.performetriks.performator.data.PFRDataSource.AccessMode;
+import com.performetriks.performator.data.PFRDataSource.RetainMode;
+import com.performetriks.performator.data.PFRDataSourceJsonFile;
 import com.xresch.hsr.base.HSRConfig;
 import com.xresch.hsr.reporting.HSRReporterCSV;
 import com.xresch.hsr.reporting.HSRReporterDatabasePostGres;
@@ -11,15 +14,18 @@ import com.xresch.hsr.reporting.HSRReporterJson;
 import com.xresch.hsr.reporting.HSRReporterSysoutCSV;
 
 import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
 
 
 public class Globals {
 	 
+	private static final String PACKAGE_DATA = "com.performetriks.performator.quickstart.data";
+	
 	public static final String DIR_RESULTS = "./target";
 	public static final int REPORT_INTERVAL_SECONDS = 5;
 	
-	private static final Logger logger = LoggerFactory.getLogger(Globals.class);
-	
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(Globals.class);
+
 	//================================================================
 	// Define your Environments here
 	//================================================================
@@ -36,6 +42,7 @@ public class Globals {
 		}
 				
 		// example on how to keep things in one place
+		public String getTestdataPackage() { return PACKAGE_DATA + "."+this.toString(); }
 		public String getAPIURL() { return url + "/rest/api"; }
 		public String getXDynatraceHeader() { return "PerformatorTest"; }
 		
@@ -47,10 +54,21 @@ public class Globals {
 	public static Environment ENV = Environment.DEV;
 	
 	
+	public static PFRDataSource DATA;
+	
 	/************************************************************************
 	 * 
 	 ************************************************************************/
 	public static void commonInitialization() {
+		
+		//--------------------------
+		// Load Test Data
+		DATA = new PFRDataSourceJsonFile("mainTestdata", ENV.getTestdataPackage(), "testdata.json")
+						.accessMode(AccessMode.SEQUENTIAL)
+						.retainMode(RetainMode.ONCE)
+						.build();
+						;
+		
 		//--------------------------
 		// Log Levels
 		HSRConfig.setLogLevelRoot(Level.WARN);

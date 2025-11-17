@@ -10,6 +10,7 @@ import com.google.gson.JsonObject;
 import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.base.PFRContext;
 import com.performetriks.performator.base.PFRUsecase;
+import com.performetriks.performator.data.PFRDataRecord;
 import com.performetriks.performator.http.PFRHttp;
 import com.performetriks.performator.http.PFRHttpResponse;
 import com.performetriks.performator.http.ResponseFailedException;
@@ -38,6 +39,10 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 	@Override
 	public void initializeUser() {
 		url = Globals.ENV.url;
+		
+		PFRHttp.defaultResponseTimeout(HSRTimeUnit.s.toMillis(60)); // set default HTTP timeout to 60 seconds
+		PFRHttp.debugLogFail(true);		// log details for requests that fail
+		//PFRHttp.debugLogAll(true); 	// log all request details
 	}
 
 	/************************************************************************
@@ -45,19 +50,28 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 	 ************************************************************************/
 	@Override
 	public void execute() throws Throwable {
+		
+		//=======================================
+		// Load Test Data Record
+		if( ! Globals.DATA.hasNext() ) {
+			logger.warn(this.getName()+": No test data available.");
+			return;
+		}
+		
+		PFRDataRecord record = Globals.DATA.next();
 
-		String user = PFR.Random.fromStrings("Alejandra", "Mariachetta", "Jettera");
-		String data = PFR.Random.fromStrings("X", "Y", "Z");
+		String user = record.get("USER").getAsString();
+		String searchFor = record.get("SEARCH_FOR").getAsString();
+		
+		//logger.info(record.toString()); // how to log test data
 		
 		//=======================================
 		// Configuration
-		PFRHttp.defaultResponseTimeout(HSRTimeUnit.s.toMillis(60)); // set default HTTP timeout to 60 seconds
 		PFRHttp.clearCookies();			// Makes sure we always start with a blank user session
 		PFRHttp.addCookie(new BasicClientCookie("myCustomCookie", "baked-20-minutes-at-230-degrees-celsius"));
-		PFRHttp.debugLogFail(true);		// log details for requests that fail
-		//PFRHttp.debugLogAll(true); 	// log all request details
+		
 		PFRContext.logDetailsAdd("user", user); // add custom details to logs, very useful to find failing test data
-		PFRContext.logDetailsAdd("data", data); 
+		PFRContext.logDetailsAdd("searchFor", searchFor); 
 		try {
 			
 			PFRHttpResponse r = null;
