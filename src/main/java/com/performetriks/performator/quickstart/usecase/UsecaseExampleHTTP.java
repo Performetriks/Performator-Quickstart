@@ -18,6 +18,7 @@ import com.xresch.hsr.stats.HSRExpression.Operator;
 import com.xresch.hsr.stats.HSRRecordStats.HSRMetric;
 import com.xresch.hsr.stats.HSRSLA;
 import com.xresch.hsr.utils.ByteSize;
+import com.xresch.hsr.utils.HSRTime.HSRTimeUnit;
 
 import ch.qos.logback.classic.Logger;
 
@@ -50,6 +51,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 		
 		//=======================================
 		// Configuration
+		PFRHttp.defaultResponseTimeout(HSRTimeUnit.s.toMillis(60)); // set default HTTP timeout to 60 seconds
 		PFRHttp.clearCookies();			// Makes sure we always start with a blank user session
 		PFRHttp.addCookie(new BasicClientCookie("myCustomCookie", "baked-20-minutes-at-230-degrees-celsius"));
 		PFRHttp.debugLogFail(true);		// log details for requests that fail
@@ -90,6 +92,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			r = PFRHttp.create("020_Load_DashboardList", url+"/app/dashboard/list?action=fetch&item=mydashboards") 
 					.sla(SLA_P90_AND_FAILRATE)
 					.POST()
+					.timeout(1000) // adjust response timeout for this request
 					.measureSize(ByteSize.KB)
 					.checkBodyContains("\"success\": true")
 					.checkBodyContains("\"payload\"")
