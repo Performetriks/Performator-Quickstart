@@ -2,10 +2,10 @@ package com.performetriks.performator.quickstart.globals;
 
 import org.slf4j.LoggerFactory;
 
+import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.data.PFRDataSource;
 import com.performetriks.performator.data.PFRDataSource.AccessMode;
 import com.performetriks.performator.data.PFRDataSource.RetainMode;
-import com.performetriks.performator.data.PFRDataSourceJsonFile;
 import com.xresch.hsr.base.HSRConfig;
 import com.xresch.hsr.reporting.HSRReporterCSV;
 import com.xresch.hsr.reporting.HSRReporterDatabasePostGres;
@@ -62,12 +62,20 @@ public class Globals {
 	public static void commonInitialization() {
 		
 		//--------------------------
-		// Load Test Data
-		DATA = new PFRDataSourceJsonFile("mainTestdata", ENV.getTestdataPackage(), "testdata.json")
-						.accessMode(AccessMode.SEQUENTIAL)
-						.retainMode(RetainMode.ONCE)
-						.build();
-						;
+		// Load Test Data CSV	
+		DATA = PFR.Data.newSourceCSV("mainTestdataCSV", ENV.getTestdataPackage(), "testdata.csv", ",")
+				.accessMode(AccessMode.SEQUENTIAL)
+				.retainMode(RetainMode.ONCE)
+				.build();
+		;
+		
+		//--------------------------
+		// Load Test Data JSON
+//		DATA = PFR.Data.newSourceJson("mainTestdataJSON", ENV.getTestdataPackage(), "testdata.json")
+//						.accessMode(AccessMode.SEQUENTIAL)
+//						.retainMode(RetainMode.ONCE)
+//						.build();
+//						;
 		
 		//--------------------------
 		// Log Levels
