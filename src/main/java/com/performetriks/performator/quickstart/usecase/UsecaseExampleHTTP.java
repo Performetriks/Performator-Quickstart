@@ -70,8 +70,10 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 		PFRHttp.clearCookies();			// Makes sure we always start with a blank user session
 		PFRHttp.addCookie(new BasicClientCookie("myCustomCookie", "baked-20-minutes-at-230-degrees-celsius"));
 		
-		PFRContext.logDetailsAdd("user", user); // add custom details to logs, very useful to find failing test data
-		PFRContext.logDetailsAdd("searchFor", searchFor); 
+//		PFRContext.logDetailsAdd("user", user); // add custom details to logs, very useful to find failing test data
+//		PFRContext.logDetailsAdd("searchFor", searchFor); 
+		PFRContext.logDetailsAdd(record); // add all the fields of the data record
+		
 		try {
 			
 			PFRHttpResponse r = null;
@@ -116,7 +118,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			
 				//-------------------------------
 				// Manual Printing of Debug Log
-				//r.printDebugLog();
+				r.printDebugLog();
 				
 				//-------------------------------
 				// Extract Bounds example
