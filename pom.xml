@@ -50,14 +50,14 @@
 	<!-- ================= DEPENDENCIES ================== -->
 	<dependencies>
 			
-		<!-- https://mvnrepository.com/artifact/com.xresch/hsr -->
+		<!-- https://mvnrepository.com/artifact/com.performetriks/performator -->
 		<dependency>
 		    <groupId>com.performetriks</groupId>
 		    <artifactId>performator</artifactId>
 		    <version>1.0.0</version>
 		</dependency>
 		
-				<!-- https://mvnrepository.com/artifact/com.xresch/hsr -->
+		<!-- https://mvnrepository.com/artifact/com.performetriks/performator-http -->
 		<dependency>
 		    <groupId>com.performetriks</groupId>
 		    <artifactId>performator-http</artifactId>

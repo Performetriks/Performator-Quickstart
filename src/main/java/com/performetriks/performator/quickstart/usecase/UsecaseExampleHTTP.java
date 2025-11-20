@@ -12,6 +12,8 @@ import com.performetriks.performator.base.PFRContext;
 import com.performetriks.performator.base.PFRUsecase;
 import com.performetriks.performator.data.PFRDataRecord;
 import com.performetriks.performator.http.PFRHttp;
+import com.performetriks.performator.http.PFRHttpCheck;
+import com.performetriks.performator.http.PFRHttpCheck.PFRHttpCheckCustom;
 import com.performetriks.performator.http.PFRHttpResponse;
 import com.performetriks.performator.http.ResponseFailedException;
 import com.performetriks.performator.quickstart.globals.Globals;
@@ -114,7 +116,17 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 					.timeout(1000) // adjust response timeout for this request
 					.measureSize(ByteSize.KB)
 					.checkBodyContains("\"success\": true")
-					.checkBodyContains("\"payload\"")
+					.checkBodyRegex("\"payload\"")
+					// super customized check
+					.check(new PFRHttpCheck(new PFRHttpCheckCustom() {
+							
+							@Override
+							public boolean check(PFRHttpCheck check, PFRHttpResponse r) {
+								check.messageOnFail("Body was smaller than 1KB.");
+								return r.getBodySize() >= 1024;
+							}
+						}) 
+					)
 					.send()
 					.throwOnFail()
 					;

@@ -13,7 +13,7 @@ public class PFRTestDebugOnce extends PFRTest {
 		
 		Globals.commonInitialization();
 		
-		this.add( new PFRExecOnce(UsecaseExampleHTTP.class, 15) ); 
+		this.add( new PFRExecOnce(UsecaseExampleHTTP.class, 0) ); // wait for 0 seconds
 		
 		this.maxDuration(Duration.ofSeconds(90));
 		this.gracefulStop(Duration.ofSeconds(90));
