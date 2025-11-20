@@ -11,4 +11,5 @@ https://github.com/Performetriks/Performator-Quickstart/tree/main/docs
 * [Introduction](./docs/010_Introduction.md)
 * [Executors](./docs/050_Executors.md)
 * [Data Sources](./docs/100_DataSources.md)
+* [HSR Basics](./docs/150_HSR_Basics.md)
 
