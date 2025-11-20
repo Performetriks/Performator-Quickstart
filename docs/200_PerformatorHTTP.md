@@ -1,11 +1,11 @@
-# Performator HTTP Addon
-Following is the documentation of the Performator HTTP addon.
+# Plugin: Performator HTTP
+Following is the documentation of the Performator HTTP plugin.
  
 
 # Basics
 
 ### Maven Dependency
-The addon is provided as a maven dependency that can be defined as follows:
+The plugin is provided as a Maven dependency that can be defined as follows:
 
 ```java
 <!-- https://mvnrepository.com/artifact/com.performetriks/performator-http -->
@@ -18,7 +18,7 @@ The addon is provided as a maven dependency that can be defined as follows:
 ```
 
 ### Classes
-Following are the most important classes of the HTTP addon:
+Following are the most important classes of the HTTP plugin:
 * **PFRHttp:** The main class that hold configuration and allows to create HTTP requests with the PFRHttpRequestBuilder.
 * **PFRHttpReponse:** The class that is returned for a HTTP response with various useful functions.
 
