@@ -239,7 +239,7 @@ r = PFRHttp.create("010_MyMetricName", "www.mycompany.net/home")
 ```
 
 ### Disable Follow Redirects
-The framework outomatically follows HTTP redirects for your convenience.
+The framework automatically follows HTTP redirects for your convenience.
 This might get in the way for certain scenarios.
 To disable this behavior use the method `disableFollowRedirects()`:
 
@@ -252,9 +252,26 @@ r = PFRHttp.create("010_MyMetricName", "www.mycompany.net/home")
 				;
 ```
 
+### Testing of Failing Requests
+By default, a request is considered failed when the HTTP response status is >= 400.
+This might get in the way for certain cases where you want to test failing requests.
+To disable the automatic failing of requests use the method `allowHTTPErrors()`:
+
+```java
+PFRHttpResponse r = null;
+
+r = PFRHttp.create("010_MyMetricName", "www.mycompany.net/home") 
+				.allowHTTPErrors() // disables auto-fail when you want to test pages that return HTTP status >= 400
+				.checkStatusEquals(405) // HTTP 405: Method Not Allowed
+				.checkBodyRegex(".*Error.*")
+				.send()
+				;
+				
+```
+
 # Extracting Values from Responses
 You can use whatever methods or libraries you want to extract information from responses.
-Here are some examples using what comes built in with Performator.
+Here are some examples using what comes built-in with Performator.
 
 ### Extract Bounds
 Following example shows you how to extract a list of IDs from a JSON response using `PFR.Text.extractBounds()`:
