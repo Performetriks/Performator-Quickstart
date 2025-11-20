@@ -104,6 +104,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 					.param("url", "/app/dashboard/list") //redirect url
 					.checkBodyContains("cfwMenuTools-Dashboards")
 					.checkBodyContainsNot("Sign In")
+					//.disableFollowRedirects()
 					.send()
 					.throwOnFail() // break iteration here if not successful
 					;

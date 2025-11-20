@@ -225,6 +225,20 @@ r = PFRHttp.create("010_MyMetricName", "www.mycompany.net/home")
 				;
 ```
 
+### Disable Follow Redirects
+The framework outomatically follows HTTP redirects for your convenience.
+This might get in the way for certain scenarios.
+To disable this behavior use the method `disableFollowRedirects()`:
+
+```java
+PFRHttpResponse r = null;
+
+r = PFRHttp.create("010_MyMetricName", "www.mycompany.net/home") 
+				.disableFollowRedirects()
+				.send()
+				;
+```
+
 
 
 
