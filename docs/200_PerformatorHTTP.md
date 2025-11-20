@@ -30,6 +30,19 @@ PFRHttp.debugLogFail(true);	// write debug logs for failing requests
 PFRHttp.debugLogAll(true);		// write debug logs for all requests
 ```
 
+You can manually print debug logs for a response using `PFRHttpResponse.printDebugLog()`:
+
+```java
+PFRHttpResponse r = 
+	PFRHttp.create("myMetricName", "www.mycompany.net/home")
+			 .send();
+			 
+r.printDebugLog();		
+```
+
+
+
+
 ### Default Timeout
 Following method sets the default response timeout for the current user(thread).
 
@@ -179,7 +192,7 @@ r = PFRHttp.create("010_MyMetricName", "www.mycompany.net/home")
 				.checkBodyRegex("Name: .* Smith")
 				.checkHeaderEquals("Content-Type", "application/json")
 				.checkStatusEquals(206) // 206 Partial Content
-				.check( // customized
+				.check( // manual definition
 						new PFRHttpCheck(CheckType.CONTAINS)
 							.checkBody("containsThis")
 							.appendLogDetails(true) 
@@ -239,6 +252,40 @@ r = PFRHttp.create("010_MyMetricName", "www.mycompany.net/home")
 				;
 ```
 
+# Extracting Values from Responses
+You can use whatever methods or libraries you want to extract information from responses.
+Here are some examples using what comes built in with Performator.
+
+### Extract Bounds
+Following example shows you how to extract a list of IDs from a JSON response using `PFR.Text.extractBounds()`:
+
+```java
+//-------------------------------
+// Extract Bounds example
+ArrayList<String> ids = PFR.Text.extractBounds("\"PK_ID\":", ",", r.getBody());
+logger.info("List of IDs: "+ String.join(", ", ids));
+```
+
+### Extract Regex Group
+Following example shows you how to extract a list of Names from a JSON response using `PFR.Text.extractRegexAll()`:
+
+```java
+//-------------------------------
+// Extract Regex example
+ArrayList<String> names = PFR.Text.extractRegexAll("\"NAME\":\"(.*?)\",", 0, r.getBody());
+logger.info("List of Names: "+ String.join(", ", names));
+```
+
+### Get JsonArray
+Here is how you can get the response as a JsonObject and retrieve its "payload" as a JsonArray:
+
+```java
+//-------------------------------
+// Working with Json
+JsonObject object = r.getBodyAsJsonObject();
+JsonArray dashboardArray = object.get("payload").getAsJsonArray();
+//logger.info("List of Dashboards: "+ PFR.JSON.toJSONPretty(dashboardArray));
+```
 
 
 
