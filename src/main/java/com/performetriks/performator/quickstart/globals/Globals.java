@@ -65,7 +65,7 @@ public class Globals {
 		// Load Test Data CSV	
 		DATA = PFR.Data.newSourceCSV("mainTestdataCSV", ENV.getTestdataPackage(), "testdata.csv", ",")
 				.accessMode(AccessMode.SEQUENTIAL)
-				.retainMode(RetainMode.ONCE)
+				.retainMode(RetainMode.INFINITE)
 				.build();
 		;
 		

@@ -61,7 +61,10 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 		PFRDataRecord record = Globals.DATA.next();
 
 		String user = record.get("USER").getAsString();
-		String searchFor = record.get("SEARCH_FOR").getAsString();
+		int value = record.get("VALUE").getAsInteger();
+		boolean likesTiramisu = record.get("LIKES_TIRAMISU").getAsBoolean();
+//		JsonObject addressDetails = record.get("ADDRESS_DETAILS").getAsJsonObject();
+//		JsonArray tags = record.get("TAGS").getAsJsonArray();
 		
 		//logger.info(record.toString()); // how to log test data
 		

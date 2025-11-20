@@ -9,4 +9,6 @@ https://github.com/Performetriks/Performator-Quickstart/tree/main/docs
 
 # Documentation
 * [Introduction](./docs/010_Introduction.md)
+* [Executors](./docs/050_Executors.md)
+* [Data Sources](./docs/100_DataSources.md)
 
