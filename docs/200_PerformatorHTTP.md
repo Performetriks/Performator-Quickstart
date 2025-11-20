@@ -304,5 +304,84 @@ JsonArray dashboardArray = object.get("payload").getAsJsonArray();
 //logger.info("List of Dashboards: "+ PFR.JSON.toJSONPretty(dashboardArray));
 ```
 
+# Error Handling
+
+### Try-Catch with throwOnFail()
+Following is a typical structure how to handle failing requests:
+1. By setting `PFRHttp.debugLogFail(true)` we get debug logs for all failing requests. (useful when there aren't too many failing requests)
+2. Requests except Login and Logout call the method `throwOnFail()` and throw an exception when a request was not successful.
+3. Try-catch will help skipping any other requests, while the the catch-block ensures the logout-step is called to not have any death sessions.
+
+```java
+
+private String url;
+
+/************************************************************************
+ * 
+ ************************************************************************/
+@Override
+public void initializeUser() {
+	url = Globals.ENV.url;
+	PFRHttp.debugLogFail(true);		// log details for requests that fail
+}
+
+/************************************************************************
+ * 
+ ************************************************************************/
+public void execute() throws Throwable {
+	
+	try {
+		
+		PFRHttpResponse r = null;
+		
+		//=======================================
+		// Simple GET Request
+		r = PFRHttp.create("000_Open_LoginPage", url+"/app/login") 
+				.send()
+				;
+		
+		// custom handlings
+		if( !r.isSuccess() ) { return; } 
+		
+		//=======================================
+		// POST with params
+		r = PFRHttp.create("010_Do_Login", url+"/app/login") 
+				.param("user", "admin")
+				.param("pw", "admin")
+				.send()
+				.throwOnFail() // break iteration here if not successful
+				;
+		
+		//=======================================
+		// POST with params
+		r = PFRHttp.create("020_Load_Dashboard", url+"/app/dashboard") 
+				.send()
+				.throwOnFail() // break iteration here if not successful
+				;
+		
+		//=======================================
+		// 
+		doLogout();
+		
+	}catch(ResponseFailedException e) {
+		// Custom logging if you don't want to use PFRHttp.debugLogFail(true);
+		e.getResponse().printDebugLog();
+
+		doLogout();
+	}
+}
+
+/************************************************************************
+ * 
+ ************************************************************************/
+private void doLogout(){
+	PFRHttpResponse r;
+	r = PFRHttp.create("999_Do_Logout", url+"/app/logout") 
+			.GET()
+			.checkBodyContains("Sign In")
+			.send();
+	
+}
+```
 
 

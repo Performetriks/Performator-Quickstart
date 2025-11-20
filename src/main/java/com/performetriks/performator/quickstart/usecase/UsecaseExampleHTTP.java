@@ -166,13 +166,13 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			
 			//=======================================
 			// 
-			doLogout(true);
+			doLogout();
 			
 		}catch(ResponseFailedException e) {
 			// Custom logging if you don't want to use PFRHttp.debugLogFail(true);
 			//e.getResponse().printDebugLog();
 
-			doLogout(false);
+			doLogout();
 		}
 		
 	}
@@ -180,7 +180,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 	/************************************************************************
 	 * 
 	 ************************************************************************/
-	private void doLogout(boolean throwOnFail) throws ResponseFailedException {
+	private void doLogout() throws ResponseFailedException {
 		PFRHttpResponse r;
 		r = PFRHttp.create("999_Do_Logout", url+"/app/logout") 
 				.sla(SLA_P90_AND_FAILRATE)
@@ -188,9 +188,6 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 				.checkBodyContains("Sign In")
 				.send();
 		
-		if(throwOnFail) {
-			r.throwOnFail();
-		}
 	}
 	
 	/************************************************************************
