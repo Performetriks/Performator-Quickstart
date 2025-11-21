@@ -1,5 +1,7 @@
 package com.performetriks.performator.quickstart.globals;
 
+import java.time.Duration;
+
 import org.slf4j.LoggerFactory;
 
 import com.performetriks.performator.base.PFR;
@@ -7,6 +9,7 @@ import com.performetriks.performator.data.PFRDataSource;
 import com.performetriks.performator.data.PFRDataSource.AccessMode;
 import com.performetriks.performator.data.PFRDataSource.RetainMode;
 import com.xresch.hsr.base.HSRConfig;
+import com.xresch.hsr.database.HSRAgeOutConfig;
 import com.xresch.hsr.reporting.HSRReporterCSV;
 import com.xresch.hsr.reporting.HSRReporterDatabasePostGres;
 import com.xresch.hsr.reporting.HSRReporterHTML;
@@ -114,7 +117,7 @@ public class Globals {
 		HSRConfig.addReporter(new HSRReporterHTML( DIR_RESULTS + "/HTMLReport") );
 		
 		//--------------------------
-		// Database Reporters
+		// Database Reporters		
 		HSRConfig.addReporter(
 			new HSRReporterDatabasePostGres(
 				"localhost"
@@ -125,6 +128,19 @@ public class Globals {
 				, "postgres"	// pw
 			)
 		);
+		
+		//------------------------------
+		// DB Age-Out Settings
+		HSRConfig.setAgeOut(true);
+
+//		HSRConfig.setAgeOutConfig(
+//			new HSRAgeOutConfig()
+//				.keep1MinFor(Duration.ofDays(30))
+//				.keep5MinFor(Duration.ofDays(60))
+//				.keep10MinFor(Duration.ofDays(90))
+//				.keep15MinFor(Duration.ofDays(120))
+//				.keep60MinFor(Duration.ofDays(180))
+//		);
 		
     	//------------------------------
     	// EMP Reporter
