@@ -14,6 +14,7 @@ import com.xresch.hsr.reporting.HSRReporterCSV;
 import com.xresch.hsr.reporting.HSRReporterDatabasePostGres;
 import com.xresch.hsr.reporting.HSRReporterHTML;
 import com.xresch.hsr.reporting.HSRReporterJson;
+import com.xresch.hsr.reporting.HSRReporterSysoutAsciiTable;
 import com.xresch.hsr.reporting.HSRReporterSysoutCSV;
 
 import ch.qos.logback.classic.Level;
@@ -107,7 +108,8 @@ public class Globals {
 		
 		//--------------------------
 		// Define Sysout Reporters
-		HSRConfig.addReporter(new HSRReporterSysoutCSV(" | "));
+		HSRConfig.addReporter(new HSRReporterSysoutAsciiTable());
+		//HSRConfig.addReporter(new HSRReporterSysoutCSV(" | "));
 		//HSRConfig.addReporter(new HSRReporterSysoutJson());
 		
 		//--------------------------

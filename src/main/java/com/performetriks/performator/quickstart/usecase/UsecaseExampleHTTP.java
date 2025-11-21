@@ -134,7 +134,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			
 				//-------------------------------
 				// Manual Printing of Debug Log
-				r.printDebugLog();
+				//r.printDebugLog();
 				
 				//-------------------------------
 				// Extract Bounds example
