@@ -14,7 +14,7 @@ public class PFRTestDebugOnce extends PFRTest {
 		
 		Globals.commonInitialization(false);
 		
-		HSRConfig.setRawDataLogPath("./target/raw.log");
+		HSRConfig.setRawDataLogPath("./target/raw.log"); // debug only, performance impact with load!
 		
 		this.add( new PFRExecOnce(UsecaseExampleHTTP.class, 0) ); // wait for 0 seconds
 		
