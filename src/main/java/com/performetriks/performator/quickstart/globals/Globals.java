@@ -124,6 +124,19 @@ public class Globals {
 		HSRConfig.addReporter(new HSRReporterHTML( DIR_RESULTS + "/HTMLReport") );
 		
 
+		//------------------------------
+		// DB Age-Out Settings
+		HSRConfig.setAgeOut(true); // must be set before registering the DB reporters
+		
+
+//		HSRConfig.setAgeOutConfig(
+//			new HSRAgeOutConfig()
+//				.keep1MinFor(Duration.ofDays(30))
+//				.keep5MinFor(Duration.ofDays(60))
+//				.keep10MinFor(Duration.ofDays(90))
+//				.keep15MinFor(Duration.ofDays(120))
+//				.keep60MinFor(Duration.ofDays(180))
+//		);
 		//--------------------------
 		// Database Reporters		
 		if(storeInDB) {
@@ -138,19 +151,6 @@ public class Globals {
 				)
 			);
 		}
-		
-		//------------------------------
-		// DB Age-Out Settings
-		HSRConfig.setAgeOut(true);
-
-//		HSRConfig.setAgeOutConfig(
-//			new HSRAgeOutConfig()
-//				.keep1MinFor(Duration.ofDays(30))
-//				.keep5MinFor(Duration.ofDays(60))
-//				.keep10MinFor(Duration.ofDays(90))
-//				.keep15MinFor(Duration.ofDays(120))
-//				.keep60MinFor(Duration.ofDays(180))
-//		);
 		
     	//------------------------------
     	// EMP Reporter
