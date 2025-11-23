@@ -17,9 +17,6 @@ HSRConfig.setLogLevel(Level.WARN, "com.xresch.hsr.reporting");
 //----------------------------
 // Change Log Interceptor
 HSRConfig.setLogInterceptor(new HSRLogInterceptorDefault(Level.ERROR));
-[...]
-HSRConfig.setInterval(15);
-HSRConfig.enable();
 
 //--------------------------
 // Optional: Log every datapoint
@@ -40,10 +37,17 @@ HSRConfig.addProperty("[Custom] Testdata Rows", "120");
 # Turning off System Metrics
 You can turn off specific system metrics using the methods `HSRConfig.stats*(boolean);`.
 
+# Report Interval
+The report interval can be set as follows, the default is 15 seconds:
+
+```java
+HSRConfig.setInterval(60);
+```
+
 # Reporters
 Reporters are the way of getting data to where you want it to be.
 HSR ships with various default reporters, or you can create your own reporter class.
-Reporters are registered with `HSRConfig.addReporter()` and should be done before calling `HSRConfig.enable()`.
+Reporters are registered with `HSRConfig.addReporter()`.
 
 ```java
 //--------------------------
