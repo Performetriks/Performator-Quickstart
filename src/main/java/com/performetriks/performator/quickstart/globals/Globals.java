@@ -63,7 +63,7 @@ public class Globals {
 	/************************************************************************
 	 * 
 	 ************************************************************************/
-	public static void commonInitialization() {
+	public static void commonInitialization(boolean storeInDB) {
 		
 		//--------------------------
 		// Report Interval
@@ -123,18 +123,21 @@ public class Globals {
 		HSRConfig.addReporter(new HSRReporterCSV( DIR_RESULTS + "/hsr-stats.csv", ",") );
 		HSRConfig.addReporter(new HSRReporterHTML( DIR_RESULTS + "/HTMLReport") );
 		
+
 		//--------------------------
 		// Database Reporters		
-		HSRConfig.addReporter(
-			new HSRReporterDatabasePostGres(
-				"localhost"
-				, 5432
-				, "postgres"	// dbname
-				, "hsr"			// table name prefix
-				, "postgres"	// user
-				, "postgres"	// pw
-			)
-		);
+		if(storeInDB) {
+			HSRConfig.addReporter(
+				new HSRReporterDatabasePostGres(
+					"localhost"
+					, 5432
+					, "postgres"	// dbname
+					, "hsr"			// table name prefix
+					, "postgres"	// user
+					, "postgres"	// pw
+				)
+			);
+		}
 		
 		//------------------------------
 		// DB Age-Out Settings

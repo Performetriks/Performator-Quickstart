@@ -30,6 +30,7 @@ Here a list of known limitation of this project:
 
 # Running a Test
 To execute a test, run maven as follows and provide your test class with the property "-Dpfr_test":
+
 ```
 mvn clean verify -Dpfr_test=com.performetriks.performator.quickstart.tests.PFRTestExample
 ```

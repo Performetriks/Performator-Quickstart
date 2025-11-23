@@ -14,7 +14,7 @@ public class PFRTestExample extends PFRTest {
 
 	public PFRTestExample() {
 		
-		Globals.commonInitialization();
+		Globals.commonInitialization(true);
 		
 		int percentage = 100;
 

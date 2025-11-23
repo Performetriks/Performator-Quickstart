@@ -14,7 +14,7 @@ public class PFRTestExampleHTTP extends PFRTest {
 
 	public PFRTestExampleHTTP() {
 		
-		Globals.commonInitialization();
+		Globals.commonInitialization(true);
 		
 		int percentage = 100;
 
