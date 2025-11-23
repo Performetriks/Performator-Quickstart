@@ -10,24 +10,16 @@ import com.performetriks.performator.quickstart.usecase.UsecaseExampleHSR;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleHTTP;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleSLA;
 
-public class PFRTestExample extends PFRTest {
+public class PFRTestExampleHTTP extends PFRTest {
 
-	public PFRTestExample() {
+	public PFRTestExampleHTTP() {
 		
 		Globals.commonInitialization();
 		
 		int percentage = 100;
 
-		this.add(new PFRExecStandard(UsecaseExampleHSR.class, 50, 12000, 0, 5).percent(percentage) );
-		
-		this.add(new PFRExecStandard(UsecaseExampleSLA.class)
-						.users(5)
-						.execsHour(2000)
-						.rampUp(2) 
-						.offset(20)
-						.percent(percentage)
-					);
-		
+		this.add(new PFRExecStandard(UsecaseExampleHTTP.class, 7, 1400, 0, 5).percent(percentage) );
+
 		this.maxDuration(Duration.ofSeconds(90));
 		this.gracefulStop(Duration.ofSeconds(90));
 		

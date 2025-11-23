@@ -18,7 +18,8 @@ HSRConfig.setLogLevel(Level.WARN, "com.xresch.hsr.reporting");
 // Change Log Interceptor
 HSRConfig.setLogInterceptor(new HSRLogInterceptorDefault(Level.ERROR));
 [...]
-HSRConfig.enable(15);
+HSRConfig.setInterval(15);
+HSRConfig.enable();
 
 //--------------------------
 // Optional: Log every datapoint
@@ -47,6 +48,7 @@ Reporters are registered with `HSRConfig.addReporter()` and should be done befor
 ```java
 //--------------------------
 // Define Sysout Reporters
+HSRConfig.addReporter(new HSRReporterSysoutAsciiTable(75));
 HSRConfig.addReporter(new HSRReporterSysoutCSV(" | "));
 HSRConfig.addReporter(new HSRReporterSysoutJson());
 

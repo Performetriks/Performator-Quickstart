@@ -26,7 +26,7 @@ public class Globals {
 	private static final String PACKAGE_DATA = "com.performetriks.performator.quickstart.data";
 	
 	public static final String DIR_RESULTS = "./target";
-	public static final int REPORT_INTERVAL_SECONDS = 15;
+	public static final int REPORT_INTERVAL_SECONDS = 5;
 	
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(Globals.class);
 
@@ -64,6 +64,11 @@ public class Globals {
 	 * 
 	 ************************************************************************/
 	public static void commonInitialization() {
+		
+		//--------------------------
+		// Report Interval
+		HSRConfig.setInterval(REPORT_INTERVAL_SECONDS);
+		
 		
 		//--------------------------
 		// Load Test Data CSV	
@@ -108,7 +113,7 @@ public class Globals {
 		
 		//--------------------------
 		// Define Sysout Reporters
-		HSRConfig.addReporter(new HSRReporterSysoutAsciiTable());
+		HSRConfig.addReporter(new HSRReporterSysoutAsciiTable(75));
 		//HSRConfig.addReporter(new HSRReporterSysoutCSV(" | "));
 		//HSRConfig.addReporter(new HSRReporterSysoutJson());
 		
@@ -176,10 +181,6 @@ public class Globals {
 //					}
 //				}
 //    		);
-		
-		//--------------------------
-		// Enable
-		HSRConfig.enable(REPORT_INTERVAL_SECONDS); 
 		
 	}
 }
