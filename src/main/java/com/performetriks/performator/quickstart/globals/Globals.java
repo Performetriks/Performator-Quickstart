@@ -94,8 +94,8 @@ public class Globals {
 		
 		//--------------------------
 		// Set Test Properties
-		HSRConfig.addProperty("[Custom] Environment", "TEST");
-		HSRConfig.addProperty("[Custom] Testdata Rows", "120");
+		HSRConfig.addProperty("[Custom] Environment", ENV.toString());
+		HSRConfig.addProperty("[Custom] Testdata records", ""+DATA.size());
 		
 		//--------------------------
 		// Optional: Disabling System Usage Stats
