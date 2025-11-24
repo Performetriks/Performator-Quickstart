@@ -25,27 +25,11 @@
 		<!-- ================= LICENSES ================== -->
 	<licenses>
 		<license>
-			<name>Eclipse Public License - v 2.0</name>
+			<name>MIT License</name>
 			<url>https://github.com/Performetriks/Performator-Quickstart/blob/main/LICENSE</url>
 		</license>
 	</licenses>
 
-	<!-- ================= DEVELOPERS ================== -->
-	<developers>
-		<developer>
-			<name>Reto Scheiwiller</name>
-			<email>reto.scheiwiller@performatriks.com</email>
-			<organization>Performetriks</organization>
-			<organizationUrl>http://www.performetriks.com</organizationUrl>
-		</developer>
-	</developers>
-
-	<!-- ================= SCM ================== -->
-	<scm>
-		<connection>scm:git:git://github.com/Performetriks/Performator-Quickstart.git</connection>
-		<developerConnection>scm:git:ssh://github.com/Performetriks/Performator-Quickstart.git</developerConnection>
-		<url>https://github.com/Performetriks/Performator-Quickstart/tree/main</url>
-	</scm>
 
 	<!-- ================= DEPENDENCIES ================== -->
 	<dependencies>
