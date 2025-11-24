@@ -57,7 +57,7 @@ JsonArray tags = record.get("TAGS").getAsJsonArray();
 
 
 # Data Source CSV File
-A simple data source that allows to load CSV data from a file in a java package:
+A data source that allows to load CSV data from a file in a java package:
 
 ```java
 PFRDataSource DATA = 
@@ -86,7 +86,7 @@ It supports CSV with or without quoted values, or also mixed with some fields qu
 ```
 
 # Data Source JSON File
-A simple data source that allows to load JSON data from a file in a java package:
+A data source that allows to load JSON data from a file in a java package:
 
 ```java
 PFRDataSource DATA = 
@@ -126,4 +126,33 @@ Example data structure:
   ...
 ]
 ```
+
+# Data Source JSON Array
+A data source that allows to load data from a JSON array containing JSON objects.
+This can be useful to load data from a Web API, as in the following example:
+
+```java
+//=======================================
+// Request Data
+PFRHttpResponse r = PFRHttp.create("LoadTypicodeData", "https://jsonplaceholder.typicode.com/users") 
+		.checkBodyContains("\"username\":")
+		.send()
+		.throwOnFail()
+		;
+
+//=======================================
+// Create Source
+JsonArray userArray = r.getBodyAsJsonArray();
+
+PFRDataSource userData = PFR.Data.newSourceJsonArray("userList", userArray)
+								.build();
+
+PFRDataRecord record = userData.next();
+System.out.println("========================");
+System.err.println("id:"+record.get("id").getAsInteger());
+System.err.println("username:"+record.get("username").getAsString());
+System.err.println("address:"+ PFR.JSON.toJSON( record.get("address").getAsJsonObject()) );
+System.err.println("All details:"+record.toString());
+```
+
 
