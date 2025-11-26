@@ -29,7 +29,7 @@ public class PFRTestExample extends PFRTest {
 					);
 		
 		this.maxDuration(Duration.ofSeconds(90));
-		this.gracefulStop(Duration.ofSeconds(90));
+		this.gracefulStop(Duration.ofSeconds(30));
 		
 	}
 
