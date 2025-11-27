@@ -45,10 +45,29 @@ r.printDebugLog();
 
 ### Default Timeout
 Following method sets the default response timeout for the current user(thread).
+The default value is 3 minutes when this is not set manually.
 
 ```java
-PFRHttp.defaultResponseTimeout(Duration.ofSeconds(60).toMillis());
+public void initializeUser() {
+	// set default HTTP timeout to 60 seconds
+	PFRHttp.defaultResponseTimeout(HSRTimeUnit.s.toMillis(60)); 
+}
 ```
+
+**Note:** If you want to set this for all your use cases, you can call above method in the constructor of your PFRTest class.
+
+### Default Pause
+Following method sets the default pause after each request for the current user(thread).
+By default there is no pause between requests.
+
+```java
+public void initializeUser() {
+	// Wait 100 to 500 ms after each request to add some randomity 
+	PFRHttp.defaultPause(100, 500); 
+	// or just a static pause: PFRHttp.defaultPause(100); 
+}
+```
+**Note:** If you want to set this for all your use cases, you can call above method in the constructor of your PFRTest class.
 
 ### Cookie Management
 You can manage cookies for the current user(thread) by using the following methods:
@@ -155,6 +174,7 @@ r = PFRHttp.create("010_MyMetricName", "www.mycompany.net/home")
 
 
 ### Request Timeout
+
 Override the the default response time out with a custom timeout using the method `timeout(millis)`:
 
 ```java
@@ -162,6 +182,19 @@ PFRHttpResponse r = null;
 
 r = PFRHttp.create("010_MyMetricName", "www.mycompany.net/home") 
 				.timeout(10000) //  response timeout of 10 seconds
+				.send()
+				;
+```
+
+### Request Pause
+
+Override the the default response time out with a custom timeout using the method `pause(millis)` or `pause(lowerMillis, upperMillis)`:
+
+```java
+PFRHttpResponse r = null;
+
+r = PFRHttp.create("010_MyMetricName", "www.mycompany.net/tiramisu") 
+				.pause(500) // adjust the pause for this request, default set with PFRHttp.defaultPause() 
 				.send()
 				;
 ```

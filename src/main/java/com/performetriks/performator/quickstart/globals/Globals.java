@@ -1,7 +1,5 @@
 package com.performetriks.performator.quickstart.globals;
 
-import java.time.Duration;
-
 import org.slf4j.LoggerFactory;
 
 import com.performetriks.performator.base.PFR;
@@ -9,13 +7,11 @@ import com.performetriks.performator.data.PFRDataSource;
 import com.performetriks.performator.data.PFRDataSource.AccessMode;
 import com.performetriks.performator.data.PFRDataSource.RetainMode;
 import com.xresch.hsr.base.HSRConfig;
-import com.xresch.hsr.database.HSRAgeOutConfig;
 import com.xresch.hsr.reporting.HSRReporterCSV;
 import com.xresch.hsr.reporting.HSRReporterDatabasePostGres;
 import com.xresch.hsr.reporting.HSRReporterHTML;
 import com.xresch.hsr.reporting.HSRReporterJson;
 import com.xresch.hsr.reporting.HSRReporterSysoutAsciiTable;
-import com.xresch.hsr.reporting.HSRReporterSysoutCSV;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
@@ -69,7 +65,6 @@ public class Globals {
 		// Report Interval
 		HSRConfig.setInterval(REPORT_INTERVAL_SECONDS);
 		
-		
 		//--------------------------
 		// Load Test Data CSV	
 		DATA = PFR.Data.newSourceCSV("mainTestdataCSV", ENV.getTestdataPackage(), "testdata.csv", ",")
@@ -110,6 +105,11 @@ public class Globals {
 		// Optional: Log every datapoint
 		// potential performance impact, debug use only
 //		HSRConfig.setRawDataLogPath(DIR_RESULTS+"/raw.log");
+		
+		//--------------------------
+		// Plugin: PFRHttp Settings
+		// PFRHttp.defaultResponseTimeout(HSRTimeUnit.s.toMillis(60)); // set default HTTP timeout to 60 seconds
+		// PFRHttp.defaultPause(100, 500); // Wait 100 to 500 ms after each request to add some randomity 
 		
 		//--------------------------
 		// Define Sysout Reporters

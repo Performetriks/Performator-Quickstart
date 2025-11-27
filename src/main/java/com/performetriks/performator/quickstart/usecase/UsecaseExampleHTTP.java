@@ -43,6 +43,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 		url = Globals.ENV.url;
 		
 		PFRHttp.defaultResponseTimeout(HSRTimeUnit.s.toMillis(60)); // set default HTTP timeout to 60 seconds
+		PFRHttp.defaultPause(100, 500); // Wait 100 to 500 ms after each request to add some randomity 
 		PFRHttp.debugLogFail(true);		// log details for requests that fail
 		//PFRHttp.debugLogAll(true); 	// log all request details
 	}
@@ -114,7 +115,8 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			r = PFRHttp.create("020_Load_DashboardList", url+"/app/dashboard/list?action=fetch&item=mydashboards") 
 					.sla(SLA_P90_AND_FAILRATE)
 					.POST()
-					.timeout(1000) // adjust response timeout for this request
+					.timeout(1000) // adjust response timeout for this request, default set with PFRHttp.defaultResponseTimeout()
+					.pause(200)    // adjust pause for this request, default set with PFRHttp.defaultPause()
 					.measureSize(ByteSize.KB)
 					.checkBodyContains("\"success\": true")
 					.checkBodyRegex("\"payload\"")
