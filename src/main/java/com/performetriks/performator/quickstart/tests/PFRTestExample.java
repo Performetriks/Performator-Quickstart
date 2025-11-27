@@ -2,14 +2,21 @@ package com.performetriks.performator.quickstart.tests;
 
 import java.time.Duration;
 
-import com.performetriks.performator.base.PFRContext;
 import com.performetriks.performator.base.PFRTest;
 import com.performetriks.performator.executors.PFRExecStandard;
 import com.performetriks.performator.quickstart.globals.Globals;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleHSR;
-import com.performetriks.performator.quickstart.usecase.UsecaseExampleHTTP;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleSLA;
 
+/***************************************************************************
+ * This example a basic test with two standard scenarios
+ * 
+ * Copyright Owner: Performetriks GmbH, Switzerland
+ * License: MIT License
+ * 
+ * @author Reto Scheiwiller
+ * 
+ ***************************************************************************/
 public class PFRTestExample extends PFRTest {
 
 	public PFRTestExample() {

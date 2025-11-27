@@ -8,6 +8,15 @@ import com.performetriks.performator.quickstart.globals.Globals;
 import com.performetriks.performator.quickstart.usecase.UsecaseLoadDataCustom;
 import com.xresch.hsr.base.HSRConfig;
 
+/***************************************************************************
+ * Simple debug test class for debugging usecases by running them once.
+ * 
+ * Copyright Owner: Performetriks GmbH, Switzerland
+ * License: MIT License
+ * 
+ * @author Reto Scheiwiller
+ * 
+ ***************************************************************************/
 public class PFRTestDebugOnce extends PFRTest {
 
 	public PFRTestDebugOnce() {
