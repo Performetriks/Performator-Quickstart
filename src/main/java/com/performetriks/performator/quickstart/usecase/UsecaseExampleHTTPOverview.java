@@ -1,5 +1,6 @@
 package com.performetriks.performator.quickstart.usecase;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
@@ -8,10 +9,10 @@ import org.slf4j.LoggerFactory;
 import com.performetriks.performator.base.PFRUsecase;
 import com.performetriks.performator.data.PFRDataRecord;
 import com.performetriks.performator.http.PFRHttp;
+import com.performetriks.performator.http.PFRHttp.PFRHttpAuthMethod;
 import com.performetriks.performator.http.PFRHttpCheck;
 import com.performetriks.performator.http.PFRHttpCheck.PFRHttpCheckCustom;
 import com.performetriks.performator.http.PFRHttpResponse;
-import com.performetriks.performator.http.ResponseFailedException;
 import com.performetriks.performator.quickstart.globals.Globals;
 import com.xresch.hsr.stats.HSRExpression.Operator;
 import com.xresch.hsr.stats.HSRRecordStats.HSRMetric;
@@ -58,12 +59,15 @@ public class UsecaseExampleHTTPOverview extends PFRUsecase {
 
 		PFRHttpResponse r = null;
 		
-		//=======================================
-		// Simple Overview of all the methods and what they do
-		// this request will not work, it's just an easy
-		// way to find what you need.
+		//==============================================================
+		// Simple Overview of close to all the methods and what they do.
+		// This request will not work, it's just an easy to provide an
+		// overview to make it easier to find what you need.
 		r = PFRHttp.create("000_My_Example_Metric_Name", url+"/app/example?id="+PFRHttp.encode(id)) 
-				.sla(SLA_P90_AND_FAILRATE)			// and an SLA Definition
+				.sla(SLA_P90_AND_FAILRATE)				// add a reusable SLA 
+				.sla(HSRMetric.avg, Operator.LTE, 100)	// add an SLA directly
+				.sla(HSRMetric.p90, Operator.LTE, new BigDecimal(1.50))	// add an SLA  directly
+				.sla(HSRMetric.max, Operator.LTE, 3.5)	// add an SLA Definition
 				.GET()								// set the request method to GET
 				.POST()								// set the request method to POST
 				.PUT()								// set the request method to PUT
@@ -73,12 +77,22 @@ public class UsecaseExampleHTTPOverview extends PFRUsecase {
 				.param("username", user)			// add a request parameter, might override existing
 				.headers(defaultHeaders())			// add multiple request headers
 				.header("Accept-Language", "de")	// add a request header, might override existing
-				.body("my request body")			// add a request body
-				.timeout(1000) 						// adjust response timeout for this request, default set with PFRHttp.defaultResponseTimeout()
-				.pause(200)    						// adjust pause for this request, default set with PFRHttp.defaultPause()
+				.body("my request body")			// add a request body without content type
+				.body("value", "text/plain")		// add a request body with a custom content type
+				.bodyJSON("{\"key\": \"value\"}")	// add a request body with content type "application/json; charset=UTF-8"
+				.setAuthCredentialsBasic("user", "pw") 								// set credentials for basic authentication
+				.setAuthCredentials(PFRHttpAuthMethod.BASIC, "user", "pw") 			// same as above
+				.setAuthCredentials(PFRHttpAuthMethod.BASIC_HEADER, "user", "pw") 	// set a basic authentication header with the specified credentials
+				.setAuthCredentials(PFRHttpAuthMethod.DIGEST, "user", "pw") 		// set a credentials for digest authentication
+				.setAuthCredentials(PFRHttpAuthMethod.KERBEROS, "user", "pw") 		// Experimental: Set a credentials for Kerberos authentication
+				.setAuthCredentials(PFRHttpAuthMethod.NTLM, "user", "pw") 			// Experimental: Set a credentials for NTLM authentication
+				.timeout(1000)						// adjust response timeout for this request, default set with PFRHttp.defaultResponseTimeout()
+				.pause(200)   						// adjust pause for this request, default set with PFRHttp.defaultPause()
+				.pause(100, 500)   					// adjust randomized pause for this request, default set with PFRHttp.defaultPause()
 				.measureSize(ByteSize.KB)			// Measure response body size in kilobytes
 				.allowHTTPErrors() 					// disables auto-fail when you want to test pages that return HTTP status >= 400
 				.disableFollowRedirects()			// do not automatically follow redirects
+				.checkStatusEquals(200) 			// check if response status is equals a certain status code
 				.checkBodyContains("Sign In")		// check if response body contains a string
 				.checkBodyContainsNot("failed")		// check if response body doesn't contain a string
 				.checkBodyEquals("true")			// check if response body is equals a string
@@ -87,7 +101,6 @@ public class UsecaseExampleHTTPOverview extends PFRUsecase {
 				.checkHeaderContainsNot("Cache-Control", "max-age")		// check if response header doesn't contain a string
 				.checkHeaderEquals("Cache-Control", "no-cache")			// check if response header is equals a string
 				.checkHeaderRegex("Content-Type", "application/.*")		// check if response header matches a regular expression
-				.checkStatusEquals(200) 			// check if response status is equals a certain status code
 				// customized check
 				.check(
 					new PFRHttpCheck(CheckType.DO_NOT_MATCH_REGEX) 		// CONTAINS, DOES_NOT_CONTAIN, STARTS_WITH, ENDS_WITH, EQUALS, NOT_EQUALS, MATCH_REGEX, DO_NOT_MATCH_REGEX
