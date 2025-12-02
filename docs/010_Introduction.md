@@ -3,6 +3,7 @@ This page gives you an introduction into this quickstart project and an actual "
 
 # Known Limitations
 Here a list of known limitation of this project:
+* Needs JDK 17 or higher
 * Performator is made to run a single Test-Class at once.  
 
 # Troubleshooting
