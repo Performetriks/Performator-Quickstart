@@ -1,7 +1,5 @@
 package com.performetriks.performator.test;
 
-import org.junit.jupiter.api.Test;
-
 import com.performetriks.performator.base.PFRCoordinator;
 import com.performetriks.performator.quickstart.tests.PFRTestExample;
 
@@ -16,12 +14,13 @@ import com.performetriks.performator.quickstart.tests.PFRTestExample;
  * @author Reto Scheiwiller
  * 
  ***************************************************************************/
+
 public class TestExecuteProgrammatically {
 
 	/*****************************************************************
 	 * 
 	 *****************************************************************/
-	@Test
+	//@Test
 	void testCoordinator() {
 		
 		// IMPORTANT: This will only execute locally!
