@@ -69,9 +69,22 @@ public class UsecaseExampleHSR extends PFRUsecase {
 				
 				//-------------------------------
 				// 
+				HSR.start("060_WaitingTime");
+				
+					Thread.sleep(HSR.Random.integer(10, 20));
+					
+					// these pauses will be removed from the time measurements
+					HSR.pause(53);
+					HSR.pause(50, 100);
+					HSR.pause("Wait 100ms", 100);
+					HSR.pause("Wait 100 - 200ms", 100, 200);
+				HSR.end();
+				
+				//-------------------------------
+				// 
 				HSR.assertEquals("A"
 						, HSR.Random.fromArray(new String[] {"A", "A", "A", "B"})
-						,  "060_Assert_ContainsA");
+						,  "070_Assert_ContainsA");
 
 			HSR.end();
 		HSR.end();
