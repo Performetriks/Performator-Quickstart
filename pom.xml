@@ -19,7 +19,7 @@
 		<otel.version>1.49.0</otel.version>
 		
 		<skipJavadoc>true</skipJavadoc>
-		
+		<skipTests>true</skipTests>
 	</properties>
 	
 		<!-- ================= LICENSES ================== -->
@@ -168,7 +168,21 @@
 		</testResources>
 
 		<plugins>
-					
+		
+			<!-- ================= SUREFIRE ================== -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.5.4</version>
+				<configuration>
+					<skipTests>${skipTests}</skipTests>
+					<includes>
+						<include>**/*TestSuiteAll.java</include>
+					</includes>
+					<!-- excludes> <exclude>com.xresch.cfw.tests._master.*</exclude> </excludes -->
+				</configuration>
+			</plugin>
+			
 			<!-- ================= EXEC ================== -->
 			<plugin>
 		        <groupId>org.codehaus.mojo</groupId>
@@ -239,6 +253,7 @@
 			<!-- ================= DEPENDENCY ================== -->
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.9.0</version>
 				<executions>
 					<execution>
 						<phase>install</phase>

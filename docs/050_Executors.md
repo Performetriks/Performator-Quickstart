@@ -1,6 +1,12 @@
 # Executors
 Executors define how a use case should be executed. They define the amount of load and such kind of things.
 
+List of executors:
+
+* [Executor Standard](#executor-standard): Executes a use case with a standard load pattern, based on amount of users and executions per hour.
+* [Executor Once](#executor-once): A simple executor that executes a use case once, useful for debugging, checks or functional tests.
+* [Executor Sequential](#executor-sequential): This executor let's you execute other executors in sequence.
+
 # Executor Standard
 Executes a use case with a standard load pattern, based on amount of users and executions per hour.
 The users will be ramped up over time until the full target user amount is reached. Then the 
@@ -40,4 +46,17 @@ You can as well specify an offset in seconds for starting it later.
 ```java
 // wait for 30 seconds before execution
 this.add( new PFRExecOnce(UsecaseExampleHTTP.class, 30) ); 
+```
+
+# Executor Sequential
+This executor let's you execute other executors in sequence.
+
+```java
+this.add(
+	new PFRExecSequential()
+		.add( new PFRExecOnce(UsecaseFirst.class) )
+		.add( new PFRExecStandard(UsecaseSecond.class, 10, 5000, 0, 5).maxDuration(Duration.ofSeconds(30) ) )
+		.add( new PFRExecOnce(UsecaseLast.class) )
+		
+);
 ```

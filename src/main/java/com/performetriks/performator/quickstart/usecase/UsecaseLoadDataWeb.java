@@ -37,10 +37,10 @@ public class UsecaseLoadDataWeb extends PFRUsecase {
 			
 			PFRDataRecord record = userData.next();
 			System.out.println("========================");
-			System.err.println("id:"+record.get("id").getAsInteger());
-			System.err.println("username:"+record.get("username").getAsString());
-			System.err.println("address:"+ PFR.JSON.toJSON( record.get("address").getAsJsonObject()) );
-			System.err.println("All details:"+record.toString());
+			System.out.println("id:"+record.get("id").getAsInteger());
+			System.out.println("username:"+record.get("username").getAsString());
+			System.out.println("address:"+ PFR.JSON.toJSON( record.get("address").getAsJsonObject()) );
+			System.out.println("All details:"+record.toString());
 
 	}
 
