@@ -48,6 +48,16 @@ You can as well specify an offset in seconds for starting it later.
 this.add( new PFRExecOnce(UsecaseExampleHTTP.class, 30) ); 
 ```
 
+# Executor Repeat
+This executor lets you execute a usecase sequentially with one user for a certain amount of repetitions.
+This can be useful to check all the records of your test data, for example:
+
+```java
+int recordCount = Globals.DATA.size();
+this.add( new PFRExecRepeat(UsecaseCheckTestdata.class, recordCount) ); 
+```
+
+
 # Executor Sequential
 This executor let's you execute other executors in sequence.
 

@@ -29,6 +29,8 @@ public class Globals {
 	//================================================================
 	// Define your Environments here
 	//================================================================
+	public static Environment ENV = Environment.DEV;
+	
 	public enum Environment {
 		
 		  DEV ("http://localhost:8888")
@@ -48,13 +50,28 @@ public class Globals {
 		
 	}
 	
-	//================================================================
-	// Set the Environment to run your Test against
-	//================================================================
-	public static Environment ENV = Environment.DEV;
+
+
 	
-	
+	//================================================================
+	// Example how to manage testdata
+	//================================================================
 	public static PFRDataSource DATA;
+	
+	public enum DATAFIELDS {
+		  INDEX
+		, ID
+		, USER
+		, FIRSTNAME
+		, LASTNAME
+		, LOCATION
+		, EMAIL
+		, LIKES_TIRAMISU
+		, VALUE
+		, SEARCH_FOR
+		;
+		
+	}
 	
 	/************************************************************************
 	 * 
