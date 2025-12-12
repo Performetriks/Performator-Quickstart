@@ -156,6 +156,16 @@ int duration = multiplier * HSR.Random.integer(10, 1000);
 HSR.addMetricRanged("070.4 TableLoadTime", new BigDecimal(duration), count, 50);					
 ```
 
+# Customize Exception Stacktrace
+By default, the 3 bottom stacktrace elements are included and a total of 10 elements that are not skipped. 
+You can adjust the amount of stack elements you want to see and add additional packages that should be skipped using the following methods:
+
+```java
+HSRHooks.addSkippedPackage("com.mypackage");
+HSRHooks.bottomStackElements(6); // default is 3
+HSRHooks.maxStackElements(20); // default is 10
+```
+
 # Service Level Agreements (SLA)
 How to define SLAs and register them with the start()-method.
 

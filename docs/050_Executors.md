@@ -57,6 +57,18 @@ int recordCount = Globals.DATA.size();
 this.add( new PFRExecRepeat(UsecaseCheckTestdata.class, recordCount) ); 
 ```
 
+# Executor Increase
+This executor lets you execute a usesace with increasing amount of users until a max amount of users is reached.
+This is similar to the Standard executor, but instead of users and execs/hour, with this executor you control
+the load by defining the rampUp and pacing.
+
+This executor can be useful to do scalability testing.
+
+```java
+											//users	, Interval	, maxUsers	, pacing	, offset
+new PFRExecIncrease(UsecaseExampleHSR.class, 1		, 3		, 1000		, 60		, 0);
+```
+
 
 # Executor Sequential
 This executor let's you execute other executors in sequence.
