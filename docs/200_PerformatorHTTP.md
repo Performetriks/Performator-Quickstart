@@ -41,8 +41,6 @@ r.printDebugLog();
 ```
 
 
-
-
 ### Default Timeout
 Following method sets the default response timeout for the current user(thread).
 The default value is 3 minutes when this is not set manually.
@@ -79,6 +77,12 @@ PFRHttp.clearCookies();			// Makes sure we always start with a blank user sessio
 PFRHttp.addCookie(new BasicClientCookie("myCustomCookie", "baked-20-minutes-at-230-degrees-celsius"));
 ```
 
+# Converter
+The HTTP plugin comes with a converter that allows you to convert HAR Files and Postman collections into Performator scripts:
+
+```java
+mvn clean verify -Dpfr_mode=httpconverter
+```
 
 # Request Examples
 Here are various request examples that show different functionalities.

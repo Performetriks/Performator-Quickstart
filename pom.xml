@@ -210,7 +210,7 @@
 		          </systemProperties>
 		        </configuration>
 		    </plugin>
-		    
+		    		    
 			<!-- ================= COMPILER ================== -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -249,24 +249,9 @@
 			        </execution>
 			    </executions>
 			</plugin>
+	
 
-			<!-- ================= DEPENDENCY ================== -->
-			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.9.0</version>
-				<executions>
-					<execution>
-						<phase>install</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/lib</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			
+		
 			<!-- ================= SOURCES ================== -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
