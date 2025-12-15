@@ -21,7 +21,7 @@ public class Globals {
 	 
 	private static final String PACKAGE_DATA = "com.performetriks.performator.quickstart.data";
 	
-	public static final String DIR_RESULTS = "./target";
+	public static final String DIR_RESULTS = "./target/report";
 	public static final int REPORT_INTERVAL_SECONDS = 5;
 	
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(Globals.class);
