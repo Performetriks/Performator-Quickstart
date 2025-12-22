@@ -3,12 +3,9 @@ package com.performetriks.performator.quickstart.tests;
 import java.time.Duration;
 
 import com.performetriks.performator.base.PFRTest;
-import com.performetriks.performator.executors.PFRExecOnce;
 import com.performetriks.performator.executors.PFRExecRepeat;
 import com.performetriks.performator.quickstart.globals.Globals;
 import com.performetriks.performator.quickstart.usecase.UsecaseCheckTestdata;
-import com.performetriks.performator.quickstart.usecase.UsecaseLoadDataCustom;
-import com.xresch.hsr.base.HSRConfig;
 
 /***************************************************************************
  * Simple debug test class for checking if the test data is working.

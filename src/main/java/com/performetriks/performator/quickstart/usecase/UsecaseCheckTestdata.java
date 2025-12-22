@@ -25,12 +25,12 @@ public class UsecaseCheckTestdata extends PFRUsecase {
 			// Get Testdata
 			PFRDataRecord record = Globals.DATA.next();
 
-			int index 			= record.get(DATAFIELDS.INDEX).getAsInteger();
-			String username 	= record.get(DATAFIELDS.USER).getAsString();
-			String firstname 	= record.get(DATAFIELDS.FIRSTNAME).getAsString();
-			String lastname 	= record.get(DATAFIELDS.LASTNAME).getAsString();
-			String location 	= record.get(DATAFIELDS.LOCATION).getAsString();
-			boolean tiramisu	= record.get(DATAFIELDS.LIKES_TIRAMISU).getAsBoolean();
+			int index 			= record.getInteger(DATAFIELDS.INDEX);
+			String username 	= record.getString(DATAFIELDS.USER);
+			String firstname 	= record.getString(DATAFIELDS.FIRSTNAME);
+			String lastname 	= record.getString(DATAFIELDS.LASTNAME);
+			String location 	= record.getString(DATAFIELDS.LOCATION);
+			boolean tiramisu	= record.getBoolean(DATAFIELDS.LIKES_TIRAMISU);
 			
 			//=======================================
 			// 
