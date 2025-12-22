@@ -1,12 +1,15 @@
 package com.performetriks.performator.quickstart.usecase;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.hc.client5.http.impl.cookie.BasicClientCookie;
 import org.slf4j.LoggerFactory;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.jayway.jsonpath.DocumentContext;
+import com.jayway.jsonpath.JsonPath;
 import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.base.PFRContext;
 import com.performetriks.performator.base.PFRUsecase;
@@ -139,14 +142,29 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 				//r.printDebugLog();
 				
 				//-------------------------------
+				// Extract using JsonPath
+				DocumentContext ctx = JsonPath.parse(r.getBody());
+				List<Integer> allIDs = ctx.read("$.payload[*].PK_ID");
+				List<String> allNames = ctx.read("$.payload[*].NAME");
+				String firstName = ctx.read("$.payload[0].NAME");
+				String lastName = ctx.read("$.payload[-1].NAME");
+				Boolean thirdIsShared = ctx.read("$.payload[3].IS_SHARED");
+				
+				logger.info("JsonPath: allIDs: " + PFR.JSON.toJSON(allIDs));
+				logger.info("JsonPath: allNames: " + PFR.JSON.toJSON(allNames));
+				logger.info("JsonPath: firstName: " + firstName);
+				logger.info("JsonPath: lastName: " + lastName);
+				logger.info("JsonPath: thirdIsShared: " + thirdIsShared);
+				
+				//-------------------------------
 				// Extract Bounds example
 				ArrayList<String> ids = PFR.Text.extractBounds("\"PK_ID\":", ",", r.getBody());
-				logger.info("List of IDs: "+ String.join(", ", ids));
+				logger.info("extractBounds: List of IDs: "+ String.join(", ", ids));
 				
 				//-------------------------------
 				// Extract Regex example
 				ArrayList<String> names = PFR.Text.extractRegexAll("\"NAME\":\"(.*?)\",", 0, r.getBody());
-				logger.info("List of Names: "+ String.join(", ", names));
+				logger.info("extractRegexAll: List of Names: "+ String.join(", ", names));
 				
 				//-------------------------------
 				// Working with Json
