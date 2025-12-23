@@ -22,6 +22,7 @@ import com.performetriks.performator.http.ResponseFailedException;
 import com.performetriks.performator.quickstart.globals.Globals;
 import com.xresch.hsr.stats.HSRExpression.Operator;
 import com.xresch.hsr.stats.HSRRecordStats.HSRMetric;
+import com.xresch.hsr.base.HSR;
 import com.xresch.hsr.stats.HSRSLA;
 import com.xresch.hsr.utils.ByteSize;
 import com.xresch.hsr.utils.HSRTime.HSRTimeUnit;
@@ -120,6 +121,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 					.POST()
 					.timeout(1000) // adjust response timeout for this request, default set with PFRHttp.defaultResponseTimeout()
 					.pause(200)    // adjust pause for this request, default set with PFRHttp.defaultPause()
+					.measureRange(HSR.Random.integer(1, 1000), 10)
 					.measureSize(ByteSize.KB)
 					.checkBodyContains("\"success\": true")
 					.checkBodyRegex("\"payload\"")

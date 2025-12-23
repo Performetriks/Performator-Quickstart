@@ -306,6 +306,47 @@ r = PFRHttp.create("010_MyMetricName", "www.mycompany.net/home")
 				
 ```
 
+### Ranged Metric
+Ranged metrics are useful to analyze correlations between a count (like number of dashboards) and another value(e.g. duration).
+Typically used to measure response times in relation to amount of data loaded.
+
+If the count is already known before the request, you can add range metrics to your request using  the `.measureRange()` function.
+
+```java
+//-------------------------------
+// Ranged Metric
+// used to analyze correlation between count and duration
+r = PFRHttp.create("070_TableLoadTime", url+"/app/dashboard/list?action=fetch&item=mydashboards") 
+		.GET()
+		.measureRange(someCount, 50)
+		.send()
+		.throwOnFail()
+		;			
+```
+
+If the range is not yet known, you can create a ranged metric after the request:
+
+``` java
+HSR.addMetricRanged(r.getName(), newBigDecimal(r.getDuration()), count, 50);	
+```
+
+The metric will have a range attached, that gives the statistics for that range:
+
+```
+|Name                         |Count      |Min    |Avg |Max  |P90 |Fails[%]|
+|-----------------------------|-----------|-------|----|-----|----|--------|
+|070_TableLoadTime            |5000       |0      |2294|10000|9023|0       |
+|070_TableLoadTime 0000-0050  |484        |0      |188 |8343 |1948|0       |
+|070_TableLoadTime 0051-0100  |89         |14     |1615|6643 |4800|0       |
+|070_TableLoadTime 0101-0200  |131        |18     |1834|9800 |6426|0       |
+|070_TableLoadTime 0201-0400  |329        |14     |1787|9970 |6538|0       |
+|070_TableLoadTime 0401-0800  |608        |16     |1801|9630 |6601|0       |
+|070_TableLoadTime 0801-1600  |797        |36     |2138|9340 |6777|0       |
+|070_TableLoadTime 1601-3200  |1153       |30     |2731|9900 |8082|0       |
+|070_TableLoadTime 3201-6400  |1108       |55     |3900|10000|8860|0       |
+|070_TableLoadTime 6401-12800 |301        |100    |4656|9990 |9340|0       |
+```
+
 # Extracting Values from Responses
 You can use whatever methods or libraries you want to extract information from responses.
 Here are some examples using what comes built-in with Performator.

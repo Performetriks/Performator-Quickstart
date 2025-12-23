@@ -2,13 +2,10 @@ package com.performetriks.performator.quickstart.tests;
 
 import java.time.Duration;
 
-import com.performetriks.performator.base.PFRContext;
 import com.performetriks.performator.base.PFRTest;
 import com.performetriks.performator.executors.PFRExecStandard;
 import com.performetriks.performator.quickstart.globals.Globals;
-import com.performetriks.performator.quickstart.usecase.UsecaseExampleHSR;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleHTTP;
-import com.performetriks.performator.quickstart.usecase.UsecaseExampleSLA;
 
 public class PFRTestExampleHTTP extends PFRTest {
 

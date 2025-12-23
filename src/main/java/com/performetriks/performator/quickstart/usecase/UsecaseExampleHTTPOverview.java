@@ -16,6 +16,7 @@ import com.performetriks.performator.http.PFRHttpResponse;
 import com.performetriks.performator.quickstart.globals.Globals;
 import com.xresch.hsr.stats.HSRExpression.Operator;
 import com.xresch.hsr.stats.HSRRecordStats.HSRMetric;
+import com.xresch.hsr.base.HSR;
 import com.xresch.hsr.stats.HSRSLA;
 import com.xresch.hsr.utils.ByteSize;
 import com.xresch.hsr.utils.HSRText.CheckType;
@@ -89,6 +90,7 @@ public class UsecaseExampleHTTPOverview extends PFRUsecase {
 				.timeout(1000)						// adjust response timeout for this request, default set with PFRHttp.defaultResponseTimeout()
 				.pause(200)   						// adjust pause for this request, default set with PFRHttp.defaultPause()
 				.pause(100, 500)   					// adjust randomized pause for this request, default set with PFRHttp.defaultPause()
+				.measureRange(value, 10)			// creates buckets for ranges based on a value
 				.measureSize(ByteSize.KB)			// Measure response body size in kilobytes
 				.allowHTTPErrors() 					// disables auto-fail when you want to test pages that return HTTP status >= 400
 				.disableFollowRedirects()			// do not automatically follow redirects
