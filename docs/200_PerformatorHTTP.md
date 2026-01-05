@@ -319,15 +319,27 @@ If the count is already known before the request, you can add range metrics to y
 r = PFRHttp.create("070_TableLoadTime", url+"/app/dashboard/list?action=fetch&item=mydashboards") 
 		.GET()
 		.measureRange(someCount, 50)
+		.measureRange("-SomeCount", someCount, 50)
 		.send()
 		.throwOnFail()
 		;			
 ```
 
-If the range is not yet known, you can create a ranged metric after the request:
+If the range is based on a count extracted from the response body, you can use the `response.measureRange()` function to add an additional range:
 
 ``` java
-HSR.addMetricRanged(r.getName(), newBigDecimal(r.getDuration()), count, 50);	
+//-------------------------------
+// Measure Time by Range of 
+// Returned Data Count
+DocumentContext ctx = JsonPath.parse(r.getBody());
+Integer count = ctx.read("$.payload.length()");
+response.measureRange("[ByBoardCount]", count, 5);
+```
+
+If you don't want to measure the relationship between duration and something, but between something(e.g. Input Items Count) and something else(e.g. Output Result Count) you can add a ranged Metric directly to the stats engine:
+
+``` java
+HSR.addMetricRanged(r.getName()+"-Results_byFilters", newBigDecimal(myResultCount), myFilterCount, 50);	
 ```
 
 The metric will have a range attached, that gives the statistics for that range:

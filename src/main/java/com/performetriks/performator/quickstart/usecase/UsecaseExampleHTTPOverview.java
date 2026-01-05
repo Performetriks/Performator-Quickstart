@@ -91,6 +91,7 @@ public class UsecaseExampleHTTPOverview extends PFRUsecase {
 				.pause(200)   						// adjust pause for this request, default set with PFRHttp.defaultPause()
 				.pause(100, 500)   					// adjust randomized pause for this request, default set with PFRHttp.defaultPause()
 				.measureRange(value, 10)			// creates buckets for ranges based on a value
+				.measureRange("-MyCount", value, 10)// creates buckets for ranges based on a value, add the suffix "-MyCount"
 				.measureSize(ByteSize.KB)			// Measure response body size in kilobytes
 				.allowHTTPErrors() 					// disables auto-fail when you want to test pages that return HTTP status >= 400
 				.disableFollowRedirects()			// do not automatically follow redirects

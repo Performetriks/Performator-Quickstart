@@ -121,7 +121,8 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 					.POST()
 					.timeout(1000) // adjust response timeout for this request, default set with PFRHttp.defaultResponseTimeout()
 					.pause(200)    // adjust pause for this request, default set with PFRHttp.defaultPause()
-					.measureRange(HSR.Random.integer(1, 1000), 10)
+					.measureRange("(ByValue)", value, 10)
+					.measureRange("-ByRandom", HSR.Random.integer(1, 10000), 100)
 					.measureSize(ByteSize.KB)
 					.checkBodyContains("\"success\": true")
 					.checkBodyRegex("\"payload\"")
@@ -139,13 +140,21 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 					.throwOnFail()
 					;
 			
+				
 				//-------------------------------
 				// Manual Printing of Debug Log
 				//r.printDebugLog();
 				
 				//-------------------------------
-				// Extract using JsonPath
+				// Measure Time by Range of 
+				// Returned Data Count
 				DocumentContext ctx = JsonPath.parse(r.getBody());
+				Integer count = ctx.read("$.payload.length()");
+				r.measureRange("[ByBoardCount]", count, 5);
+				
+				//-------------------------------
+				// Extract using JsonPath
+				
 				List<Integer> allIDs = ctx.read("$.payload[*].PK_ID");
 				List<String> allNames = ctx.read("$.payload[*].NAME");
 				String firstName = ctx.read("$.payload[0].NAME");
