@@ -205,8 +205,28 @@ r = PFRHttp.create("010_MyMetricName", "www.mycompany.net/tiramisu")
 
 ### Break on Fail
 
-If you want to break a test when a requests fails, you can use the method `PFRHttpResponse.throwOnFail()`.
-Following is a concise way of doing so:
+If you want to break a test when a requests fails, you can use the following method to toggle it globally(default is false):
+
+```java
+PFRHttp.defaultThrowOnFail(true);
+```
+
+Above default can be overridden for every request.
+This can be useful in case you want to Logout when failing, except when the login failed, like in the following request:
+
+```java
+r = PFRHttp.create("010_MyLogin", "www.mycompany.net/login") 
+				.throwOnFail(false) // do not automatically fail on this request
+				.send()
+				;
+// custom handling, do not call doLogout()
+if( !r.isSuccess() ) { 
+	HSR.addErrorMessage("Login Failed: "+PFRContext.logDetailsString());
+	return; 
+} 
+```
+
+An alternative way to throwOnFail is using `PFRHttpResponse.throwOnFail()` after calling `send()`.
 
 ```java
 

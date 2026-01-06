@@ -108,7 +108,26 @@ public class PFRTestExample extends PFRTest {
 
 ```
 
-# Logging 
+# Configuration
+
+Configurations are done through *Config-classes, like:
+  * `PFRConfig` for the configuration of Performator
+  * `HSRConfig` for the configuration of the statistics engine (HieraStatsReport)
+  * Plugin config like `PFRHttpConfig`.
+
+## Scopes
+Configurations can have three different scopes:
+  * **Global:** Is set globally for any thread accessing HSR.
+  * **Propagated:** Is set for the current thread and every thread that is spawned by that thread.
+  * **Thread:** Is set for the current thread only, is not propagated .
+
+The scope of a method is documented in it's javadoc.
+To work with the **Propagated** scope, it is useful to know that it depends where you change a configuration:
+  * **On Test: ** When you change the config in a Test-Class, it will affect all use cases and all users.
+  * **On Usecase: ** When you change the config in a Usecase-Class, it will affect the user threads of that use case.
+  
+
+## Logging 
 Performator is using SLF4J with Logback to manage the logging. 
 
 When you want to create your own logger, Use the SLF4J `LoggerFactory` and cast the result to `ch.qos.logback.classic.Logger`:
@@ -139,7 +158,7 @@ PFRContext.logDetailsAdd("user", user);
 PFRContext.logDetailsAdd("data", data); 
 ```
 
-# Reporting
+## Reporting
 All the reporting is done by the [HSR](https://github.com/xresch/HieraStatsReport) framework.
 You register reporters with HSR, and the rest is magic that is done for you in the background.
 If you have the need, urge, mission or other causes to create your own reporter, you find examples on how to do so [here](https://github.com/xresch/HieraStatsReport/tree/main/src/main/java/com/xresch/hsr/reporting). 

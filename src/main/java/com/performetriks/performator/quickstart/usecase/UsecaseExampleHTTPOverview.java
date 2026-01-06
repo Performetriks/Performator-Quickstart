@@ -65,15 +65,18 @@ public class UsecaseExampleHTTPOverview extends PFRUsecase {
 		// This request will not work, it's just an easy to provide an
 		// overview to make it easier to find what you need.
 		r = PFRHttp.create("000_My_Example_Metric_Name", url+"/app/example?id="+PFRHttp.encode(id)) 
+				
 				.sla(SLA_P90_AND_FAILRATE)				// add a reusable SLA 
 				.sla(HSRMetric.avg, Operator.LTE, 100)	// add an SLA directly
 				.sla(HSRMetric.p90, Operator.LTE, new BigDecimal(1.50))	// add an SLA  directly
 				.sla(HSRMetric.max, Operator.LTE, 3.5)	// add an SLA Definition
+				
 				.GET()								// set the request method to GET
 				.POST()								// set the request method to POST
 				.PUT()								// set the request method to PUT
 				.DELETE()							// set the request method to DELETE
 				.METHOD("HEAD")						// set the request method the specified HTTP request method
+				
 				.params(getParameters(data))		// add multiple request parameters
 				.param("username", user)			// add a request parameter, might override existing
 				.headers(defaultHeaders())			// add multiple request headers
@@ -81,20 +84,26 @@ public class UsecaseExampleHTTPOverview extends PFRUsecase {
 				.body("my request body")			// add a request body without content type
 				.body("value", "text/plain")		// add a request body with a custom content type
 				.bodyJSON("{\"key\": \"value\"}")	// add a request body with content type "application/json; charset=UTF-8"
+				
 				.setAuthCredentialsBasic("user", "pw") 								// set credentials for basic authentication
 				.setAuthCredentials(PFRHttpAuthMethod.BASIC, "user", "pw") 			// same as above
 				.setAuthCredentials(PFRHttpAuthMethod.BASIC_HEADER, "user", "pw") 	// set a basic authentication header with the specified credentials
-				.setAuthCredentials(PFRHttpAuthMethod.DIGEST, "user", "pw") 		// set a credentials for digest authentication
-				.setAuthCredentials(PFRHttpAuthMethod.KERBEROS, "user", "pw") 		// Experimental: Set a credentials for Kerberos authentication
-				.setAuthCredentials(PFRHttpAuthMethod.NTLM, "user", "pw") 			// Experimental: Set a credentials for NTLM authentication
+				.setAuthCredentials(PFRHttpAuthMethod.DIGEST, "user", "pw") 		// set credentials for digest authentication
+				.setAuthCredentials(PFRHttpAuthMethod.KERBEROS, "user", "pw") 		// Experimental: Set credentials for Kerberos authentication
+				.setAuthCredentials(PFRHttpAuthMethod.NTLM, "user", "pw") 			// Experimental: Set credentials for NTLM authentication
+				
 				.timeout(1000)						// adjust response timeout for this request, default set with PFRHttp.defaultResponseTimeout()
 				.pause(200)   						// adjust pause for this request, default set with PFRHttp.defaultPause()
 				.pause(100, 500)   					// adjust randomized pause for this request, default set with PFRHttp.defaultPause()
+				
 				.measureRange(value, 10)			// creates buckets for ranges based on a value
 				.measureRange("-MyCount", value, 10)// creates buckets for ranges based on a value, add the suffix "-MyCount"
 				.measureSize(ByteSize.KB)			// Measure response body size in kilobytes
+				
 				.allowHTTPErrors() 					// disables auto-fail when you want to test pages that return HTTP status >= 400
 				.disableFollowRedirects()			// do not automatically follow redirects
+				.throwOnFail(false)					// Overrides the default set with PFRHttp.defaultThrowOnFail()
+				
 				.checkStatusEquals(200) 			// check if response status is equals a certain status code
 				.checkBodyContains("Sign In")		// check if response body contains a string
 				.checkBodyContainsNot("failed")		// check if response body doesn't contain a string
@@ -122,7 +131,7 @@ public class UsecaseExampleHTTPOverview extends PFRUsecase {
 					}) 
 				)
 				.send()					// Send the request
-				.throwOnFail() 			// break iteration here if not successful by throwing an exception
+				.throwOnFail() 			// break iteration here if not successful by throwing an exception (ignores setting PFRHttp.defaultHrowOnFail() and PFRHttpRequestBuilder.throwOnFail() )
 				;
 			
 		

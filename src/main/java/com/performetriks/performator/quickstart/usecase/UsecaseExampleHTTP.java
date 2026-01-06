@@ -48,8 +48,12 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 		
 		PFRHttp.defaultResponseTimeout(HSRTimeUnit.s.toMillis(60)); // set default HTTP timeout to 60 seconds
 		PFRHttp.defaultPause(100, 500); // Wait 100 to 500 ms after each request to add some randomity 
+		
+		PFRHttp.defaultThrowOnFail(true); // set that by default a request that fails will throw a ResponseFailedException 
+		
 		PFRHttp.debugLogFail(true);		// log details for requests that fail
 		//PFRHttp.debugLogAll(true); 	// log all request details
+		
 	}
 
 	/************************************************************************
@@ -67,11 +71,11 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 		
 		PFRDataRecord record = Globals.DATA.next();
 
-		String user = record.get("USER").getAsString();
-		int value = record.get("VALUE").getAsInteger();
-		boolean likesTiramisu = record.get("LIKES_TIRAMISU").getAsBoolean();
-//		JsonObject addressDetails = record.get("ADDRESS_DETAILS").getAsJsonObject();
-//		JsonArray tags = record.get("TAGS").getAsJsonArray();
+		String user = record.getString("USER");
+		int value = record.getInteger("VALUE");
+		boolean likesTiramisu = record.getBoolean("LIKES_TIRAMISU");
+//		JsonObject addressDetails = record.getJsonObject("ADDRESS_DETAILS");
+//		JsonArray tags = record.getJsonArray("TAGS");
 		
 		//logger.info(record.toString()); // how to log test data
 		
@@ -94,10 +98,15 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 					.sla(SLA_P90_AND_FAILRATE)
 					.GET()
 					.checkBodyContains("Sign In")
+					.throwOnFail(false) // do not break iteration here if not successful
 					.send()
 					;
 			
-			if( !r.isSuccess() ) { return; } // custom handling
+			// custom handling, do not call doLogout()
+			if( !r.isSuccess() ) { 
+				HSR.addErrorMessage("Login Failed: "+PFRContext.logDetailsString());
+				return; 
+			} 
 			
 			//=======================================
 			// POST with params
@@ -109,11 +118,16 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 					.param("url", "/app/dashboard/list") //redirect url
 					.checkBodyContains("cfwMenuTools-Dashboards")
 					.checkBodyContainsNot("Sign In")
+					.throwOnFail(false) // do not break iteration here if not successful
 					//.disableFollowRedirects()
 					.send()
-					.throwOnFail() // break iteration here if not successful
 					;
-							
+			
+			// custom handling, do not call doLogout()
+			if( !r.isSuccess() ) { 
+				HSR.addErrorMessage("Login Failed: "+PFRContext.logDetailsString());
+				return; 
+			} 
 			//=======================================
 			// JSON Request
 			r = PFRHttp.create("020_Load_DashboardList", url+"/app/dashboard/list?action=fetch&item=mydashboards") 
@@ -137,7 +151,6 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 						}) 
 					)
 					.send()
-					.throwOnFail()
 					;
 			
 				
