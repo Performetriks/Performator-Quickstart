@@ -1,0 +1,121 @@
+//========================================================
+//
+//========================================================
+buildscript {
+    ext {
+    	versionPerformator = '1.1.3'
+    }
+    repositories {
+        maven {
+            url "https://artifactory.lgt.com/artifactory/maven-all"
+            credentials {
+                username = repositoryUser
+                password = repositoryPassword
+            }
+        }
+    }
+
+}
+
+//========================================================
+//
+//========================================================
+plugins {
+    id 'java-library'
+    id 'distribution' // needed to copy the gatlytron java agent
+    // The following line allows to load io.gatling.gradle plugin and directly apply it
+    //id 'io.gatling.gradle' version "${versionGatling}"
+}
+
+//========================================================
+//
+//========================================================
+compileJava.options.fork = true
+compileJava.options.forkOptions.executable = "D:/Programme/Java/adoptium-jdk-17.0.13.11-hotspot/bin/javac.exe"
+
+//========================================================
+//
+//========================================================
+repositories {
+    maven {
+        url "https://artifactory.lgt.com/artifactory/maven-all"
+        credentials {
+            username = repositoryUser
+            password = repositoryPassword
+        }
+    }
+}
+
+//========================================================
+// 
+//========================================================
+dependencies{
+
+    // https://mvnrepository.com/artifact/com.performetriks/gatlytron
+	implementation group: 'com.performetriks', name: 'performator', version: "${versionPerformator}"
+
+    // https://mvnrepository.com/artifact/com.performetriks/gatlytron
+	implementation group: 'com.performetriks', name: 'performator-http', version: "${versionPerformator}"
+
+    // https://mvnrepository.com/artifact/com.performetriks/gatlytron
+	implementation group: 'com.jayway.jsonpath', name: 'json-path', version: "2.9.0"
+
+	// https://mvnrepository.com/artifact/org.postgresql/postgresql
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.8'
+
+	// https://mvnrepository.com/artifact/org.postgresql/postgresql
+	implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.21'
+
+}
+
+
+//========================================================
+// 
+//========================================================
+/*distributions {
+    main {
+        contents {
+        	into('libx'){
+	            from jar // copies your jar
+	            from(configurations.runtimeClasspath) // copies dependency jars
+            }
+        }
+    }
+}*/
+
+//========================================================
+//
+//========================================================
+processResources {
+    from('src/main/java') {
+        // You can use include patterns if needed, for example:
+        // include '**/*.txt'
+        // include '**/*.csv'
+    }
+}
+
+//========================================================
+// 
+//========================================================
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'com.performetriks.performator.base.Main'
+        )
+    }
+}
+
+//========================================================
+//
+//========================================================
+tasks.register("verify", JavaExec) {
+
+    description = "Execute Tests with Performator"
+    main = 'com.performetriks.performator.base.Main'
+    classpath = sourceSets.main.runtimeClasspath
+
+    //--------------------------------
+    // JVM Arguments
+    systemProperties = System.properties
+
+}
