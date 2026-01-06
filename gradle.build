@@ -7,7 +7,7 @@ buildscript {
     }
     repositories {
         maven {
-            url "https://artifactory.lgt.com/artifactory/maven-all"
+            url "https://repo.mycompany.com/artifactory/maven-all"
             credentials {
                 username = repositoryUser
                 password = repositoryPassword
@@ -38,7 +38,7 @@ compileJava.options.forkOptions.executable = "D:/Programme/Java/adoptium-jdk-17.
 //========================================================
 repositories {
     maven {
-        url "https://artifactory.lgt.com/artifactory/maven-all"
+        url "https://repo.mycompany.com/artifactory/maven-all"
         credentials {
             username = repositoryUser
             password = repositoryPassword
