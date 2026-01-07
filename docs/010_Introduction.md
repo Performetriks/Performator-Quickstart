@@ -212,4 +212,18 @@ HSRConfig.addReporter(
 HSRConfig.enable(REPORT_INTERVAL_SECONDS); 
 ```
 
+## Jenkins Integration
+For integrating Performator with Jenkins, creating a pipeline using a Jenkinsfile is recommended.
+An example of a Jenkinsfile has been added to this project.
+
+The Example file uses the HTML Publishes Plugin to make the HTML Reports available in Jenkins.
+This will only works when you Change the Content-Security-Policy header of your application. 
+This is done on the command line used to start the jenkins process (e.g. configurable in `<JENKINS_HOME>/jenkins.xml`)
+
+The following parameters has to be added:
+
+```
+-Dhudson.model.DirectoryBrowserSupport.CSP="sandbox allow-same-origin allow-scripts allow-downloads; unsafe-inline;"
+```
+
 
