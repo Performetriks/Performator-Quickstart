@@ -65,7 +65,7 @@ pipeline{
 				echo "LogLevel: ${params.LogLevel}"
 				
 				// e.g. mvn verify -Dpfr_test=com.performetriks.performator.quickstart.tests.PFRTestJenkins -DLoadPercent=33 -DEnvironment=DEV -Duration=5 -DLogLevel=INFO
-				bat "mvn verify -Dpfr_test=com.performetriks.performator.quickstart.tests.PFRTestJenkins -DLoadPercent=${params.LoadPercent} -DEnvironment=${params.Environment} -Duration=${params.Duration} -DLogLevel=${params.LogLevel}"
+				bat "mvn verify -Dpfr_test=com.performetriks.performator.quickstart.tests.PFRTestJenkins -DLoadPercent=${params.LoadPercent} -DEnvironment=${params.Environment} -DDuration=${params.Duration} -DLogLevel=${params.LogLevel}"
 			}
 		}
 
