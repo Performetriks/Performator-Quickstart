@@ -31,9 +31,10 @@ Here a list of known limitation of this project:
 
 # Running a Test
 To execute a test, run maven as follows and provide your test class with the property "-Dpfr_test":
+If you try running a test in IntelliJ and it doesn't work, try using a regular terminal first. Often it's some kind of IntelliJ bug-sold-as-feature that causes a problem, when it actually works fine from a regular command line.
 
 ```
-mvn clean verify -Dpfr_test=com.performetriks.performator.quickstart.tests.PFRTestExample
+mvn clean verify -Dpfr_test="com.performetriks.performator.quickstart.tests.PFRTestExample"
 ```
 
 # Terminology
