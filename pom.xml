@@ -18,8 +18,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<otel.version>1.49.0</otel.version>
 		
+		<reportFolder>${basedir}/target/report</reportFolder>
+		
 		<skipJavadoc>true</skipJavadoc>
 		<skipTests>true</skipTests>
+		<skipZipReport>false</skipZipReport>
 	</properties>
 	
 		<!-- ================= LICENSES ================== -->
@@ -273,6 +276,29 @@
 					</execution>
 				</executions>
 			</plugin>
+			
+			<!-- ================= ANTRUN: Create Server Folder ================== -->
+			<plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>           
+                        <configuration>
+                        	<skip>${skipZipReport}</skip>
+						    <target>
+
+						        <!-- ##### Create Zip file with Version ##### -->
+						        <zip destfile="${basedir}/target/report.zip" basedir="${reportFolder}"/>
+						        
+						    </target>
+						</configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
 			
 		</plugins>

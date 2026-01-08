@@ -68,9 +68,15 @@ pipeline{
 				bat "mvn verify -Dpfr_test=com.performetriks.performator.quickstart.tests.PFRTestJenkins -DLoadPercent=${params.LoadPercent} -DEnvironment=${params.Environment} -DDuration=${params.Duration} -DLogLevel=${params.LogLevel}"
 			}
 		}
+		
 
 		stage("Report") {
 			steps{
+				
+				archiveArtifacts (
+					artifacts: './target/report.zip'
+					, fingerprint: true
+				
 				publishHTML (
 					target : [
 						allowMissing: false,
