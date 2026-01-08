@@ -74,7 +74,7 @@ pipeline{
 			steps{
 				
 				archiveArtifacts (
-					artifacts: './target/report.zip',
+					artifacts: 'target/report.zip',
 					fingerprint: true
 				)
 				
