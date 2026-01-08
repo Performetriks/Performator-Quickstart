@@ -85,7 +85,7 @@ pipeline{
 						keepAll: true,
 						reportDir: 'target/report/HTMLReport',
 						reportFiles: 'report.html',
-						reportName: 'My Reports',
+						reportName: 'HTML Report',
 						reportTitles: 'HTML Report'
 					]
 				 )
