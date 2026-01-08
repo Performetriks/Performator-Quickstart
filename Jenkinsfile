@@ -74,8 +74,9 @@ pipeline{
 			steps{
 				
 				archiveArtifacts (
-					artifacts: './target/report.zip'
-					, fingerprint: true
+					artifacts: './target/report.zip',
+					fingerprint: true
+				)
 				
 				publishHTML (
 					target : [
