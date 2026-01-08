@@ -212,6 +212,21 @@ HSRConfig.addReporter(
 HSRConfig.enable(REPORT_INTERVAL_SECONDS); 
 ```
 
+# Setup EMP Dashboards
+Performator provides templates for EMP dashboards. 
+If you want to use EMP to show your Performator results stored in a database, here is how:
+
+1. Download the latest release of EMP: https://github.com/xresch/EngineeredMonitoringPlatform/releases
+2. Setup Tutorial for EMP: https://www.youtube.com/watch?v=0Ug1daCedfs
+
+**Postgres Dashboard:**
+1. In EMP, go to "Admin >> Context Settings >> Add >> Postgres Environment" and fill in the connection details.
+2. Import Performator Dashboard templates for Postgres from the folder `./docs/templates`.
+3. Open the Dashboard
+4. Click the "Edit" button in the top left.
+5. Click on the button "Params" and adjust the following parameter:
+  	- **database_id:** Select the context setting from the dropdown.
+
 # Jenkins Integration
 For integrating Performator with Jenkins, creating a pipeline using a Jenkinsfile is recommended.
 An example of a Jenkinsfile has been added to this project.
