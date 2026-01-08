@@ -84,6 +84,62 @@ The HTTP plugin comes with a converter that allows you to convert HAR Files and 
 mvn clean verify -Dpfr_mode=httpconverter
 ```
 
+## Javascript Post Processing
+The Converter comes with the possibility to post-process the generated code.
+
+Following Javascript makes request methods static and replaces all Postman Parameters:
+
+```javascript
+function postProcess(code){
+	
+	// Make methods static
+	code = code.replaceAll(/private PFRHttpResponse r.../g, "public static PFRHttpResponse send");
+	
+	// Add method parameter
+	code = code.replaceAll(/\(\) throws ResponseFailedException/g, "(HashMap<String,String> p) throws ResponseFailedException");
+	
+	// modify body containing postman param only
+	code = code.replaceAll('"""\n\t\t\t\t\t{{', '"{{');
+	code = code.replaceAll('}}\n\t\t\t\t"""', '}}"');
+
+	//replace quoted params
+	code = code.replaceAll(/"{{(.*?)}}"/g, 'p.get("$1")');
+	
+	//replace quoted params
+	code = code.replaceAll(/"{{(.*?)}}"/g, 'p.get("$1")');
+	
+	code = transformBodyParams(code);
+
+	return code;
+}
+
+//--------------------------------------------------
+// Transform postman params in body text-blocks
+// so they are replaced using String.formatted().
+function transformBodyParams(input) {
+
+  return input.replace(
+  	 // Find all bodies
+    /\.body\("""([\s\S]*?)"""\)/g,
+    
+    // For each body
+    function(match, body){
+      const vars = [];
+      
+      // Extract variable name and replace with %s
+      const newBody = body.replace(/\{\{(\w+)\}\}/g, (_, v) => {
+        vars.push(v);
+        return '%s';
+      });
+
+		// Create final result, including .formatted(...) method
+      return `.body("""
+${newBody}""".formatted( p.get(${vars.join('")\n\t\t\t\t\t\t, p.get("')}) )`;
+    }
+  );
+}
+```
+
 # Request Examples
 Here are various request examples that show different functionalities.
 The code piece `PFRHttpResponse r = null;` is included for completion reasons and making the examples easier to copy and paste.
