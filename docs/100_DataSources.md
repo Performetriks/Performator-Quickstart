@@ -55,6 +55,62 @@ JsonObject addressDetails 	= record.getJsonObject("ADDRESS_DETAILS");
 JsonArray tags 				= record.getJsonArray("TAGS");
 ```
 
+### Generating Random Data
+Performator comes with a built-in Random-Library that assists you in creating various test data.
+Here is an example that creates some random user data using `PFR.Random`:
+
+```java
+JsonArray customData = new JsonArray();
+	
+for(int i = 0 ; i < 100; i++) {
+	
+	//------------------------
+	// Create Data
+	String firstname = PFR.Random.firstnameOfGod();
+	String lastname = PFR.Random.lastnameSweden();
+	String location = PFR.Random.mythicalLocation();
+	
+	//create birthday and age between 18 and 100
+	long birthdayMillis = PFR.Random.longInRange(HSRTimeUnit.y.offset(null, -100), HSRTimeUnit.y.offset(null, -18));
+	String birthday = PFR.Time.formatMillis(birthdayMillis, "YYYY-MM-dd");
+	int age = (int)Math.ceil( HSRTimeUnit.y.difference(birthdayMillis, System.currentTimeMillis()) );
+	
+	JsonObject countryData = PFR.Random.countryData();
+	String country = countryData.get("Country").getAsString();
+	String countryCode = countryData.get("CountryCode").getAsString();
+	String capital = countryData.get("Capital").getAsString();
+	
+	String username = (firstname.charAt(0) +"."+ lastname).toLowerCase();
+	String email = (firstname +"."+ lastname + "@" + location.replace(" ", "-") + "." +countryCode).toLowerCase();
+
+	JsonObject address = new JsonObject();
+	address.addProperty("street", PFR.Random.street());
+	address.addProperty("city", capital);
+	address.addProperty("zipcode", PFR.Random.integer(10000, 99999));
+	address.addProperty("country", country);
+	
+	//------------------------
+	// Create Object
+	JsonObject object = new JsonObject();
+	
+	object.addProperty("id", i);
+	object.addProperty("username", username);
+	object.addProperty("firstname", firstname);
+	object.addProperty("lastname", lastname);
+	object.addProperty("email", email);
+	object.addProperty("birthday", birthday);
+	object.addProperty("age", age);
+	object.addProperty("active", PFR.Random.bool());
+	object.addProperty("orders", PFR.Random.integer(0, 42));
+	object.addProperty("score", PFR.Random.bigDecimal(33, 100, 1));
+	object.add("address", address);
+	
+	//------------------------
+	// Add To Array
+	customData.add(object);
+}
+```
+
 
 # Data Source CSV File
 A data source that allows to load CSV data from a file in a java package:

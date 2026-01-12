@@ -6,6 +6,7 @@ import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.base.PFRUsecase;
 import com.performetriks.performator.data.PFRDataRecord;
 import com.performetriks.performator.data.PFRDataSource;
+import com.xresch.hsr.utils.HSRTime.HSRTimeUnit;
 
 public class UsecaseLoadDataCustom extends PFRUsecase {
 
@@ -17,6 +18,7 @@ public class UsecaseLoadDataCustom extends PFRUsecase {
 	@Override
 	public void initializeUser() {
 		
+		
 		for(int i = 0 ; i < 100; i++) {
 			
 			//------------------------
@@ -24,6 +26,11 @@ public class UsecaseLoadDataCustom extends PFRUsecase {
 			String firstname = PFR.Random.firstnameOfGod();
 			String lastname = PFR.Random.lastnameSweden();
 			String location = PFR.Random.mythicalLocation();
+			
+			//create birthday and age between 18 and 100
+			long birthdayMillis = PFR.Random.longInRange(HSRTimeUnit.y.offset(null, -100), HSRTimeUnit.y.offset(null, -18));
+			String birthday = PFR.Time.formatMillis(birthdayMillis, "YYYY-MM-dd");
+			int age = (int)Math.ceil( HSRTimeUnit.y.difference(birthdayMillis, System.currentTimeMillis()) );
 			
 			JsonObject countryData = PFR.Random.countryData();
 			String country = countryData.get("Country").getAsString();
@@ -48,8 +55,10 @@ public class UsecaseLoadDataCustom extends PFRUsecase {
 			object.addProperty("firstname", firstname);
 			object.addProperty("lastname", lastname);
 			object.addProperty("email", email);
-			object.addProperty("age", PFR.Random.integer(18, 111));
+			object.addProperty("birthday", birthday);
+			object.addProperty("age", age);
 			object.addProperty("active", PFR.Random.bool());
+			object.addProperty("orders", PFR.Random.integer(0, 42));
 			object.addProperty("score", PFR.Random.bigDecimal(33, 100, 1));
 			object.add("address", address);
 			
@@ -69,9 +78,12 @@ public class UsecaseLoadDataCustom extends PFRUsecase {
 			PFRDataSource userData = PFR.Data.newSourceJsonArray("customData", customData)
 											.build();
 			
-			PFRDataRecord record = userData.next();
-			System.out.println("========================");
-			System.out.println(record.toStringPretty());
+			// print a few records
+			for(int i = 0; i <= 3; i++) {
+				PFRDataRecord record = userData.next();
+				System.out.println("========================");
+				System.out.println(record.toStringPretty());
+			}
 
 	}
 
