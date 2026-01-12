@@ -33,6 +33,7 @@ public class UsecaseLoadDataWeb extends PFRUsecase {
 			JsonArray userArray = r.getBodyAsJsonArray();
 			
 			PFRDataSource userData = PFR.Data.newSourceJsonArray("userList", userArray)
+											.local() // use in this iteration, do not share this between load agents
 											.build();
 			
 			PFRDataRecord record = userData.next();
