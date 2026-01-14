@@ -1,10 +1,30 @@
 # Introduction
 This page gives you an introduction into this quickstart project and an actual "quickstart" on how to use the Performator framework.
 
+
 # Known Limitations
 Here a list of known limitation of this project:
 * Needs JDK 17 or higher
 * Performator is made to run a single Test-Class at once.  
+
+
+# Terminology
+For you to understand what you are gonna read, here a list of definitions:
+* **HSR:** Short for [HieraStatsReport](https://github.com/xresch/HieraStatsReport), the reporting framework used by Performator. Ased as a prefix for most of the classes of the framework 
+* **PFR:** Short for Performator, used as a prefix for most of the classes of the framework.
+* **Use Case:** A set of steps that make up a test case.
+* **Executor:** A mechanism that takes exactly one use case and executes it with a defined amount of load.
+* **Test:** One or multiple combinations of (Executor + Usecase) and the configuration of the test itself, like test duration.
+
+
+# Running a Test
+To execute a test, run maven as follows and provide your test class with the property "-Dpfr_test".
+If you try running a test in IntelliJ and it doesn't work, try using a regular terminal first. Often it's some kind of IntelliJ bug-sold-as-feature that causes a problem, when it actually works fine from a regular command line.
+
+```
+mvn clean verify -Dpfr_test="com.performetriks.performator.quickstart.tests.PFRTestExample"
+```
+
 
 # Troubleshooting
 **Data is not reported:**
@@ -29,21 +49,6 @@ Here a list of known limitation of this project:
 * Reduce number of reporters
 * Reduce reporting interval
 
-# Running a Test
-To execute a test, run maven as follows and provide your test class with the property "-Dpfr_test":
-If you try running a test in IntelliJ and it doesn't work, try using a regular terminal first. Often it's some kind of IntelliJ bug-sold-as-feature that causes a problem, when it actually works fine from a regular command line.
-
-```
-mvn clean verify -Dpfr_test="com.performetriks.performator.quickstart.tests.PFRTestExample"
-```
-
-# Terminology
-For you to understand what you are gonna read, here a list of definitions:
-* **HSR:** Short for [HieraStatsReport](https://github.com/xresch/HieraStatsReport), the reporting framework used by Performator. Ased as a prefix for most of the classes of the framework 
-* **PFR:** Short for Performator, used as a prefix for most of the classes of the framework.
-* **Use Case:** A set of steps that make up a test case.
-* **Executor:** A mechanism that takes exactly one use case and executes it with a defined amount of load.
-* **Test:** One or multiple combinations of (Executor + Usecase) and the configuration of the test itself, like test duration.
 
 
 # Writing and Running Tests
