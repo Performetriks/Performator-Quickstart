@@ -11,6 +11,8 @@ https://github.com/Performetriks/Performator-Quickstart/tree/main/docs
 * [Introduction](./docs/010_Introduction.md)
 * [Executors](./docs/050_Executors.md)
 * [Data Sources](./docs/100_DataSources.md)
-* [HSR Basics](./docs/150_HSR_Basics.md)
-* [Plugin: Performator HTTP](./docs/200_PerformatorHTTP.md)
+* [Data Extraction](./docs/150_DataExtraction.md)
+* [Data Insertion](./docs/200_DataInsertion.md)
+* [HSR Basics](./docs/250_HSR_Basics.md)
+* [Plugin: Performator HTTP](./docs/300_PerformatorHTTP.md)
 

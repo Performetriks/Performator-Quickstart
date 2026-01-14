@@ -15,6 +15,7 @@ logger.info("List of IDs: "+ String.join(", ", ids));
 
 ## Extract Regex Group
 Following example shows you how to extract a list of Names from a JSON response using `PFR.Text.extractRegexAll()`:
+The regex functions provided by `PFR.Text.*` will also cache the compiled regular expression to decrease performance overhead.
 
 ```java
 ArrayList<String> names = PFR.Text.extractRegexAll("\"NAME\":\"(.*?)\",", 0, responseBody);
@@ -22,7 +23,7 @@ logger.info("List of Names: "+ String.join(", ", names));
 ```
 
 ## Get JsonArray
-Here is how you can get the response as a JsonObject and retrieve its "payload" as a JsonArray:
+Here is how you can get a json-string as a JsonObject and retrieve its "payload" as a JsonArray:
 
 ```java
 JsonArray dashboardArray = PFR.JSON.fromJson(responseBody).getAsJsonArray();
