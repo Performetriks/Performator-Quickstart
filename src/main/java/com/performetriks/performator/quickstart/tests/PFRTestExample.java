@@ -26,7 +26,7 @@ public class PFRTestExample extends PFRTest {
 		
 		int percentage = 100;
 
-		this.add(new PFRExecStandard(UsecaseExampleHTTP.class, 7, 1400, 0, 5).percent(percentage) );
+		//this.add(new PFRExecStandard(UsecaseExampleHTTP.class, 7, 1400, 0, 5).percent(percentage) );
 		
 		this.add(new PFRExecStandard(UsecaseExampleHSR.class, 50, 12000, 0, 5).percent(percentage) );
 
