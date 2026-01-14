@@ -1,6 +1,10 @@
 # HSR Basics
-This page only contains some basics for the HieraStatsReport(HSR) framework.
+This page only contains the most important basics for the Hierarchical Statistics Report(HSR) framework.
 Please find more documentation on the official repository: [HieraStatsReport README](https://github.com/xresch/HieraStatsReport/blob/main/README.md)
+
+# Introduction
+HSR is the statistics engine used by performator to collect, aggregate and report metrics.
+While the Performator classes("PFR*") are used to create you test setup and execute the test, the HSR*-classes are used to collect the data you want.
 
 # Logging
 
