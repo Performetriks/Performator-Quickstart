@@ -104,11 +104,12 @@ function postProcess(code){
 
 	//replace postman param placeholders
 	code = code.replaceAll(/"{{(.*?)}}"/g, 'r.get("$1")'); //replace quoted params
+	
+	code = transformBodyParams(code);  // replace in text-blocks
+	
 	code = code.replaceAll(/"{{(.*?)}}/g, 'r.get("$1") + "'); 	//replace quoted params at string start
 	code = code.replaceAll(/{{(.*?)}}"/g, '" + r.get("$1")'); 	//replace quoted params at string end
 	code = code.replaceAll(/{{(.*?)}}/g, '" + r.get("$1") + "'); 	//replace all other quoted params
-
-	code = transformBodyParams(code);
 
 	return code;
 }
