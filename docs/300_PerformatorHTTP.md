@@ -106,7 +106,7 @@ function postProcess(code){
 	code = code.replaceAll(/"{{(.*?)}}"/g, 'r.get("$1")'); //replace quoted params
 	code = code.replaceAll(/"{{(.*?)}}/g, 'r.get("$1") + "'); 	//replace quoted params at string start
 	code = code.replaceAll(/{{(.*?)}}"/g, '" + r.get("$1")'); 	//replace quoted params at string end
-	code = code.replaceAll(/{{(.*?)}}/g, '" + r.get("$1")' + "); 	//replace all other quoted params
+	code = code.replaceAll(/{{(.*?)}}/g, '" + r.get("$1") + "'); 	//replace all other quoted params
 
 	code = transformBodyParams(code);
 
