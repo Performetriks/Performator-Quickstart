@@ -96,18 +96,18 @@ function postProcess(code){
 	code = code.replaceAll(/private PFRHttpResponse r.../g, "public static PFRHttpResponse send");
 	
 	// Add method parameter
-	code = code.replaceAll(/\(\) throws ResponseFailedException/g, "(HashMap<String,String> p) throws ResponseFailedException");
+	code = code.replaceAll(/\(\) throws ResponseFailedException/g, "(PFRDataRecord r) throws ResponseFailedException");
 	
 	// modify body containing postman param only
 	code = code.replaceAll('"""\n\t\t\t\t\t{{', '"{{');
 	code = code.replaceAll('}}\n\t\t\t\t"""', '}}"');
 
-	//replace quoted params
-	code = code.replaceAll(/"{{(.*?)}}"/g, 'p.get("$1")');
-	
-	//replace quoted params
-	code = code.replaceAll(/"{{(.*?)}}"/g, 'p.get("$1")');
-	
+	//replace postman param placeholders
+	code = code.replaceAll(/"{{(.*?)}}"/g, 'r.get("$1")'); //replace quoted params
+	code = code.replaceAll(/"{{(.*?)}}/g, 'r.get("$1") + "'); 	//replace quoted params at string start
+	code = code.replaceAll(/{{(.*?)}}"/g, '" + r.get("$1")'); 	//replace quoted params at string end
+	code = code.replaceAll(/{{(.*?)}}/g, '" + r.get("$1")' + "); 	//replace all other quoted params
+
 	code = transformBodyParams(code);
 
 	return code;
