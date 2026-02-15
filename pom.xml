@@ -73,7 +73,6 @@
 		</dependency>
 		
 
-		
 		<!-- ========================================================================== -->
 		<!-- ============================ SCOPE: TESTING ============================== -->
 		<!-- ========================================================================== -->
@@ -179,48 +178,6 @@
 
 		<plugins>
 		
-			<!-- ================= SUREFIRE ================== -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.5.4</version>
-				<configuration>
-					<skipTests>${skipTests}</skipTests>
-					<includes>
-						<include>**/*TestSuiteAll.java</include>
-					</includes>
-					<!-- excludes> <exclude>com.xresch.cfw.tests._master.*</exclude> </excludes -->
-				</configuration>
-			</plugin>
-			
-			<!-- ================= EXEC ================== -->
-			<plugin>
-		        <groupId>org.codehaus.mojo</groupId>
-		        <artifactId>exec-maven-plugin</artifactId>
-		        <version>3.6.2</version>
-		        <executions>
-		          <execution>
-					<phase>verify</phase>
-		            <goals>
-		              <goal>java</goal>
-		            </goals>
-		             <!--configuration>
-				        <executable>java</executable>
-				        <arguments>
-				          <argument>-jar</argument>
-				          <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
-				        </arguments>
-				      </configuration-->
-		          </execution>
-		        </executions>
-		        <configuration>
-		          <mainClass>com.performetriks.performator.base.Main</mainClass>
-		          <systemProperties>
-		            <projectProperties /> <!-- automatically propagate all -D argument values -->
-		          </systemProperties>
-		        </configuration>
-		    </plugin>
-		    		    
 			<!-- ================= COMPILER ================== -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -230,8 +187,8 @@
 					<target>17</target>
 				</configuration>
 			</plugin>
-			
-			<!-- ================= JAR ================== -->
+
+			<!-- ================= SHADED JAR ================== -->
 			<plugin>
 			    <groupId>org.apache.maven.plugins</groupId>
 			    <artifactId>maven-shade-plugin</artifactId>
@@ -259,24 +216,41 @@
 			        </execution>
 			    </executions>
 			</plugin>
-	
 
-		
-			<!-- ================= SOURCES ================== -->
+			<!-- ================= EXEC ================== -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>3.3.0</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			
+		        <groupId>org.codehaus.mojo</groupId>
+		        <artifactId>exec-maven-plugin</artifactId>
+		        <version>3.6.2</version>
+		        <executions>
+		          <execution>
+					<phase>verify</phase>
+		            <goals>
+		              <goal>java</goal> <!-- when using exec:exec we can't automatically propagate -D properties -->
+		            </goals>
+		          </execution>
+		        </executions>
+				<configuration>
+					<mainClass>com.performetriks.performator.base.Main</mainClass>
+
+					<!-- Prevent Maven from using target/classes -->
+					<includeProjectDependencies>false</includeProjectDependencies>
+					<includePluginDependencies>false</includePluginDependencies>
+
+					<!-- Use ONLY the shaded jar -->
+					<additionalClasspathElements>
+						<additionalClasspathElement>
+							${project.build.directory}/${project.build.finalName}.jar
+						</additionalClasspathElement>
+					</additionalClasspathElements>
+
+					<!-- automatically propagate all -D argument values -->
+					<systemProperties>
+						<projectProperties />
+					</systemProperties>
+				</configuration>
+		    </plugin>
+
 			<!-- ================= ANTRUN: Create Server Folder ================== -->
 			<plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
@@ -288,7 +262,7 @@
                         	<skip>${skipZipReport}</skip>
 						    <target>
 
-						        <!-- ##### Create Zip file with Version ##### -->
+								<!-- ##### Create Zip file with Version ##### -->
 						        <zip destfile="${basedir}/target/report.zip" basedir="${reportFolder}"/>
 						        
 						    </target>
