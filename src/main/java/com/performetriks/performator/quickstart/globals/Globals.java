@@ -151,6 +151,8 @@ public class Globals {
 
 		//------------------------------
 		// DB Age-Out Settings
+		
+		// !!!IMPORTANT!!! Age out can take quite a long time to complete depending on the amount of data to be processed
 		HSRConfig.setAgeOut(true); // must be set before registering the DB reporters
 		
 
@@ -162,6 +164,7 @@ public class Globals {
 //				.keep15MinFor(Duration.ofDays(120))
 //				.keep60MinFor(Duration.ofDays(180))
 //		);
+		
 		//--------------------------
 		// Database Reporters		
 		if(storeInDB) {
