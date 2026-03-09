@@ -92,15 +92,15 @@ public class Globals {
 		
 		//--------------------------
 		// Load Test Data CSV	
-		DATA = PFR.Data.newSourceCSV("mainTestdataCSV", ENV.getTestdataPackage(), "testdata.csv", ",")
+		DATA = PFR.Data.newSourceCSV(ENV.getTestdataPackage(), "testdata.csv", ",")
 				.accessMode(AccessMode.SEQUENTIAL)
 				.retainMode(RetainMode.INFINITE)
 				.build();
 		;
-		
+				
 		//--------------------------
 		// Load Test Data JSON
-//		DATA = PFR.Data.newSourceJson("mainTestdataJSON", ENV.getTestdataPackage(), "testdata.json")
+//		DATA = PFR.Data.newSourceJson(ENV.getTestdataPackage(), "testdata.json")
 //						.accessMode(AccessMode.SEQUENTIAL)
 //						.retainMode(RetainMode.ONCE)
 //						.build();
