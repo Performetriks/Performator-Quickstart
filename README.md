@@ -16,3 +16,29 @@ https://github.com/Performetriks/Performator-Quickstart/tree/main/docs
 * [HSR Basics](./docs/250_HSR_Basics.md)
 * [Plugin: Performator HTTP](./docs/300_PerformatorHTTP.md)
 
+# Quick Access
+
+Running a test:
+
+```
+mvn clean verify -Dpfr_test="com.performetriks.performator.quickstart.tests.PFRTestExample"
+```
+
+Starting the HTTP Converter of the Performator HTTP Plugin:
+
+```java
+mvn clean verify -Dpfr_mode=httpconverter
+```
+
+Enable Debug logs:
+
+``` java
+// General
+HSRConfig.setLogLevelRoot(Level.DEBUG);
+HSRConfig.setLogLevel(Level.DEBUG, "com.performetriks.performator");
+HSRConfig.setLogLevel(Level.DEBUG, "com.xresch.hsr");
+
+// Http Plugin
+PFRHttp.debugLogFail(true);
+PFRHttp.debugLogAll(true);
+```
