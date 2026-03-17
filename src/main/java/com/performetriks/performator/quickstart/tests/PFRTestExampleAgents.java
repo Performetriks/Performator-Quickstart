@@ -24,14 +24,19 @@ public class PFRTestExampleAgents extends PFRTest {
 
 	public PFRTestExampleAgents() {
 		
+		//#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!
+		//#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!
+		// !!! AGENTS ARE STILL CONSIDERED EXPERIMENTAL !!!
+		//#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!
+		//#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!
 		Globals.commonInitialization(true);
 		
 		//-----------------------------
 		// Set Agents
 		PFRAgentPool pool = new PFRAgentPool(
-				  new PFRAgent("localhost", 7777)
-				, new PFRAgent("localhost", 7778)
-				//, new PFRAgent("localhost", 7779)
+				  new PFRAgent("lenovop16s", 7777)
+				, new PFRAgent("asusstrix", 7778)
+				, new PFRAgent("winserver123", 7779)
 			);
 		
 		PFRConfig.setAgentPool(pool);
