@@ -1,7 +1,7 @@
 {"success": true,"messages": [],"payload": {
   "dashboards": [
     {
-      "PK_ID": 1137,
+      "PK_ID": 1172,
       "FK_ID_USER": 1,
       "NAME": "Performator Dashboard - Advanced (Postgres)",
       "DESCRIPTION": null,
@@ -12,8 +12,8 @@
       "JSON_EDITORS": {},
       "JSON_EDITOR_GROUPS": {},
       "ALLOW_EDIT_SETTINGS": false,
-      "TIME_CREATED": 1766560213932,
-      "LAST_UPDATED": 1766592089707,
+      "TIME_CREATED": 1773847565461,
+      "LAST_UPDATED": 1773847653324,
       "IS_PUBLIC": false,
       "START_FULLSCREEN": false,
       "IS_DELETABLE": true,
@@ -24,8 +24,8 @@
       "username": "admin",
       "widgets": [
         {
-          "PK_ID": 3152,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3618,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_parameter",
           "X": 0,
           "Y": 0,
@@ -66,8 +66,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3153,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3619,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 0,
           "Y": 68,
@@ -96,8 +96,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3156,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3620,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 51,
           "Y": 213,
@@ -126,8 +126,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3157,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3621,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 0,
           "Y": 88,
@@ -156,8 +156,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3158,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3622,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 15,
           "Y": 88,
@@ -186,8 +186,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3159,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3623,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 0,
           "Y": 275,
@@ -216,8 +216,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3160,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3624,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_parameter",
           "X": 0,
           "Y": 266,
@@ -254,17 +254,17 @@
             "checkpassword": false,
             "password": null,
             "JSON_AFFECTED_WIDGETS": {
-              "3159": "Compared Statistics",
-              "3165": "Compared Boxplots",
-              "3190": "Compare Test Settings"
+              "3623": "Compared Statistics",
+              "3629": "Compared Boxplots",
+              "3654": "Compare Test Settings"
             },
             "load_previous_values": true
           },
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3161,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3625,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 55,
           "Y": 6,
@@ -293,8 +293,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3162,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3626,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 50,
           "Y": 6,
@@ -323,8 +323,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3163,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3627,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 30,
           "Y": 88,
@@ -353,8 +353,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3164,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3628,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 0,
           "Y": 216,
@@ -383,8 +383,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3165,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3629,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 0,
           "Y": 311,
@@ -413,8 +413,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3166,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3630,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 0,
           "Y": 9,
@@ -443,8 +443,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3167,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3631,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 30,
           "Y": 6,
@@ -473,8 +473,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3168,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3632,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_label",
           "X": 10,
           "Y": 6,
@@ -506,8 +506,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3169,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3633,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 27,
           "Y": 6,
@@ -536,8 +536,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3170,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3634,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 33,
           "Y": 6,
@@ -566,8 +566,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3171,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3635,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 36,
           "Y": 6,
@@ -596,8 +596,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3172,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3636,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_label",
           "X": 10,
           "Y": 9,
@@ -629,8 +629,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3173,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3637,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 18,
           "Y": 6,
@@ -659,8 +659,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3174,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3638,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 20,
           "Y": 6,
@@ -689,8 +689,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3175,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3639,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 18,
           "Y": 9,
@@ -719,8 +719,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3176,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3640,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 20,
           "Y": 9,
@@ -749,8 +749,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3177,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3641,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 27,
           "Y": 9,
@@ -779,8 +779,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3178,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3642,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 30,
           "Y": 9,
@@ -809,8 +809,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3179,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3643,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 33,
           "Y": 9,
@@ -839,8 +839,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3180,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3644,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 36,
           "Y": 9,
@@ -869,8 +869,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3181,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3645,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 39,
           "Y": 9,
@@ -899,8 +899,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3182,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3646,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 39,
           "Y": 6,
@@ -929,8 +929,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3183,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3647,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 3,
           "Y": 9,
@@ -959,8 +959,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3184,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3648,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 6,
           "Y": 9,
@@ -989,8 +989,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3185,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3649,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_label",
           "X": 0,
           "Y": 6,
@@ -1022,8 +1022,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3186,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3650,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 23,
           "Y": 9,
@@ -1052,8 +1052,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3187,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3651,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 23,
           "Y": 6,
@@ -1082,8 +1082,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3188,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3652,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 43,
           "Y": 9,
@@ -1112,8 +1112,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3189,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3653,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 43,
           "Y": 6,
@@ -1142,8 +1142,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3190,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3654,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 0,
           "Y": 347,
@@ -1172,8 +1172,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3191,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3655,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 0,
           "Y": 12,
@@ -1202,8 +1202,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3192,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3656,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 15,
           "Y": 12,
@@ -1232,8 +1232,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3193,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3657,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 30,
           "Y": 12,
@@ -1262,8 +1262,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3194,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3658,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 45,
           "Y": 12,
@@ -1292,8 +1292,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3195,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3659,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 0,
           "Y": 28,
@@ -1322,8 +1322,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3196,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3660,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 15,
           "Y": 28,
@@ -1352,8 +1352,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3198,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3661,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 30,
           "Y": 28,
@@ -1382,8 +1382,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3199,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3662,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 45,
           "Y": 28,
@@ -1412,8 +1412,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3201,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3663,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 0,
           "Y": 48,
@@ -1442,8 +1442,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3203,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3664,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 15,
           "Y": 48,
@@ -1472,8 +1472,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3204,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3665,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 30,
           "Y": 48,
@@ -1502,8 +1502,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3205,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3666,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 45,
           "Y": 48,
@@ -1532,8 +1532,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3206,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3667,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 15,
           "Y": 68,
@@ -1562,8 +1562,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3207,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3668,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 30,
           "Y": 68,
@@ -1592,8 +1592,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3209,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3669,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 45,
           "Y": 68,
@@ -1622,8 +1622,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3264,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3670,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 50,
           "Y": 9,
@@ -1652,8 +1652,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3265,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3671,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_parameter",
           "X": 0,
           "Y": 208,
@@ -1691,8 +1691,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3267,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3672,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 0,
           "Y": 110,
@@ -1715,14 +1715,14 @@
           "BUTTON_POPUP": false,
           "BUTTON_LABEL": null,
           "JSON_SETTINGS": {
-            "query": "###################################################\r\n# Default Params\r\n###################################################\r\n| paramdefaults\r\n\ttest\u003d\"-1\"\r\n\tdatabase_id\u003d-1\r\n\ttableprefix\u003d\u0027hsr\u0027\r\n\tchart_type\u003d\"area\"\r\n\ttype_filter \u003d \"{}\"\r\n\t\r\n###################################################\r\n# Fetch Data\r\n###################################################\r\n| source postgres \r\n\tenvironment\u003dparam(database_id) \r\n\tquery\u003d `\r\n\t\tSELECT \r\n\t\t\t  time\r\n\t\t\t, test\r\n\t\t\t, usecase\r\n\t\t\t, path\r\n\t\t\t, name\r\n\t\t\t, ok_count\r\n\t\t\t, nok_count\r\n\t\t\t, ok_avg\r\n\t\t\t, ok_p50\r\n\t\t\t, ok_p90\r\n\t\t\t, ok_p95\r\n\t\t\t, ok_p99\r\n\t\t\t, failrate\r\n\t\t\t, ok_sla\r\n\t\tFROM ` +param(tableprefix, \u0027hsr\u0027) + `_stats\r\n\t\tWHERE testid \u003d `+ p(\u0027test\u0027, \"-1\") +`\r\n\t\t\tAND ok_sla \u003e\u003d 0\r\n\t`\r\n\r\n###################################################\r\n# Filter Type\r\n###################################################\r\n| off filter \r\n\tp(type_filter, \"{}\") \u003d\u003d \"{}\" # show all when no filter\r\n\tOR contains(p(type_filter), type) \u003d\u003d true\r\n\r\n###################################################\r\n# Format SLA\r\n###################################################\t\r\n| formatrecord\r\n\t[(ok_sla \u003d\u003d 1), \"green\"] \r\n\t[true, \"red\"] \r\n\r\n\r\n###################################################\r\n# Make Stats\r\n###################################################\t\r\n\r\n| stats #reduce data points to timegroup\r\n\tby\u003d[path, name] \r\n\t\"ok_count_sum\"\t\u003dsumif(\"ok_count\",  (contains(\"User,Gauge,System\", type) !\u003d true) )\r\n\t\"ok_count_avg\"\t\u003davg( if(contains(\"User,Gauge,System\", type) \u003d\u003d true, ok_count, null) ) \r\n\t\"nok_count\"\t\u003dsum(\"nok_count\")\r\n\t\"avg\"\t\u003davg(\"ok_avg\")\r\n\t\"p50\"\t\u003dperc(\"ok_p50\", 50)\r\n\t\"p90\"\t\u003dperc(\"ok_p90\", 90)\r\n\t\"p95\"\t\u003dperc(\"ok_p95\", 95)\r\n\t\"p99\"\t\u003dperc(\"ok_p99\", 99)\r\n\t\"SLA Over Time\" \u003d records()\r\n\t\"SLA(avg)\"\t\u003davg(\"ok_sla\")\r\n\r\n###################################################\r\n# Adjust values\r\n###################################################\r\n| set\r\n\tok_count \u003d if( (ok_count_avg \u003e 0)\r\n\t\t\t\t\t, ok_count_avg\r\n\t\t\t\t\t, ok_count_sum\r\n\t\t\t\t) # one will be zero\r\n\tfailrate \u003d nok_count / (ok_count + nok_count) * 100\r\n| rename failrate \u003d \"Fails[%]\"\r\n| move after\u003dname ok_count\r\n| move after\u003d\"p99\" \"Fails[%]\"\r\n\r\n| remove ok_count_avg ok_count_sum\r\n\r\n###################################################\r\n# Handle SLA\r\n###################################################\t\r\n| set\r\n\t\"SLA Rule\" \u003d subquery(`\r\n\t\t| source postgres \r\n\t\tenvironment\u003dparam(database_id) \r\n\t\tquery\u003d \"\r\n\t\t\tSELECT \r\n\t\t\t\tsla\r\n\t\t\tFROM ` +param(tableprefix, \u0027hsr\u0027) + `_tests\r\n\t\t\tWHERE id \u003d `+ p(\u0027test\u0027, \"-1\") +`\r\n\t\t\"\r\n\t\t\r\n\t\t| set rule \u003d tojson(sla).\u0027`+name+`\u0027\r\n\t\t| dedup rule\r\n\t\t| keep rule\r\n\t\t`)\r\n\t\r\n\t\"SLA\" \u003d subquery(`\r\n\t\t| source postgres \r\n\t\tenvironment\u003dparam(database_id) \r\n\t\tquery\u003d \"\r\n\t\t\tSELECT \r\n\t\t\t\tok_sla\r\n\t\t\tFROM ` +param(tableprefix, \u0027hsr\u0027) + `_stats_summary\r\n\t\t\tWHERE testid \u003d `+ p(\u0027test\u0027, \"-1\") +`\r\n\t\t\t\tAND ok_sla \u003e\u003d 0\r\n\t\t\t\tAND path \u003d \u0027`+path+`\u0027\r\n\t\t\t\tAND name \u003d \u0027`+name+`\u0027\r\n\t\t\"\r\n\t\t`)\r\n\t\r\n\t\"SLA\"\t\u003d case(\r\n\t\t\t\t(\"SLA\" \u003d\u003d 1), \"OK\", \r\n\t\t\t\t(\"SLA\" \u003d\u003d 0), \"NOK\", \r\n\t\t\t\ttrue, \"\" # do not show if not available\r\n\t\t\t)\r\n\t\"SLA(avg)\"\t\u003d if((\"SLA(avg)\" \u003e 0.5), \"OK\", \"NOK\")\r\n\t\r\n| move after\u003d\"Fails[%]\" \"SLA Rule\"\r\n| formatfield\r\n\t[\"Fails[%]\"] \u003d [ \r\n\t\t[\u0027case\u0027, \"\u003e0\", \"cfw-red\"]\r\n\t\t, [decimals, 1]\r\n\t\t, [postfix, \" %\"]\r\n\t]\r\n\t\r\n\t[\"SLA\", \"SLA(avg)\"] \u003d [\u0027case\u0027\r\n\t\t\t, \"\u003d\u003dOK\", \"cfw-green\"\r\n\t\t\t, \"\u003d\u003dNOK\", \"cfw-red\"\r\n\t]\r\n###################################################\r\n# Format\r\n###################################################\r\n| set \r\n\tname \u003d if( path !\u003d \"\", path +\" \u003e \", \"\") + name\r\n| remove path\r\n| nullto value\u003d\"\"\r\n| formatfield\r\n\tname\u003d[\r\n\t\t  [\u0027whitespace\u0027]\r\n\t\t, [\u0027css\u0027, \u0027max-width\u0027, \u002730vw\u0027]\r\n\t\t, [\u0027css\u0027, \"text-wrap\", \"wrap\"]\r\n\t\t, [\u0027css\u0027, \"word-wrap\", \"break-word\"]\r\n\t\t\r\n\t]\r\n\tfields(type, name)\u003d[\u0027align\u0027, \"right\"]\r\n\t[avg, stdev]\u003d[\u0027decimals\u0027, 1]\r\n| formatdisplay\r\n\tfields\u003d[\"SLA Over Time\"]\r\n\tas\u003dstatusbar\r\n\theight \u003d\"25px\"\r\n\twidth \u003d \"15vw\"\r\n| display\r\n\tas\u003dtable\r\n\ttitlefields \u003d [usecase, name]\r\n\ttitleformat \u003d \"{0} / {1}\"\r\n\tdownload \u003d true\r\n\tstore \u003d true\r\n\tprint \u003d true\r\n\tsettings\u003d{stickyheader: true}\r\n",
+            "query": "###################################################\r\n# Default Params\r\n###################################################\r\n| paramdefaults\r\n\ttest\u003d\"-1\"\r\n\tdatabase_id\u003d-1\r\n\ttableprefix\u003d\u0027hsr\u0027\r\n\tchart_type\u003d\"area\"\r\n\ttype_filter \u003d \"{}\"\r\n\t\r\n###################################################\r\n# Fetch Data\r\n###################################################\r\n| source postgres \r\n\tenvironment\u003dparam(database_id) \r\n\tquery\u003d `\r\n\t\tSELECT \r\n\t\t\t  time\r\n\t\t\t, test\r\n\t\t\t, usecase\r\n\t\t\t, path\r\n\t\t\t, name\r\n\t\t\t, ok_count\r\n\t\t\t, nok_count\r\n\t\t\t, ok_avg\r\n\t\t\t, ok_p50\r\n\t\t\t, ok_p90\r\n\t\t\t, ok_p95\r\n\t\t\t, ok_p99\r\n\t\t\t, failrate\r\n\t\t\t, ok_sla\r\n\t\tFROM ` +param(tableprefix, \u0027hsr\u0027) + `_stats\r\n\t\tWHERE testid \u003d `+ p(\u0027test\u0027, \"-1\") +`\r\n\t\t\tAND ok_sla \u003e\u003d 0\r\n\t`\r\n\r\n###################################################\r\n# Filter Type\r\n###################################################\r\n| off filter \r\n\tp(type_filter, \"{}\") \u003d\u003d \"{}\" # show all when no filter\r\n\tOR contains(p(type_filter), type) \u003d\u003d true\r\n\r\n###################################################\r\n# Format SLA\r\n###################################################\t\r\n| formatrecord\r\n\t[(ok_sla \u003d\u003d 1), \"green\"] \r\n\t[true, \"red\"] \r\n\r\n\r\n###################################################\r\n# Make Stats\r\n###################################################\t\r\n\r\n| stats #reduce data points to timegroup\r\n\tby\u003d[path, name] \r\n\t\"ok_count_sum\"\t\u003dsumif(\"ok_count\",  (contains(\"User,Gauge,System\", type) !\u003d true) )\r\n\t\"ok_count_avg\"\t\u003davg( if(contains(\"User,Gauge,System\", type) \u003d\u003d true, ok_count, null) ) \r\n\t\"nok_count\"\t\u003dsum(\"nok_count\")\r\n\t\"avg\"\t\u003davg(\"ok_avg\")\r\n\t\"p50\"\t\u003dperc(\"ok_p50\", 50)\r\n\t\"p90\"\t\u003dperc(\"ok_p90\", 90)\r\n\t\"p95\"\t\u003dperc(\"ok_p95\", 95)\r\n\t\"p99\"\t\u003dperc(\"ok_p99\", 99)\r\n\t\"SLA Over Time\" \u003d records()\r\n\t\"SLA(avg)\"\t\u003davg(\"ok_sla\")\r\n\r\n###################################################\r\n# Adjust values\r\n###################################################\r\n| set\r\n\tok_count \u003d if( (ok_count_avg \u003e 0)\r\n\t\t\t\t\t, ok_count_avg\r\n\t\t\t\t\t, ok_count_sum\r\n\t\t\t\t) # one will be zero\r\n\tfailrate \u003d nok_count / (ok_count + nok_count) * 100\r\n| rename failrate \u003d \"Fails[%]\"\r\n| move after\u003dname ok_count\r\n| move after\u003d\"p99\" \"Fails[%]\"\r\n\r\n| remove ok_count_avg ok_count_sum\r\n\r\n###################################################\r\n# Handle SLA\r\n###################################################\t\r\n| set \r\n\tname \u003d if( path !\u003d \"\", path +\" \u003e \", \"\") + name\r\n| set\r\n\t\"SLA Rule\" \u003d subquery(`\r\n\t\t| source postgres \r\n\t\tenvironment\u003dparam(database_id) \r\n\t\tquery\u003d \"\r\n\t\t\tSELECT \r\n\t\t\t\tsla\r\n\t\t\tFROM ` +param(tableprefix, \u0027hsr\u0027) + `_tests\r\n\t\t\tWHERE id \u003d `+ p(\u0027test\u0027, \"-1\") +`\r\n\t\t\"\r\n\t\t\r\n\t\t| set rule \u003d tojson(sla).\u0027`+name+`\u0027\r\n\t\t| dedup rule\r\n\t\t| keep rule\r\n\t\t`)\r\n\t\r\n\t\"SLA\" \u003d subquery(`\r\n\t\t| source postgres \r\n\t\tenvironment\u003dparam(database_id) \r\n\t\tquery\u003d \"\r\n\t\t\tSELECT \r\n\t\t\t\tok_sla\r\n\t\t\tFROM ` +param(tableprefix, \u0027hsr\u0027) + `_stats_summary\r\n\t\t\tWHERE testid \u003d `+ p(\u0027test\u0027, \"-1\") +`\r\n\t\t\t\tAND ok_sla \u003e\u003d 0\r\n\t\t\t\tAND path \u003d \u0027`+path+`\u0027\r\n\t\t\t\tAND name \u003d \u0027`+name+`\u0027\r\n\t\t\"\r\n\t\t`)\r\n\t\r\n\t\"SLA\"\t\u003d case(\r\n\t\t\t\t(\"SLA\" \u003d\u003d 1), \"OK\", \r\n\t\t\t\t(\"SLA\" \u003d\u003d 0), \"NOK\", \r\n\t\t\t\ttrue, \"\" # do not show if not available\r\n\t\t\t)\r\n\t\"SLA(avg)\"\t\u003d if((\"SLA(avg)\" \u003e 0.5), \"OK\", \"NOK\")\r\n\t\r\n| move after\u003d\"Fails[%]\" \"SLA Rule\"\r\n| formatfield\r\n\t[\"Fails[%]\"] \u003d [ \r\n\t\t[\u0027case\u0027, \"\u003e0\", \"cfw-red\"]\r\n\t\t, [decimals, 1]\r\n\t\t, [postfix, \" %\"]\r\n\t]\r\n\t\r\n\t[\"SLA\", \"SLA(avg)\"] \u003d [\u0027case\u0027\r\n\t\t\t, \"\u003d\u003dOK\", \"cfw-green\"\r\n\t\t\t, \"\u003d\u003dNOK\", \"cfw-red\"\r\n\t]\r\n###################################################\r\n# Format\r\n###################################################\r\n| remove path\r\n| nullto value\u003d\"\"\r\n| formatfield\r\n\tname\u003d[\r\n\t\t  [\u0027whitespace\u0027]\r\n\t\t, [\u0027css\u0027, \u0027max-width\u0027, \u002730vw\u0027]\r\n\t\t, [\u0027css\u0027, \"text-wrap\", \"wrap\"]\r\n\t\t, [\u0027css\u0027, \"word-wrap\", \"break-word\"]\r\n\t\t\r\n\t]\r\n\tfields(type, name)\u003d[\u0027align\u0027, \"right\"]\r\n\t[avg, stdev]\u003d[\u0027decimals\u0027, 1]\r\n| formatdisplay\r\n\tfields\u003d[\"SLA Over Time\"]\r\n\tas\u003dstatusbar\r\n\theight \u003d\"25px\"\r\n\twidth \u003d \"15vw\"\r\n| display\r\n\tas\u003dtable\r\n\ttitlefields \u003d [usecase, name]\r\n\ttitleformat \u003d \"{0} / {1}\"\r\n\tdownload \u003d true\r\n\tstore \u003d true\r\n\tprint \u003d true\r\n\tsettings\u003d{stickyheader: true}\r\n",
             "sampledata": false
           },
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3268,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3673,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 55,
           "Y": 9,
@@ -1751,8 +1751,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3270,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3674,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 45,
           "Y": 88,
@@ -1781,8 +1781,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3271,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3675,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 47,
           "Y": 213,
@@ -1811,8 +1811,8 @@
           "JSON_TASK_PARAMETERS": {}
         },
         {
-          "PK_ID": 3272,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 3676,
+          "FK_ID_DASHBOARD": 1172,
           "TYPE": "cfw_widget_queryresults",
           "X": 0,
           "Y": 160,
@@ -1843,8 +1843,8 @@
       ],
       "parameters": [
         {
-          "PK_ID": 2582,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 2676,
+          "FK_ID_DASHBOARD": 1172,
           "FK_ID_QUERY": null,
           "WIDGET_TYPE": null,
           "LABEL": "Query Select",
@@ -1857,8 +1857,8 @@
           "IS_DYNAMIC": true
         },
         {
-          "PK_ID": 2583,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 2677,
+          "FK_ID_DASHBOARD": 1172,
           "FK_ID_QUERY": null,
           "WIDGET_TYPE": null,
           "LABEL": "Postgres Environment",
@@ -1871,8 +1871,8 @@
           "IS_DYNAMIC": false
         },
         {
-          "PK_ID": 2584,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 2678,
+          "FK_ID_DASHBOARD": 1172,
           "FK_ID_QUERY": null,
           "WIDGET_TYPE": null,
           "LABEL": "Text",
@@ -1885,8 +1885,8 @@
           "IS_DYNAMIC": false
         },
         {
-          "PK_ID": 2585,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 2679,
+          "FK_ID_DASHBOARD": 1172,
           "FK_ID_QUERY": null,
           "WIDGET_TYPE": null,
           "LABEL": "Number",
@@ -1899,8 +1899,8 @@
           "IS_DYNAMIC": false
         },
         {
-          "PK_ID": 2586,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 2680,
+          "FK_ID_DASHBOARD": 1172,
           "FK_ID_QUERY": null,
           "WIDGET_TYPE": null,
           "LABEL": "Select",
@@ -1913,8 +1913,8 @@
           "IS_DYNAMIC": false
         },
         {
-          "PK_ID": 2588,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 2681,
+          "FK_ID_DASHBOARD": 1172,
           "FK_ID_QUERY": null,
           "WIDGET_TYPE": null,
           "LABEL": "Query Select",
@@ -1927,8 +1927,8 @@
           "IS_DYNAMIC": true
         },
         {
-          "PK_ID": 2589,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 2682,
+          "FK_ID_DASHBOARD": 1172,
           "FK_ID_QUERY": null,
           "WIDGET_TYPE": null,
           "LABEL": "Number",
@@ -1941,8 +1941,8 @@
           "IS_DYNAMIC": false
         },
         {
-          "PK_ID": 2590,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 2683,
+          "FK_ID_DASHBOARD": 1172,
           "FK_ID_QUERY": null,
           "WIDGET_TYPE": null,
           "LABEL": "Number",
@@ -1955,8 +1955,8 @@
           "IS_DYNAMIC": false
         },
         {
-          "PK_ID": 2591,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 2684,
+          "FK_ID_DASHBOARD": 1172,
           "FK_ID_QUERY": null,
           "WIDGET_TYPE": null,
           "LABEL": "Boolean",
@@ -1969,8 +1969,8 @@
           "IS_DYNAMIC": false
         },
         {
-          "PK_ID": 2601,
-          "FK_ID_DASHBOARD": 1137,
+          "PK_ID": 2685,
+          "FK_ID_DASHBOARD": 1172,
           "FK_ID_QUERY": null,
           "WIDGET_TYPE": null,
           "LABEL": "Query Select Multiple",
