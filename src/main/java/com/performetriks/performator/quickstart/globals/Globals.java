@@ -6,6 +6,7 @@ import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.data.PFRDataSource;
 import com.performetriks.performator.data.PFRDataSource.AccessMode;
 import com.performetriks.performator.data.PFRDataSource.RetainMode;
+import com.performetriks.performator.http.PFRHttp;
 import com.xresch.hsr.base.HSRConfig;
 import com.xresch.hsr.reporting.HSRReporterCSV;
 import com.xresch.hsr.reporting.HSRReporterDatabasePostGres;
@@ -135,6 +136,8 @@ public class Globals {
 		// Plugin: PFRHttp Settings
 		// PFRHttp.defaultResponseTimeout(HSRTimeUnit.s.toMillis(60)); // set default HTTP timeout to 60 seconds
 		// PFRHttp.defaultPause(100, 500); // Wait 100 to 500 ms after each request to add some randomity 
+		// PFRHttp.getConnectionManager().setMaxTotal(1000);
+		// PFRHttp.getConnectionManager().setDefaultMaxPerRoute((50);
 		
 		//--------------------------
 		// Define Sysout Reporters

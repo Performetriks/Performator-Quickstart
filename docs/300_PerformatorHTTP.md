@@ -2,6 +2,16 @@
 Following is the documentation of the Performator HTTP plugin.
  
 
+# Troubleshooting
+
+### Measured Response times are much higher then when checking the website manualls
+If you do a lot of requests, you might need to increase the settings of the connection pool:
+
+```java
+	PFRHttp.getConnectionManager().setMaxTotal(1000);
+	PFRHttp.getConnectionManager().setDefaultMaxPerRoute((50);
+```
+
 # Basics
 
 ### Maven Dependency
