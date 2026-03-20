@@ -4,7 +4,9 @@ Executors define how a use case should be executed. They define the amount of lo
 List of executors:
 
 * [Executor Standard](#executor-standard): Executes a use case with a standard load pattern, based on amount of users and executions per hour.
-* [Executor Once](#executor-once): A simple executor that executes a use case once, useful for debugging, checks or functional tests.
+* [Executor Once](#executor-once): Executes a use case once, useful for debugging, checks or functional tests.
+* [Executor Repeat](#executor-repeat): Lets you execute a usecase sequentially with one user for a certain amount of repetitions.
+* [Executor Increase](#executor-increase): Execute a usecase with increasing amount of users until a max amount of users is reached.
 * [Executor Sequential](#executor-sequential): This executor let's you execute other executors in sequence.
 
 # Executor Standard
@@ -58,7 +60,7 @@ this.add( new PFRExecRepeat(UsecaseCheckTestdata.class, recordCount) );
 ```
 
 # Executor Increase
-This executor lets you execute a usesace with increasing amount of users until a max amount of users is reached.
+This executor lets you execute a usecase with increasing amount of users until a max amount of users is reached.
 This is similar to the Standard executor, but instead of users and execs/hour, with this executor you control
 the load by defining the rampUp and pacing.
 
