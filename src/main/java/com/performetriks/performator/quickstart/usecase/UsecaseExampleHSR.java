@@ -109,6 +109,8 @@ public class UsecaseExampleHSR extends PFRUsecase {
 			int multiplier = HSR.Random.integer(0, 10);
 			int count = multiplier * HSR.Random.integer(1, 900);
 			int duration = multiplier * HSR.Random.integer(10, 1000);
+			// add 10% zeros
+			count = (HSR.Random.integer(1,10) > 1) ? count : 0;
 			HSR.addMetricRanged("070.4 TableLoadTime", new BigDecimal(duration), count, 50);
 			
 		HSR.end(HSR.Random.fromArray(HSRRecordStatus.values()));
