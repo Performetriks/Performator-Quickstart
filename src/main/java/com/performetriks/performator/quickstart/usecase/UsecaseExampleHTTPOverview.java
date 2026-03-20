@@ -16,10 +16,9 @@ import com.performetriks.performator.http.PFRHttpResponse;
 import com.performetriks.performator.quickstart.globals.Globals;
 import com.xresch.hsr.stats.HSRExpression.Operator;
 import com.xresch.hsr.stats.HSRRecordStats.HSRMetric;
-import com.xresch.hsr.base.HSR;
 import com.xresch.hsr.stats.HSRSLA;
-import com.xresch.hsr.utils.ByteSize;
-import com.xresch.hsr.utils.HSRText.CheckType;
+import com.xresch.xrutils.data.ByteSize;
+import com.xresch.xrutils.utils.XRText.CheckType;
 
 import ch.qos.logback.classic.Logger;
 

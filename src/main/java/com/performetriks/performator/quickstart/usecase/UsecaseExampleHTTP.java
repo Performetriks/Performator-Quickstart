@@ -20,12 +20,12 @@ import com.performetriks.performator.http.PFRHttpCheck.PFRHttpCheckCustom;
 import com.performetriks.performator.http.PFRHttpResponse;
 import com.performetriks.performator.http.ResponseFailedException;
 import com.performetriks.performator.quickstart.globals.Globals;
+import com.xresch.hsr.base.HSR;
 import com.xresch.hsr.stats.HSRExpression.Operator;
 import com.xresch.hsr.stats.HSRRecordStats.HSRMetric;
-import com.xresch.hsr.base.HSR;
 import com.xresch.hsr.stats.HSRSLA;
-import com.xresch.hsr.utils.ByteSize;
-import com.xresch.hsr.utils.HSRTime.HSRTimeUnit;
+import com.xresch.xrutils.data.ByteSize;
+import com.xresch.xrutils.utils.XRTime.XRTimeUnit;
 
 import ch.qos.logback.classic.Logger;
 
@@ -46,7 +46,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 	public void initializeUser() {
 		url = Globals.ENV.url;
 		
-		PFRHttp.defaultResponseTimeout(HSRTimeUnit.s.toMillis(60)); // set default HTTP timeout to 60 seconds
+		PFRHttp.defaultResponseTimeout(XRTimeUnit.s.toMillis(60)); // set default HTTP timeout to 60 seconds
 		PFRHttp.defaultPause(100, 500); // Wait 100 to 500 ms after each request to add some randomity 
 		
 		PFRHttp.defaultThrowOnFail(true); // set that by default a request that fails will throw a ResponseFailedException 

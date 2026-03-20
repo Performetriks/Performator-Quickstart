@@ -6,7 +6,8 @@ import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.base.PFRUsecase;
 import com.performetriks.performator.data.PFRDataRecord;
 import com.performetriks.performator.data.PFRDataSource;
-import com.xresch.hsr.utils.HSRTime.HSRTimeUnit;
+import com.xresch.xrutils.utils.XRRandom;
+import com.xresch.xrutils.utils.XRTime.XRTimeUnit;
 
 public class UsecaseLoadDataCustom extends PFRUsecase {
 
@@ -17,29 +18,36 @@ public class UsecaseLoadDataCustom extends PFRUsecase {
 	 ************************************************************************/
 	@Override
 	public void initializeUser() {
-		
+				
 		
 		for(int i = 0 ; i < 100; i++) {
 			
-			//------------------------
-			// Create Data
+			//--------------------------------------------
+			// Basic Person Data
 			String firstname = PFR.Random.firstnameOfGod();
 			String lastname = PFR.Random.lastnameSweden();
 			String location = PFR.Random.mythicalLocation();
 			
-			//create birthday and age between 18 and 100
-			long birthdayMillis = PFR.Random.longInRange(HSRTimeUnit.y.offset(null, -100), HSRTimeUnit.y.offset(null, -18));
+			//--------------------------------------------
+			// Birthday and age between 18 and 100
+			long birthdayMillis = PFR.Random.longInRange(XRTimeUnit.y.offset(null, -100), XRTimeUnit.y.offset(null, -18));
 			String birthday = PFR.Time.formatMillis(birthdayMillis, "YYYY-MM-dd");
-			int age = (int)Math.ceil( HSRTimeUnit.y.difference(birthdayMillis, System.currentTimeMillis()) );
+			int age = (int)Math.ceil( XRTimeUnit.y.difference(birthdayMillis, System.currentTimeMillis()) );
 			
+			//--------------------------------------------
+			// Country Data
 			JsonObject countryData = PFR.Random.countryData();
 			String country = countryData.get("Country").getAsString();
 			String countryCode = countryData.get("CountryCode").getAsString();
 			String capital = countryData.get("Capital").getAsString();
 			
+			//--------------------------------------------
+			// Username And Email
 			String username = (firstname.charAt(0) +"."+ lastname).toLowerCase();
 			String email = (firstname +"."+ lastname + "@" + location.replace(" ", "-") + "." +countryCode).toLowerCase();
 
+			//--------------------------------------------
+			// Address
 			JsonObject address = new JsonObject();
 			address.addProperty("street", PFR.Random.street());
 			address.addProperty("city", capital);
@@ -47,7 +55,7 @@ public class UsecaseLoadDataCustom extends PFRUsecase {
 			address.addProperty("country", country);
 			
 			//------------------------
-			// Create Object
+			// Person Object
 			JsonObject object = new JsonObject();
 			
 			object.addProperty("id", i);
