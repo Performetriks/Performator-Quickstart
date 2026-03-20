@@ -17,21 +17,17 @@ https://github.com/Performetriks/Performator-Quickstart/tree/main/docs
 * [Plugin: Performator HTTP](./docs/300_PerformatorHTTP.md)
 * [Agents](./docs/350_Agents.md)
 
-# Quick Access
+# Copy & Paste Quick Access
+Just a section with useful code snippets to copy & paste instead of having to search for them in the depths of the documentation:
 
-Running a test:
+### General 
+**Execute:** Execute a test with maven:
 
 ```
 mvn clean verify -Dpfr_test="com.performetriks.performator.quickstart.tests.PFRTestExample"
 ```
 
-Starting the HTTP Converter of the Performator HTTP Plugin:
-
-```java
-mvn clean verify -Dpfr_mode=httpconverter
-```
-
-Enable Debug logs:
+**Debug Logs:** Enable Debug logs:
 
 ``` java
 // General
@@ -43,3 +39,39 @@ HSRConfig.setLogLevel(Level.DEBUG, "com.xresch.hsr");
 PFRHttp.debugLogFail(true);
 PFRHttp.debugLogAll(true);
 ```
+
+### HTTP Plugin 
+**HTTP Converter:** Starting the HTTP Converter of the Performator HTTP Plugin:
+
+```java
+mvn clean verify -Dpfr_mode=httpconverter
+```
+
+
+
+**HTTP - Ranged Metric: Json Array Count:** Get amount of items in the response and make a ranged metric:
+
+``` java
+int count = JsonPath.read(r.getBody(), "$.accounts.length()");
+HSR.addMetricRanged(
+  r.getName() + " - #Accounts"
+  , new BigDecimal(r.getDuration())
+  , count
+  , 5
+);
+```
+
+**HTTP - Ranged Metric: Response Size:** Make a ranged metric for the response size:
+
+``` java
+BigDecimal size = r.getBodySize(ByteSize.KB);
+HSR.addMetricRanged(
+  r.getName() + " - SizeKB"
+  , new BigDecimal(r.getDuration())
+  , size.intValue()
+  , 5
+);
+```
+
+
+
