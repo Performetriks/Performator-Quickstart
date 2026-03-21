@@ -6,8 +6,7 @@ import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.base.PFRUsecase;
 import com.performetriks.performator.data.PFRDataRecord;
 import com.performetriks.performator.data.PFRDataSource;
-import com.xresch.xrutils.utils.XRRandom;
-import com.xresch.xrutils.utils.XRTime.XRTimeUnit;
+import com.xresch.xrutils.utils.XRTimeUnit;
 
 public class UsecaseLoadDataCustom extends PFRUsecase {
 
