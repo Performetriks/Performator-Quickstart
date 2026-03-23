@@ -160,6 +160,16 @@ int duration = multiplier * HSR.Random.integer(10, 1000);
 HSR.addMetricRanged("070.4 TableLoadTime", new BigDecimal(duration), count, 50);					
 ```
 
+# Reporting Custom Status Code
+To report a custom status code(e.g HTTP Status Code, Failure code etc...) use one of the HSR.end() methods.
+Calling something like `HSR.end().code()` will not work as `.code()` should never be called after `.end()` has ben executed.
+
+```java
+HSR.end(true, "SUCCESS");
+HSR.end(HSRRecordStatus.Failed, "FAIL");
+```
+
+
 # Customize Exception Stacktrace
 By default, the 3 bottom stacktrace elements are included and a total of 10 elements that are not skipped. 
 You can adjust the amount of stack elements you want to see and add additional packages that should be skipped using the following methods:
