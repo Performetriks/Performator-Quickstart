@@ -198,8 +198,36 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 				
 			
 			//=======================================
+			// With headers, params and body
+			r = PFRHttp.create("030_Query", url+"/app/api") 
+					.sla(SLA_P90_AND_FAILRATE)
+					.POST()
+					.header("accept", "*/*")
+					.header("accept-encoding", "gzip, deflate, br, zstd")
+					.param("apiName", "Query")
+					.param("actionName", "execute")
+					.param("JSON_TIME", """
+					{
+						    "offset": "30-m",
+						    "earliest": 1774262464302,
+						    "latest": 1774264264303,
+						    "clientTimezoneOffset": -60
+					}
+					""")
+					.body("""
+							| source random records = 10
+							| remove URL
+							| set TIME = timeformat("yyyy-MM-dd'T'HH:mm:ss", TIME)
+					""")
+					.checkStatusEquals(200) 
+					.checkBodyContains("FIRSTNAME")
+					.send()
+					;
+			
+			
+			//=======================================
 			// Testing Failing Requests
-			r = PFRHttp.create("030_UnkownPage", url+"/app/doesNotExist") 
+			r = PFRHttp.create("040_UnkownPage", url+"/app/doesNotExist") 
 					.sla(SLA_P90_AND_FAILRATE)
 					.POST()
 					.allowHTTPErrors() // disables auto-fail when you want to test pages that return HTTP status >= 400
