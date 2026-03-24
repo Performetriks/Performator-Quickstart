@@ -1,5 +1,6 @@
 package com.performetriks.performator.quickstart.usecase;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -204,6 +205,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 					.POST()
 					.header("accept", "*/*")
 					.header("accept-encoding", "gzip, deflate, br, zstd")
+					.header("content-type", "application/json")
 					.param("apiName", "Query")
 					.param("actionName", "execute")
 					.param("JSON_TIME", """
@@ -214,6 +216,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 						    "clientTimezoneOffset": -60
 					}
 					""")
+					.bodyCharset(StandardCharsets.ISO_8859_1)
 					.body("""
 							| source random records = 10
 							| remove URL

@@ -1,5 +1,7 @@
 package com.performetriks.performator.quickstart.globals;
 
+import java.util.HashMap;
+
 import org.slf4j.LoggerFactory;
 
 import com.performetriks.performator.base.PFR;
@@ -87,11 +89,11 @@ public class Globals {
 	 ************************************************************************/
 	public static void commonInitialization(boolean storeInDB) {
 		
-		//--------------------------
+		//==================================================
 		// Report Interval
 		HSRConfig.setInterval(REPORT_INTERVAL_SECONDS);
 		
-		//--------------------------
+		//==================================================
 		// Load Test Data CSV	
 		DATA = PFR.Data.newSourceCSV(ENV.getTestdataPackage(), "testdata.csv", ",")
 				.accessMode(AccessMode.SEQUENTIAL)
@@ -99,7 +101,7 @@ public class Globals {
 				.build();
 		;
 				
-		//--------------------------
+		//==================================================
 		// Load Test Data JSON
 //		DATA = PFR.Data.newSourceJson(ENV.getTestdataPackage(), "testdata.json")
 //						.accessMode(AccessMode.SEQUENTIAL)
@@ -107,18 +109,18 @@ public class Globals {
 //						.build();
 //						;
 		
-		//--------------------------
+		//==================================================
 		// Log Levels
 		HSRConfig.setLogLevelRoot(Level.WARN);
 		HSRConfig.setLogLevel(Level.INFO, "com.performetriks.performator");
 		HSRConfig.setLogLevel(Level.INFO, "com.xresch.hsr");
 		
-		//--------------------------
+		//==================================================
 		// Set Test Properties
 		HSRConfig.addProperty("[Custom] Environment", ENV.toString());
-		HSRConfig.addProperty("[Custom] Testdata records", ""+DATA.size());
+		HSRConfig.addProperty("[Custom] Testdata records", "" + DATA.size());
 		
-		//--------------------------
+		//==================================================
 		// Optional: Disabling System Usage Stats
 //		HSRConfig.statsProcessMemory(false);
 //		HSRConfig.statsHostMemory(false);
@@ -127,32 +129,33 @@ public class Globals {
 //		HSRConfig.statsDiskIO();
 //		HSRConfig.statsNetworkIO();
 		
-		//--------------------------
-		// Optional: Log every datapoint
-		// potential performance impact, debug use only
-//		HSRConfig.setRawDataLogPath(DIR_RESULTS+"/raw.log");
-		
-		//--------------------------
+		//==================================================
 		// Plugin: PFRHttp Settings
+		PFRHttp.defaultUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"); // set default HTTP timeout to 60 seconds
+
+		HashMap<String,String> defaultHeaders = new HashMap<>();
+		defaultHeaders.put("x-dynatrace", "PerformatorTest");
+		PFRHttp.defaultHeaders(defaultHeaders);
+		
 		// PFRHttp.defaultResponseTimeout(HSRTimeUnit.s.toMillis(60)); // set default HTTP timeout to 60 seconds
 		// PFRHttp.defaultPause(100, 500); // Wait 100 to 500 ms after each request to add some randomity 
 		// PFRHttp.getConnectionManager().setMaxTotal(1000);
 		// PFRHttp.getConnectionManager().setDefaultMaxPerRoute((50);
 		
-		//--------------------------
+		//==================================================
 		// Define Sysout Reporters
 		HSRConfig.addReporter(new HSRReporterSysoutAsciiTable(75));
 		//HSRConfig.addReporter(new HSRReporterSysoutCSV(" | "));
 		//HSRConfig.addReporter(new HSRReporterSysoutJson());
 		
-		//--------------------------
+		//==================================================
 		// Define File Reporters
 		HSRConfig.addReporter(new HSRReporterJson( DIR_RESULTS + "/hsr-stats.json", true) );
 		HSRConfig.addReporter(new HSRReporterCSV( DIR_RESULTS + "/hsr-stats.csv", ",") );
 		HSRConfig.addReporter(new HSRReporterHTML( DIR_RESULTS + "/HTMLReport") );
 		
 
-		//------------------------------
+		//==================================================
 		// DB Age-Out Settings
 		
 		// !!!IMPORTANT!!! Age out can take quite a long time to complete depending on the amount of data to be processed
@@ -168,7 +171,7 @@ public class Globals {
 //				.keep60MinFor(Duration.ofDays(180))
 //		);
 		
-		//--------------------------
+		//==================================================
 		// Database Reporters		
 		if(storeInDB) {
 			HSRConfig.addReporter(
@@ -182,17 +185,8 @@ public class Globals {
 				)
 			);
 		}
-		
-    	//------------------------------
-    	// EMP Reporter
-//		HSRConfig.addReporter(
-//    			new HSRReporterEMP(
-//    					"http://localhost:8888"
-//    					,"gatlytron-test-token-MSGIUzrLyUsOypYOkekVgmlfjMpLbRCA"
-//    				)
-//    			);
-    	
-    	//------------------------------
+		    	
+    	//==================================================
     	// JDBC DB Reporter
 //		HSRConfig.addReporter(
 //    			new HSRReporterDatabaseJDBC("org.h2.Driver"

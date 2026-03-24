@@ -133,16 +133,16 @@ To work with the **Propagated** scope, it is useful to know that it depends wher
   * **On Usecase: ** When you change the config in a Usecase-Class, it will affect the user threads of that use case.
   
 
-## Logging 
+## Logging & Debugging
 Performator is using SLF4J with Logback to manage the logging. 
 
-When you want to create your own logger, Use the SLF4J `LoggerFactory` and cast the result to `ch.qos.logback.classic.Logger`:
+When you want to create your own logger, Use the SLF4J `Logger` and `LoggerFactory`:
 
 ``` java 
-private static Logger logger = (Logger)LoggerFactory.getLogger(UsecaseExampleMinimal.class.getName());
+private static Logger logger = LoggerFactory.getLogger(UsecaseExampleMinimal.class.getName());
 ```
 
-The [HSR](https://github.com/xresch/HieraStatsReport) framework also provides methods to configure the LogLevels directly in code:
+**HSRConfig:** The [HSR](https://github.com/xresch/HieraStatsReport) framework also provides methods to configure the LogLevels directly in code:
 
 ``` java
 //--------------------------
@@ -152,7 +152,7 @@ HSRConfig.setLogLevel(Level.INFO, "com.performetriks.performator");
 HSRConfig.setLogLevel(Level.INFO, "com.xresch.hsr");
 ```
 
-Some of the Performator plugins provide additional methods to define logging, like the PFRHttp plugin:
+**Plugins:** Some of the Performator plugins provide additional methods to define logging, like the PFRHttp plugin:
 
 ``` java
 //-------------------------------
@@ -162,6 +162,13 @@ PFRHttp.debugLogAll(true); 	// log details for all request
 // add custom details to logs, very useful to find failing test data
 PFRContext.logDetailsAdd("user", user); 
 PFRContext.logDetailsAdd("data", data); 
+```
+
+**Breakpoint:** If you want to interrupt your use case after a specific step, you can use the following statement:
+
+``` java
+if(1==1) return;
+
 ```
 
 ## Reporting
