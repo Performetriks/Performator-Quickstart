@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.hc.client5.http.impl.cookie.BasicClientCookie;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.gson.JsonArray;
@@ -28,7 +29,6 @@ import com.xresch.hsr.stats.HSRSLA;
 import com.xresch.xrutils.data.ByteSize;
 import com.xresch.xrutils.utils.XRTimeUnit;
 
-import ch.qos.logback.classic.Logger;
 
 public class UsecaseExampleHTTP extends PFRUsecase {
 
@@ -36,7 +36,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			new HSRSLA(HSRMetric.p90, Operator.LTE, 500) // p90 <= 500ms
 				  .and(HSRMetric.failrate, Operator.LTE, 5); // failure rate <= 5%
 	
-	private static Logger logger = (ch.qos.logback.classic.Logger)LoggerFactory.getLogger(UsecaseExampleHTTP.class.getName());
+	private static Logger logger = LoggerFactory.getLogger(UsecaseExampleHTTP.class.getName());
 	
 	private String url;
 	

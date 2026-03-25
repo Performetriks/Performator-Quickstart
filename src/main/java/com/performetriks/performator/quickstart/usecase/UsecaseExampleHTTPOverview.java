@@ -1,6 +1,7 @@
 package com.performetriks.performator.quickstart.usecase;
 
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
@@ -80,9 +81,11 @@ public class UsecaseExampleHTTPOverview extends PFRUsecase {
 				.param("username", user)			// add a request parameter, might override existing
 				.headers(defaultHeaders())			// add multiple request headers
 				.header("Accept-Language", "de")	// add a request header, might override existing
+				.header("Content-Type", "application/json; charset=UTF-8")	// add a content type header
+				.bodyCharset(StandardCharsets.UTF_8)// adds the charset for body, ignored if it is defined in the Content-Type header
 				.body("my request body")			// add a request body without content type
 				.body("value", "text/plain")		// add a request body with a custom content type
-				.bodyJSON("{\"key\": \"value\"}")	// add a request body with content type "application/json; charset=UTF-8"
+				.bodyJSON("{\"key\": \"value\"}")	// add a request body with content-type "application/json; charset=UTF-8"
 				
 				.setAuthCredentialsBasic("user", "pw") 								// set credentials for basic authentication
 				.setAuthCredentials(PFRHttpAuthMethod.BASIC, "user", "pw") 			// same as above
