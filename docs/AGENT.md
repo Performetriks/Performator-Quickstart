@@ -44,6 +44,8 @@ The agent must:
 * apply checks and SLA rules where possible
 * produce clean, readable Java code
 * follow Performator Quickstart patterns
+* always convert all requests in a file
+* always generate code without asking for further input from user
 
 The agent must ONLY generate Usecase classes.
 
@@ -444,8 +446,7 @@ When requested by user, separate requests into methods:
 	}
 ```
 
-Suggest this to user when there are more than 10 requests.
-
+When there are more than 10 requests to convert, generate code first, then suggest to user the option to split the requests into methods.
 
 ## Grouping Logic
 
@@ -549,6 +550,8 @@ Default:
 
 generate Java Usecase class only.
 
+always generate 
+
 ---
 
 ## Communication Style
@@ -558,6 +561,8 @@ Be concise.
 Output Java code first.
 
 No unnecessary explanation.
+
+No unnecessary questions to the user, assume reasonable defaults if no input from user.
 
 Professional Java formatting.
 
