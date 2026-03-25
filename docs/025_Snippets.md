@@ -55,6 +55,40 @@ HSR.addMetricRanged(
 );
 ```
 
+### JsonPath (Jayway)
+
+Example data:
+
+```javascript
+{
+	"success": true,
+	"message": "successful",
+	"count": 5,
+	"payload": 
+	[
+	  { "id": 0, "firstname": "Aurora",   "status": "NEW",       "balance": 67.7 },
+	  { "id": 1, "firstname": "Hera",     "status": "OPEN",      "balance": 91.3 },
+	  { "id": 2, "firstname": "Rhea",     "status": "CLOSED",    "balance": 57.8 },
+	  { "id": 3, "firstname": "Zeus",     "status": "CLOSED",    "balance": 113.4},
+	  { "id": 4, "firstname": "Hercules", "status": "CANCELLED", "balance": 129.1}	
+	]
+}
+```
+
+| JsonPath                                | Result                                                       |
+|:----------------------------------------|:-------------------------------------------------------------|
+| Boolean                                 | `Boolean success      = ctx.read("$.success");`              |
+| String                                  | `String message       = ctx.read("$.message");`              |
+| Integer:                                | `Integer count        = ctx.read("$.count");`                |
+| Array: Length                           | `Integer count        = ctx.read("$.payload.length()");`     |
+| Array: First ID                         | `Integer id           = ctx.read("$.payload[0].id");`        |
+| Array: Last ID                          | `Integer id           = ctx.read("$.payload[-1].id");`       |
+| Array: All IDs                          | `List<Integer> IDs    = ctx.read("$.payload[*].id");`        |
+| Array: All IDs with balance > 100       | `List<Integer> IDs    = ctx.read("$.payload[?(@.balance > 100)].id");`        |
+| Array: All IDs in status NEW or OPEN    | `List<Integer> IDs    = ctx.read("$.payload[?(@.status == 'NEW' || @.status == 'OPEN')].id");`        |
+
+
+
 ### Generate Random Testdata
 
 **Person Array:** Array of custom personal data:
