@@ -16,5 +16,5 @@ https://github.com/Performetriks/Performator-Quickstart/tree/main/docs
 * [Data Insertion](./docs/200_DataInsertion.md)
 * [HSR Basics](./docs/250_HSR_Basics.md)
 * [Plugin: Performator HTTP](./docs/300_PerformatorHTTP.md)
-* [Agents](./docs/350_Agents.md)
+* [Load Test Agents](./docs/350_LoadAgents.md)
 

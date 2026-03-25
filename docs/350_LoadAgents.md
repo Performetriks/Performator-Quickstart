@@ -1,5 +1,5 @@
 
-# Agents
+# Load Test Agents
 (**Note:** This feature is considered to be in experimental stage.)
 AGents can be used to distribute your test onto multiple machines. This can be useful if you need to execute tests that need a lot of machine power, either because of high amount of transactions or because of the technology you execute(e.g. broswer simulations).
 
