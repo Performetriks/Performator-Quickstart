@@ -36,6 +36,22 @@ this.add(
 );
 ```
 
+Executor Pattern:
+
+```text
+> = offset
+# = execution time 
+- = waiting time
+| = pacing
+
+User 1: >>>>|###-----------------|########------------|#-------------------|#####---------------|
+User 2: >>>>    |#####---------------|###-----------------|#######-------------|#-------------------|
+User 3: >>>>        |##------------------|##########----------|#####---------------|#####---------------|
+User 4: >>>>            |##########----------|#####---------------|##------------------|######--------------|
+User 5: >>>>                |####----------------|#-------------------|#####---------------|###-----------------|
+
+```
+
 # Executor Once
 A simple executor that executes a use case once, useful for debugging, checks or functional tests.
 
@@ -50,6 +66,16 @@ You can as well specify an offset in seconds for starting it later.
 this.add( new PFRExecOnce(UsecaseExampleHTTP.class, 30) ); 
 ```
 
+Executor Pattern:
+
+```text
+> = offset
+# = execution time 
+
+User 1: >>>>###
+
+```
+
 # Executor Repeat
 This executor lets you execute a usecase sequentially with one user for a certain amount of repetitions.
 This can be useful to check all the records of your test data, for example:
@@ -59,6 +85,16 @@ int recordCount = Globals.DATA.size();
 this.add( new PFRExecRepeat(UsecaseCheckTestdata.class, recordCount) ); 
 ```
 
+Executor Pattern:
+
+```text
+> = offset
+# = execution time 
+| = repetition
+
+User 1: >>>>###|##|###|########|###
+
+```
 # Executor Increase
 This executor lets you execute a usecase with increasing amount of users until a max amount of users is reached.
 This is similar to the Standard executor, but instead of users and execs/hour, with this executor you control
@@ -71,6 +107,24 @@ This executor can be useful to do scalability testing.
 new PFRExecIncrease(UsecaseExampleHSR.class, 1		, 3		, 1000		, 60		, 0);
 ```
 
+Executor Pattern:
+
+```text
+> = offset
+o = interval
+# = execution time 
+- = waiting time
+| = pacing
+
+User 1:   >>>>|###-----------------|########------------|#-------------------|#####---------------|
+User 2:   >>>>oooo|#####---------------|###-----------------|#######-------------|#-------------------|
+User 3:   >>>>    oooo|##------------------|##########----------|#####---------------|#####---------------|
+User 4:   >>>>        oooo|##########----------|#####---------------|##------------------|######--------------|
+User 5:   >>>>            oooo|####----------------|#-------------------|#####---------------|###-----------------|
+[... a few moments later ...]
+User N-1: >>>>                                          oooo|####----------------|#-------------------|#####---------------|###-----------------|
+User N:   >>>>                                              oooo|####----------------|#-------------------|#####---------------|###-----------------|
+```
 
 # Executor Sequential
 This executor let's you execute other executors in sequence.
@@ -83,4 +137,16 @@ this.add(
 		.add( new PFRExecOnce(UsecaseLast.class) )
 		
 );
+```
+
+Executor Pattern:
+
+```text
+[...] = Other Executor
+#     = execution time 
+
+Executor 1: [####PFRExecOnce####]
+Executor 2:                      [###################PFRExecStandard#####################]
+Executor 3:                                                                               [###PFRExecOnce###]
+...
 ```
