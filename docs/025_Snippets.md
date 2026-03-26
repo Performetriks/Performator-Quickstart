@@ -30,13 +30,12 @@ mvn clean verify -Dpfr_mode=httpconverter
 ```
 
 
-
 **HTTP - Ranged Metric: Json Array Count:** Get amount of items in the response and make a ranged metric:
 
 ``` java
 int count = JsonPath.read(r.getBody(), "$.accounts.length()");
 HSR.addMetricRanged(
-  r.getName() + " - #Accounts"
+    r.getName() + " - #Accounts"
   , new BigDecimal(r.getDuration())
   , count
   , 5
@@ -46,16 +45,19 @@ HSR.addMetricRanged(
 **HTTP - Ranged Metric: Response Size:** Make a ranged metric for the response size:
 
 ``` java
+PFRHttp.create(...).measureSize(ByteSize.KB)
+
+// or with custom name
 BigDecimal size = r.getBodySize(ByteSize.KB);
 HSR.addMetricRanged(
-  r.getName() + " - SizeKB"
+  r.getName() + " - Response(KB)"
   , new BigDecimal(r.getDuration())
   , size.intValue()
   , 5
 );
 ```
 
-### JsonPath (Jayway)
+### JsonPath (JayWay)
 
 Example data:
 
@@ -75,11 +77,13 @@ Example data:
 }
 ```
 
+Example Queries:
+
 | JsonPath                                | Result                                                       |
 |:----------------------------------------|:-------------------------------------------------------------|
 | Boolean                                 | `Boolean success      = ctx.read("$.success");`              |
 | String                                  | `String message       = ctx.read("$.message");`              |
-| Integer:                                | `Integer count        = ctx.read("$.count");`                |
+| Integer                                 | `Integer count        = ctx.read("$.count");`                |
 | Array: Length                           | `Integer count        = ctx.read("$.payload.length()");`     |
 | Array: First ID                         | `Integer id           = ctx.read("$.payload[0].id");`        |
 | Array: Last ID                          | `Integer id           = ctx.read("$.payload[-1].id");`       |

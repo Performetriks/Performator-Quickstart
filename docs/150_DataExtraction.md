@@ -51,41 +51,35 @@ As JsonPath parses the response, it is recommended to parse it once in case you 
 DocumentContext ctx = JsonPath.parse(r.getBody());
 ```
 
-## List of IDs
-Extracts from `{"payload": [{"id": 1}, {"id": 2}, ...]}`:
+Example data:
 
-```java
-List<Integer> allIDs = ctx.read("$.payload[*].id");
+```javascript
+{
+	"success": true,
+	"message": "successful",
+	"count": 5,
+	"payload": 
+	[
+	  { "id": 0, "firstname": "Aurora",   "status": "NEW",       "balance": 67.7 },
+	  { "id": 1, "firstname": "Hera",     "status": "OPEN",      "balance": 91.3 },
+	  { "id": 2, "firstname": "Rhea",     "status": "CLOSED",    "balance": 57.8 },
+	  { "id": 3, "firstname": "Zeus",     "status": "CLOSED",    "balance": 113.4},
+	  { "id": 4, "firstname": "Hercules", "status": "CANCELLED", "balance": 129.1}	
+	]
+}
 ```
 
-## Length of Array
-Extracts from `{"payload": [{"id": 1}, {"id": 2}, ...]}`:
+Example Queries:
 
-```java
-Integer count = ctx.read("$.payload.length()");
-```
-
-## First ID in List
-Extracts from `{"payload": [{"id": 1}, {"id": 2}, ...]}`:
-
-```java
-Integer firstName = ctx.read("$.payload[0].id");
-
-```
-
-## Last ID in List
-Extracts from `{"payload": [{"id": 1}, {"id": 2}, ...]}`:
-
-```java
-Integer lastName = ctx.read("$.payload[-1].NAME");
-
-```
-
-## Extract Boolean
-Extracts from `{"payload": [{"isActive": true}, {"isActive": false}, ...]}`:
-
-```java
-Boolean thirdIsActive = ctx.read("$.payload[0].isActive");
-
-```
+| JsonPath                                | Result                                                       |
+|:----------------------------------------|:-------------------------------------------------------------|
+| Boolean                                 | `Boolean success      = ctx.read("$.success");`              |
+| String                                  | `String message       = ctx.read("$.message");`              |
+| Integer                                 | `Integer count        = ctx.read("$.count");`                |
+| Array: Length                           | `Integer count        = ctx.read("$.payload.length()");`     |
+| Array: First ID                         | `Integer id           = ctx.read("$.payload[0].id");`        |
+| Array: Last ID                          | `Integer id           = ctx.read("$.payload[-1].id");`       |
+| Array: All IDs                          | `List<Integer> IDs    = ctx.read("$.payload[*].id");`        |
+| Array: All IDs with balance > 100       | `List<Integer> IDs    = ctx.read("$.payload[?(@.balance > 100)].id");`        |
+| Array: All IDs in status NEW or OPEN    | `List<Integer> IDs    = ctx.read("$.payload[?(@.status == 'NEW' || @.status == 'OPEN')].id");`        |
 
