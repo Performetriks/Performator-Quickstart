@@ -94,7 +94,7 @@ public class UsecaseGenerated extends PFRUsecase {
 			new HSRSLA(HSRMetric.p90, Operator.LTE, 500)     // p90 <= 500ms
 				  .and(HSRMetric.failrate, Operator.LTE, 5); // failure rate <= 5%
 	
-	private static Logger logger = (ch.qos.logback.classic.Logger)LoggerFactory.getLogger(UsecaseExampleHTTP.class.getName());
+	private static Logger logger = LoggerFactory.getLogger(UsecaseExampleHTTP.class.getName());
 	
 	private String url = "https://www.example.com/api";
 	
