@@ -36,7 +36,7 @@ There are a few differences between the Http Converter and using AI to create yo
 
 # Comments about different Free AIs
 
-Here some comments about using different Free AIs chatbots to generate Performator Scripts:
+Here some comments about using different Free AIs chatbots to generate Performator Scripts. These are results from short single tests by a single user, you might have different results.
 
 * **ChatGPT:** 
 	- Works out of the box after uploading the AGENT.md file.
@@ -53,6 +53,11 @@ Here some comments about using different Free AIs chatbots to generate Performat
 	- Generates nice code, but takes extremely long to do so.
 	- Hitting free message limit after a single convertion of a 2MB HAR file.
 
+* **Github Copilot:** 
+	- Files can be dragged and dropped from computer.
+	- Generates nice code with "Claude Haiku" model.
+	- Ignores larger files without giving an error message.
+
 * **DeepSeek:** 
 	- Works out of the box after uploading the AGENT.md file.
 	- Sometimes generates code that is rather verbose and not really intelligent, but does a great job fixing it when asked to do so.
@@ -61,9 +66,9 @@ Here some comments about using different Free AIs chatbots to generate Performat
 
 * **Google:** 
 	- You have to change from the default "Fast" model to at least the "Thinking" model, else it will not give you proper results.
-	- Basically does not work for HAR files. Ignores content of larger uploads and hallucinates random requests. This also happens with "Pro".
+	- Basically does not work for HAR files. Ignores content of larger uploads and hallucinates random requests. This also happens with "Pro" model.
 	
-* **Copilot:**
+* **Microsoft Copilot:**
 	- Is pretty touchy and gives strange complaints about "no citations allowed" when not explicity telling it to "convert the file".
 	- High tendency to garrulously justify why it cannot do the job or explaining the output, even after the AGENT.md file instructed it to be concise in it's communication.
 	- When uploading an input needs a message "please convert it" or else it complains that it cannot do it because of "internal restrictions" that it is not allowed to explain.
