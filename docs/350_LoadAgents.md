@@ -87,13 +87,13 @@ PFRConfig.setAgentPool(pool);
 You use the same command to execute a test with agents as you do execute a regular test. This executes the test with the default `-Dpfr_mode=auto`, which detects if you have defined agents for your test or not.
 
 ```java
-mvn clean verify -Dpfr_test=com.performetriks.performator.quickstart.tests.PFRTestExampleAgents
+mvn clean verify -Dpfr_test=com.performetriks.performator.quickstart.tests.basics.PFRTestExampleAgents
 ```
 
 If you want to force your test to execute on localhost without using agents, you can specify the parameter `-Dpfr_mode=local`, which will ignore any agent definitions and runs the full test locally.
 
 ```java
-mvn clean verify -Dpfr_mode=local -Dpfr_test=com.performetriks.performator.quickstart.tests.PFRTestExampleAgents
+mvn clean verify -Dpfr_mode=local -Dpfr_test=com.performetriks.performator.quickstart.tests.basics.PFRTestExampleAgents
 ```
 
 # Web API Endpoints

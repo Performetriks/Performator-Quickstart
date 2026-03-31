@@ -6,7 +6,7 @@ This page lists useful code snippets to copy & paste instead of having to search
 **Execute:** Execute a test with maven:
 
 ```
-mvn clean verify -Dpfr_test="com.performetriks.performator.quickstart.tests.PFRTestExample"
+mvn clean verify -Dpfr_test="com.performetriks.performator.quickstart.tests.basics.PFRTestExample"
 ```
 
 **Debug Logs:** Enable Debug logs:
