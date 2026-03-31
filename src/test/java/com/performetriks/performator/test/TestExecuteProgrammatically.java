@@ -1,7 +1,7 @@
 package com.performetriks.performator.test;
 
 import com.performetriks.performator.base.PFRCoordinator;
-import com.performetriks.performator.quickstart.tests.PFRTestExample;
+import com.performetriks.performator.quickstart.tests.basics.PFRTestExample;
 
 /***************************************************************************
  * This is an example on how to programmatically execute a test on the 

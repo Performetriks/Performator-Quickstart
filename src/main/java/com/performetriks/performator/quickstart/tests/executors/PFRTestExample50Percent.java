@@ -2,7 +2,7 @@ package com.performetriks.performator.quickstart.tests.executors;
 
 import com.performetriks.performator.executors.PFRExec;
 import com.performetriks.performator.executors.PFRExecStandard;
-import com.performetriks.performator.quickstart.tests.PFRTestExample;
+import com.performetriks.performator.quickstart.tests.basics.PFRTestExample;
 
 /***************************************************************************
  * An example on how you can adapt a test to a certain percentage, without
