@@ -157,7 +157,15 @@ HSR.addMetric("070.3 Metric: TimeWalked", HSR.Random.bigDecimal(100, 300));
 int multiplier = HSR.Random.integer(0, 10);
 int count = multiplier * HSR.Random.integer(1, 900);
 int duration = multiplier * HSR.Random.integer(10, 1000);
-HSR.addMetricRanged("070.4 TableLoadTime", new BigDecimal(duration), count, 50);					
+HSR.addMetricRanged("070.4 TableLoadTime", new BigDecimal(duration), count, 50);			
+
+//-------------------------------
+// Ranged Metric For Record
+HSRRecord record = HSR.end();
+int count = <yourCount>;
+
+HSR.addMetricRanged( record, " - #Count", count, 5);
+HSR.addMetricRangedWithSLA(record, " - #Count", count, 5);		
 ```
 
 # Reporting Custom Status Code

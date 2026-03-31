@@ -22,6 +22,16 @@ PFRHttp.debugLogFail(true);
 PFRHttp.debugLogAll(true);
 ```
 
+**Ranged Metric - for Record:** Make a ranged metric for a record that has been ended:
+
+``` java
+HSRRecord record = HSR.end();
+int count = <yourCount>;
+
+HSR.addMetricRanged( record, " - #Count", count, 5);
+HSR.addMetricRangedWithSLA(record, " - #Count", count, 5);
+```
+
 ### HTTP Plugin 
 **HTTP Converter:** Starting the HTTP Converter of the Performator HTTP Plugin:
 

@@ -4,7 +4,7 @@ Following is the documentation of the Performator HTTP plugin.
 
 # Troubleshooting
 
-### Measured Response times are much higher then when checking the website manualls
+### Measured Response times are much higher compared to checking the website manually
 If you do a lot of requests, you might need to increase the settings of the connection pool:
 
 ```java

@@ -1,6 +1,5 @@
 package com.performetriks.performator.quickstart.usecase;
 
-import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -9,7 +8,10 @@ import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.base.PFRUsecase;
 import com.performetriks.performator.database.PFRDB;
 import com.xresch.hsr.base.HSR;
+import com.xresch.hsr.stats.HSRExpression.Operator;
 import com.xresch.hsr.stats.HSRRecord;
+import com.xresch.hsr.stats.HSRRecordStats.HSRMetric;
+import com.xresch.hsr.stats.HSRSLA;
 import com.xresch.xrutils.data.Unrecord;
 
 public class UsecaseExampleDatabase extends PFRUsecase {
@@ -20,6 +22,11 @@ public class UsecaseExampleDatabase extends PFRUsecase {
 			, "postgres"	// user
 			, "postgres"	// pw
 		);
+	
+	private static final HSRSLA SLA_DEFAULT = 
+			new HSRSLA(HSRMetric.p90, Operator.LTE, 200) // p90 <= 500ms
+				  .and(HSRMetric.failrate, Operator.LTE, 5); // failure rate <= 5%
+	
 	
 	/************************************************************************
 	 * 
@@ -49,29 +56,39 @@ public class UsecaseExampleDatabase extends PFRUsecase {
 
 		//------------------------------
 		// Query and get Unrecords
-		ArrayList<Unrecord> tests = db.create()
-							  .query("SELECT id, time, endtime from hsr_tests LIMIT 100")
-							  .toUnrecordList()
-							  ;
+		ArrayList<Unrecord> tests = 
+				db.create()
+					  .sla(HSRMetric.p90, Operator.LTE, 100)
+					  .query("SELECT id, time, endtime from hsr_tests LIMIT 100")
+					  .toUnrecordList()
+					  ;
 		
 		Unrecord randomTest = PFR.Random.fromArray(tests);
 		
 		//------------------------------
 		// Query with Ranged Metrics
 		db.create()
+			.sla(SLA_DEFAULT)
 			.enableRangedMetrics("#Stats", 100)
 			.query("SELECT * from hsr_stats WHERE testid = ?", randomTest.getInteger("id") )
 			.close()
 			;
 
-		
+		//------------------------------
+		// Failing 
+		db.create("Failing Query")
+			.sla(SLA_DEFAULT)
+			.query("SELECT * from non_existing_table WHERE tiramisuID = ?", randomTest.getInteger("id") )
+			.close()
+			;
 		//------------------------------
 		// Custom Metric Name
 		// If you don't want the SQL
 		// as the metric name
 		db.create("Aggregate Query") // use this as metric name instead of SQL
-		  .query("""
-		  	SELECT 
+			.sla(SLA_DEFAULT)
+			.query("""
+				SELECT 
 				      MIN("testid")
 					, MIN("time") + ((MAX("time") - MIN("time"))/2) AS "time"
 				    , "type","test","usecase","path","name","code"
@@ -136,6 +153,7 @@ public class UsecaseExampleDatabase extends PFRUsecase {
 			//------------------------------
 			// Temp Table
 			db.create("Temp Table: 010_Create")
+				.sla(SLA_DEFAULT)
 				.execute("CREATE TABLE IF NOT EXISTS " + tempTableName + """ 
 					(
 						id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY
@@ -154,10 +172,12 @@ public class UsecaseExampleDatabase extends PFRUsecase {
 			int numberOfInserts = PFR.Random.from(1, 10, 100, 500, 1000);
 			
 			String insertGroupName = "Temp Table: 020_InsertGroup";
-			HSR.startGroup(insertGroupName);
+			HSR.startGroup(insertGroupName)
+				.sla(SLA_DEFAULT);
 				for(int i = 0; i < numberOfInserts ; i++) {
 				
 					db.create("Temp Table: 030_Insert")
+						
 						.execute("INSERT INTO " + tempTableName + """ 
 								(time, name, description, properties, tags)
 								VALUES (?,?,?,?,?)
@@ -172,9 +192,9 @@ public class UsecaseExampleDatabase extends PFRUsecase {
 				}
 			HSRRecord record = HSR.end();
 			
-			HSR.addMetricRanged(
-					insertGroupName + " - #Inserts"
-				  , record.value()
+			HSR.addMetricRangedWithSLA(
+					record
+				  , " - #Inserts"
 				  , numberOfInserts
 				  , 5
 				);
@@ -182,6 +202,7 @@ public class UsecaseExampleDatabase extends PFRUsecase {
 			//------------------------------
 			// Query with Ranged Metrics
 			db.create("Temp Table: Read")
+				.sla(SLA_DEFAULT)
 				.enableRangedMetrics("#Records", 100)
 				.query("SELECT * from " + tempTableName)
 				;
