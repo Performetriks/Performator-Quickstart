@@ -1,8 +1,9 @@
-package com.performetriks.performator.quickstart.tests;
+package com.performetriks.performator.quickstart.tests.executors;
 
 import java.time.Duration;
 
 import com.performetriks.performator.base.PFRTest;
+import com.performetriks.performator.executors.PFRExecIncrease;
 import com.performetriks.performator.executors.PFRExecOnce;
 import com.performetriks.performator.executors.PFRExecSequential;
 import com.performetriks.performator.executors.PFRExecStandard;
@@ -13,7 +14,12 @@ import com.performetriks.performator.quickstart.usecase.UsecaseLoadDataCustom;
 import com.performetriks.performator.quickstart.usecase.UsecaseLoadDataWeb;
 
 /***************************************************************************
- * This example a basic test with two standard scenarios
+ * This example shows how to run a test with increasing load up to a maximum
+ * amount of users.
+ * This is similar to PFRExecStandard, however with this executor you control
+ * the load by defining based on the rampUp and the pacing.
+ * 
+ * This is useful to do scalability testing and find breaking points in your application.
  * 
  * Copyright Owner: Performetriks GmbH, Switzerland
  * License: MIT License
@@ -21,20 +27,14 @@ import com.performetriks.performator.quickstart.usecase.UsecaseLoadDataWeb;
  * @author Reto Scheiwiller
  * 
  ***************************************************************************/
-public class PFRTestExampleSequential extends PFRTest {
+public class PFRTestExampleIncrease extends PFRTest {
 
-	public PFRTestExampleSequential() {
+	public PFRTestExampleIncrease() {
 		
 		Globals.commonInitialization(true);
+															//users	, Interval	, maxUsers	, pacing	, offset
+		this.add( new PFRExecIncrease(UsecaseExampleHSR.class, 1	, 3			, 1000		, 60		, 0) );
 		
-		this.add(
-			new PFRExecSequential()
-				.add( new PFRExecOnce(UsecaseLoadDataCustom.class) )
-				.add( new PFRExecStandard(UsecaseExampleHSR.class, 10, 5000, 0, 5).maxDuration(Duration.ofSeconds(30) ) )
-				.add( new PFRExecOnce(UsecaseLoadDataWeb.class) )
-				
-		);
-
 		this.maxDuration(Duration.ofSeconds(90));
 		this.gracefulStop(Duration.ofSeconds(30));
 		

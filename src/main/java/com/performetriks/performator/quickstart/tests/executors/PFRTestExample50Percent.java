@@ -1,7 +1,8 @@
-package com.performetriks.performator.quickstart.tests;
+package com.performetriks.performator.quickstart.tests.executors;
 
 import com.performetriks.performator.executors.PFRExec;
 import com.performetriks.performator.executors.PFRExecStandard;
+import com.performetriks.performator.quickstart.tests.PFRTestExample;
 
 /***************************************************************************
  * An example on how you can adapt a test to a certain percentage, without
@@ -16,7 +17,7 @@ import com.performetriks.performator.executors.PFRExecStandard;
  ***************************************************************************/
 public class PFRTestExample50Percent extends PFRTestExample {
 										  // ^^^^^^^^^^^^^^
-										  // We are extending the scenario that we cant to adapt
+										  // We are extending the scenario that we want to adapt
 	
 	public PFRTestExample50Percent() {
 		
