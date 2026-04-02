@@ -63,9 +63,11 @@ Following an example command that starts the agent. Parameters:
 * **-Dpfr_mode=agent:** Tells the binary to start as an agent.
 * **-Dpfr_port:** The port of the agent, default is 9876.
 * **-Dpfr_agentbornePort:** The port of the test processes that are spawned by the agent, default is 9877.
+* **-Dpfr_loglevel:** The root log level of the agent(doesn't affect agentborne). Options: 'INFO', 'ERROR', 'WARN', 'INFO', 'DEBUG', 'TRACE', 'ALL', 'OFF'
+
 
 ```shell
-java -Dpfr_mode=agent -Dpfr_port=9876 -Dpfr_agentbornePort=9877 -jar performator-agent-#.#.#.jar
+java -Dpfr_mode=agent -Dpfr_port=9876 -Dpfr_agentbornePort=9877 -Dpfr_loglevel=INFO -jar performator-agent-#.#.#.jar
 ```
 
 # Define Agents

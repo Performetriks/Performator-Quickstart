@@ -43,7 +43,7 @@ pipeline{
 		// Log Level
 		choice(
 			  name: 'LogLevel'
-			, choices: ['INFO', 'ERROR','WARN', 'INFO', 'DEBUG', 'TRACE', 'ALL']
+			, choices: ['INFO', 'ERROR', 'WARN', 'INFO', 'DEBUG', 'TRACE', 'ALL', 'OFF']
 			, description:'Level of the root logger'
 		)
 
