@@ -69,18 +69,23 @@ java -Dpfr_mode=agent -Dpfr_port=9876 -Dpfr_agentbornePort=9877 -jar performator
 ```
 
 # Define Agents
-In your test class or in your Pass your variables as parameters to functions:
+Create a PFRAgentPool and define your agents using PFRAgent.
+You can add tags to your agents and deactivate whenever required using `.active(false)`.
 
 ```java
 //-----------------------------
 // Set Agents
 PFRAgentPool pool = new PFRAgentPool(
-		  new PFRAgent("lenovop16s", 7777)
-		, new PFRAgent("asusstrix", 7778)
-		, new PFRAgent("winserver123", 7779)
+		  new PFRAgent("deactivatedAgent", 9876	, "windows", "cloud").active(false)
+		, new PFRAgent("winserver123"    , 9876	, "windows", "cloud")
+		, new PFRAgent("localhost"       , 9876	, "windows", "dev", "test")
+		, new PFRAgent("asusstrix"       , 9876	, "windows", "dev")
+		, new PFRAgent("lenovop16s"      , 9876	, "windows", "test")
 	);
 
 PFRConfig.setAgentPool(pool);
+PFRConfig.setAgentTags("windows", "dev"); // filter agents that have all of these tags
+
 ```
 
 # Executing a Test with or without Agents
