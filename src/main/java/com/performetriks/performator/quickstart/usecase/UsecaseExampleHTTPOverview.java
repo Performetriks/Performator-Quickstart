@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 import org.slf4j.LoggerFactory;
 
 import com.performetriks.performator.base.PFRUsecase;
-import com.performetriks.performator.data.PFRDataRecord;
+import com.xresch.xrutils.data.Unrecord;
 import com.performetriks.performator.http.PFRHttp;
 import com.performetriks.performator.http.PFRHttp.PFRHttpAuthMethod;
 import com.performetriks.performator.http.PFRHttpCheck;
@@ -51,7 +51,7 @@ public class UsecaseExampleHTTPOverview extends PFRUsecase {
 		//=======================================
 		// Load Test Data Record
 
-		PFRDataRecord data = Globals.DATA.next();
+		Unrecord data = Globals.DATA.next();
 
 		String id = data.get("ID").getAsString();
 		String user = data.get("USER").getAsString();
@@ -142,7 +142,7 @@ public class UsecaseExampleHTTPOverview extends PFRUsecase {
 	/************************************************************************
 	 * 
 	 ************************************************************************/
-	private HashMap<String,String> getParameters(PFRDataRecord record)  {
+	private HashMap<String,String> getParameters(Unrecord record)  {
 		
 		HashMap<String,String> parameters = new LinkedHashMap<String,String>();
 		

@@ -15,7 +15,7 @@ import com.jayway.jsonpath.JsonPath;
 import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.base.PFRContext;
 import com.performetriks.performator.base.PFRUsecase;
-import com.performetriks.performator.data.PFRDataRecord;
+import com.xresch.xrutils.data.Unrecord;
 import com.performetriks.performator.http.PFRHttp;
 import com.performetriks.performator.http.PFRHttpCheck;
 import com.performetriks.performator.http.PFRHttpCheck.PFRHttpCheckCustom;
@@ -70,7 +70,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			return;
 		}
 		
-		PFRDataRecord record = Globals.DATA.next();
+		Unrecord record = Globals.DATA.next();
 
 		String user = record.getString("USER");
 		int value = record.getInteger("VALUE");

@@ -4,7 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.base.PFRUsecase;
-import com.performetriks.performator.data.PFRDataRecord;
+import com.xresch.xrutils.data.Unrecord;
 import com.performetriks.performator.data.PFRDataSource;
 import com.xresch.xrutils.utils.XRTimeUnit;
 
@@ -87,7 +87,7 @@ public class UsecaseLoadDataCustom extends PFRUsecase {
 			
 			// print a few records
 			for(int i = 0; i <= 3; i++) {
-				PFRDataRecord record = userData.next();
+				Unrecord record = userData.next();
 				System.out.println("========================");
 				System.out.println(record.toStringPretty());
 			}

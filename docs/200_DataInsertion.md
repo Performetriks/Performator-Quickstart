@@ -6,7 +6,7 @@ You can use whatever methods or libraries you want to insert data and variables 
 Pass your variables as parameters to functions:
 
 ```java
-PFRDataRecord record = Globals.DATA.next();
+Unrecord record = Globals.DATA.next();
 String user = record.getString("user");
 String password = record.getString("password");
 
@@ -20,21 +20,21 @@ r = PFRHttp.create("010_Do_Login", url+"/app/login")
 Concatenate Strings:
 
 ```java
-PFRDataRecord record = Globals.DATA.next();
+Unrecord record = Globals.DATA.next();
 String id = record.getString("id");
 
 r = PFRHttp.create("010_GetOrders", url+"/api/orders?id="+id) 
 					.get()
 ```
 
-# Text-Blocks: PFRDataRecord.insert()
+# Text-Blocks: Unrecord.insert()
 Data records provide you with an easy method to replace your parameters in strings with the `insert()`-method.
 You can define parameters using the syntax `${fieldname}` and whatever value is assigned to "fieldname" in your data record will be inserted
 in your string.
 
 ```java
 // data contains fields "searchTerm", "includeAll" and "limit"
-PFRDataRecord data = Globals.DATA.next();
+Unrecord data = Globals.DATA.next();
 data.add("customValue", "Forty-Two gallons of Tiramisu.")
 
 r = PFRHttp.create("010_Search", url+"/app/search") 
@@ -57,7 +57,7 @@ r = PFRHttp.create("010_Search", url+"/app/search")
 To insert data into a java text-block, you can use the String.formatted()-method(works also with regular strings):
 
 ```java
-PFRDataRecord record = Globals.DATA.next();
+Unrecord record = Globals.DATA.next();
 String searchTerm = record.getString("searchTerm");
 String includeAll = record.getBoolean("includeAll");
 int limit = record.getInteger("limit");
@@ -81,7 +81,7 @@ Another way is to define costom placeholders, and use String.replace() to replac
 This can be useful if you have lots of parameters that you have to replace.
 
 ```java
-PFRDataRecord record = Globals.DATA.next();
+Unrecord record = Globals.DATA.next();
 String searchTerm = record.getString("searchTerm");
 String includeAll = record.getBoolean("includeAll");
 String limit = record.getString("limit");

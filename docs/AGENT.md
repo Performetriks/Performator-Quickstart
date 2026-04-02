@@ -114,7 +114,7 @@ public class UsecaseGenerated extends PFRUsecase {
 		
 		//=======================================
 		// Load Test Data Record		
-		PFRDataRecord record = Globals.DATA.next();
+		Unrecord record = Globals.DATA.next();
 
 		String user = record.getString("USER");
 		int value = record.getInteger("VALUE");
@@ -434,14 +434,14 @@ When requested by user, separate requests into methods:
 	/***************************************************************************
 	 * 
 	 ***************************************************************************/
-	public PFRHttpResponse doLogin(PFRDataRecord data) throws ResponseFailedException {
+	public PFRHttpResponse doLogin(Unrecord data) throws ResponseFailedException {
 		return PFRHttp.create(...
 	}
 
 	/***************************************************************************
 	 * 
 	 ***************************************************************************/
-	public PFRHttpResponse openDashboard(PFRDataRecord data) throws ResponseFailedException {
+	public PFRHttpResponse openDashboard(Unrecord data) throws ResponseFailedException {
 		return PFRHttp.create(...
 	}
 ```
