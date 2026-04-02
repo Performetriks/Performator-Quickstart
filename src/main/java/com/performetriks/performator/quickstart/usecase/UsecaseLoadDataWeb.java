@@ -3,7 +3,7 @@ package com.performetriks.performator.quickstart.usecase;
 import com.google.gson.JsonArray;
 import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.base.PFRUsecase;
-import com.xresch.xrutils.data.Unrecord;
+import com.xresch.xrutils.data.XRRecord;
 import com.performetriks.performator.data.PFRDataSource;
 import com.performetriks.performator.http.PFRHttp;
 import com.performetriks.performator.http.PFRHttpResponse;
@@ -36,7 +36,7 @@ public class UsecaseLoadDataWeb extends PFRUsecase {
 											.local() // use in this iteration, do not share this between load agents
 											.build();
 			
-			Unrecord record = userData.next();
+			XRRecord record = userData.next();
 			System.out.println("========================");
 			System.out.println("id:"+record.get("id").getAsInteger());
 			System.out.println("username:"+record.get("username").getAsString());

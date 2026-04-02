@@ -3,7 +3,7 @@ package com.performetriks.performator.quickstart.usecase;
 import com.google.gson.JsonArray;
 import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.base.PFRUsecase;
-import com.xresch.xrutils.data.Unrecord;
+import com.xresch.xrutils.data.XRRecord;
 import com.performetriks.performator.data.PFRDataSource;
 import com.performetriks.performator.http.PFRHttp;
 import com.performetriks.performator.http.PFRHttpResponse;
@@ -23,7 +23,7 @@ public class UsecaseCheckTestdata extends PFRUsecase {
 		
 			//=======================================
 			// Get Testdata
-			Unrecord record = Globals.DATA.next();
+			XRRecord record = Globals.DATA.next();
 
 			int index 			= record.getInteger(DATAFIELDS.INDEX);
 			String username 	= record.getString(DATAFIELDS.USER);

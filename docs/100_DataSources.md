@@ -34,20 +34,20 @@ As the source might run out of data, you would need to check if it still has dat
 			return;
 		}
 		
-		Unrecord record = Globals.DATA.next();
+		XRRecord record = Globals.DATA.next();
 
 );
 ```
 
 ### Accessing Data
-After retrieving a Unrecord, you can access the field values by name.
-it will return a type of `Unvalue`, which allows you to flexibly retrieve a value as it's own type or as a different type(e.g. getting the string "4.44" as the number 4.44). It also enables us to load objects and arrays from Json, making the whole thing rather flexible.
+After retrieving a XRRecord, you can access the field values by name.
+it will return a type of `XRValue`, which allows you to flexibly retrieve a value as it's own type or as a different type(e.g. getting the string "4.44" as the number 4.44). It also enables us to load objects and arrays from Json, making the whole thing rather flexible.
 There are as well various methods on the record to directly retrieve a specific type.
 
 Here some examples on how to access the different types:
 
 ```java
-Unvalue user Unvalue		= record.get("USER");
+XRValue user XRValue		= record.get("USER");
 String user 					= record.getString("USER");
 int value 					= record.getInteger("VALUE");
 boolean likesTiramisu 		= record.getBoolean("LIKES_TIRAMISU");
@@ -203,7 +203,7 @@ JsonArray userArray = r.getBodyAsJsonArray();
 PFRDataSource userData = PFR.Data.newSourceJsonArray("userList", userArray)
 								.build();
 
-Unrecord record = userData.next();
+XRRecord record = userData.next();
 System.out.println("========================");
 System.err.println("id:"+record.get("id").getAsInteger());
 System.err.println("username:"+record.get("username").getAsString());

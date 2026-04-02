@@ -12,7 +12,7 @@ import com.xresch.hsr.stats.HSRExpression.Operator;
 import com.xresch.hsr.stats.HSRRecord;
 import com.xresch.hsr.stats.HSRRecordStats.HSRMetric;
 import com.xresch.hsr.stats.HSRSLA;
-import com.xresch.xrutils.data.Unrecord;
+import com.xresch.xrutils.data.XRRecord;
 
 public class UsecaseExampleDatabase extends PFRUsecase {
 
@@ -55,15 +55,15 @@ public class UsecaseExampleDatabase extends PFRUsecase {
 		
 
 		//------------------------------
-		// Query and get Unrecords
-		ArrayList<Unrecord> tests = 
+		// Query and get XRRecords
+		ArrayList<XRRecord> tests = 
 				db.create()
 					  .sla(HSRMetric.p90, Operator.LTE, 100)
 					  .query("SELECT id, time, endtime from hsr_tests LIMIT 100")
-					  .toUnrecordList()
+					  .toXRRecordList()
 					  ;
 		
-		Unrecord randomTest = PFR.Random.fromArray(tests);
+		XRRecord randomTest = PFR.Random.fromArray(tests);
 		
 		//------------------------------
 		// Query with Ranged Metrics

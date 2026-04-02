@@ -106,7 +106,7 @@ function postProcess(code){
 	code = code.replaceAll(/private PFRHttpResponse r.../g, "public static PFRHttpResponse send");
 	
 	// Add method parameter
-	code = code.replaceAll(/\(\) throws ResponseFailedException/g, "(Unrecord r) throws ResponseFailedException");
+	code = code.replaceAll(/\(\) throws ResponseFailedException/g, "(XRRecord r) throws ResponseFailedException");
 	
 	// modify body containing postman param only
 	code = code.replaceAll('"""\n\t\t\t\t\t{{', '"{{');
