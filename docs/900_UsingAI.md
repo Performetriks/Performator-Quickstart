@@ -6,7 +6,7 @@ As an alternative to the HTTP Converter, you can use AI chatbots like ChatGPT, G
 
 To train the AI of your choice, we created the following file:
 
-[AGENT.md](./AGENT.md)
+[AGENTS.md](../AGENTS.md)
 
 Upload the file in your AI chat and add a prompt like:
 
