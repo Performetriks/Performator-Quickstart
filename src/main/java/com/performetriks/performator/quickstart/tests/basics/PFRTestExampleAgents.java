@@ -34,15 +34,19 @@ public class PFRTestExampleAgents extends PFRTest {
 		//-----------------------------
 		// Set Agents
 		PFRAgentPool pool = new PFRAgentPool(
-				  new PFRAgent("deactivatedAgent", 7779	, "windows", "cloud").active(false)
-				, new PFRAgent("winserver123", 7779	, "windows", "cloud")
+				  new PFRAgent("deactivatedAgent", 1234	, "windows", "cloud").active(false)
+				, new PFRAgent("winserver123", 1234	, "windows", "cloud")
 				, new PFRAgent("localhost", 7777	, "windows", "dev", "test")
 				, new PFRAgent("asusstrix", 7778	, "windows", "dev")
 				, new PFRAgent("lenovop16s", 7778	, "windows", "test")
+				, new PFRAgent("localhost", 7779	, "data")
 			);
 		
 		PFRConfig.setAgentPool(pool);
 		PFRConfig.setAgentTags("windows", "dev"); // filter agents that have all of these tags
+		
+		PFRConfig.setDataAgentPool(pool);	// can be same or separate pool
+		PFRConfig.setDataAgentTags("data"); 
 
 		//-----------------------------
 		// Define Test
