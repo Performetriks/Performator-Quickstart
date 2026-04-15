@@ -103,6 +103,54 @@ If you want to force your test to execute on localhost without using agents, you
 mvn clean verify -Dpfr_mode=local -Dpfr_test=com.performetriks.performator.quickstart.tests.basics.PFRTestExampleAgents
 ```
 
+# Data Sharing between Agents
+When load testing business applications, you often run into the issue that you shouldn't edit the same item, customer, record etc... at the same
+time, as this might lead to inconsistent behavior. One common solution for this is to have a fairly large amount of test data records and shuffle the data on every agent. This will reduce the likelihood that a record is used at the same time by two agents but does not fully prevent it:
+
+```java
+//--------------------------
+// Load Test Data CSV	
+PFRDataSource DATA = 
+		PFR.Data.newSourceCSV("com.mypackage.data", "testdata.csv", ",")
+					.shuffle()
+					.build();
+;
+);
+```
+
+Performator provides the possibility to define a Data Agent and set PFRDataSource.shared(). That data is then managed by the Data Agent instead of having every Load Agent managing their own data set. 
+
+```java
+//-----------------------------
+// Set Data Shared
+PFRDataSource DATA = PFR.Data.newSourceCSV("sharedData", Globals.ENV.getTestdataPackage(), "testdata.csv", ",")
+		.shared()
+		.build();
+;
+//-----------------------------
+// Set Agents
+PFRAgentPool pool = new PFRAgentPool(
+		, new PFRAgent("localhost", 7777	, "windows", "dev", "test")
+		, new PFRAgent("asusstrix", 7778	, "windows", "dev")
+		, new PFRAgent("localhost", 7779	, "data")
+	);
+
+PFRConfig.setAgentPool(pool);
+PFRConfig.setAgentTags("windows", "dev"); // filter agents that have all of these tags
+
+PFRConfig.setDataAgentPool(pool);	// can be same or separate pool, will only pick a single agent, never multiple
+PFRConfig.setDataAgentTags("data"); 
+
+```
+
+If you want to have a look at the data on the Data Agent, here are some useful API endpoints:
+
+```shell
+# retrieves the next record of the DataSource
+http://data-agent-host:7779/api?command=datasourcenext&datasourceName=sharedData
+```
+
+
 # Web API Endpoints
 There are a few web API endpoints that can be useful:
 
