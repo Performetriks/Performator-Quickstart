@@ -2,6 +2,7 @@ package com.performetriks.performator.quickstart.tests.basics;
 
 import java.time.Duration;
 
+import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.base.PFRConfig;
 import com.performetriks.performator.base.PFRTest;
 import com.performetriks.performator.distribute.PFRAgent;
@@ -9,6 +10,7 @@ import com.performetriks.performator.distribute.PFRAgentPool;
 import com.performetriks.performator.executors.PFRExecStandard;
 import com.performetriks.performator.quickstart.globals.Globals;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleHSR;
+import com.performetriks.performator.quickstart.usecase.UsecaseExampleDataRead;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleSLA;
 
 /***************************************************************************
@@ -32,6 +34,13 @@ public class PFRTestExampleAgents extends PFRTest {
 		Globals.commonInitialization(true);
 		
 		//-----------------------------
+		// Set Data Shared
+		Globals.DATA = PFR.Data.newSourceCSV("sharedData", Globals.ENV.getTestdataPackage(), "testdata.csv", ",")
+				.shared()
+				.build();
+		;
+		
+		//-----------------------------
 		// Set Agents
 		PFRAgentPool pool = new PFRAgentPool(
 				  new PFRAgent("deactivatedAgent", 1234	, "windows", "cloud").active(false)
@@ -50,16 +59,15 @@ public class PFRTestExampleAgents extends PFRTest {
 
 		//-----------------------------
 		// Define Test
-		int percentage = 100;
 
-		this.add(new PFRExecStandard(UsecaseExampleHSR.class, 60, 12000, 0, 5).percent(percentage) );
+		this.add(new PFRExecStandard(UsecaseExampleDataRead.class, 10, 1000, 0, 1) );
+		this.add(new PFRExecStandard(UsecaseExampleHSR.class, 60, 12000, 0, 5) );
 
 		this.add(new PFRExecStandard(UsecaseExampleSLA.class)
 						.users(6)
 						.execsHour(2000)
 						.rampUp(2) 
 						.offset(20)
-						.percent(percentage)
 					);
 		
 		this.maxDuration(Duration.ofSeconds(90));

@@ -9,7 +9,17 @@
     "EMAIL": "u.bjoerk@aztlan.com",
     "LIKES_TIRAMISU": false,
     "VALUE": 66,
-    "SEARCH_FOR": "Gianduiotto"
+    "SEARCH_FOR": "Gianduiotto",
+    "TAGS": [
+      "rebellious",
+      "over-demanding",
+      "100% confused"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 40.4,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 1,
@@ -21,7 +31,17 @@
     "EMAIL": "r.viklund@muspelheim.com",
     "LIKES_TIRAMISU": false,
     "VALUE": 25,
-    "SEARCH_FOR": "Panna Cotta"
+    "SEARCH_FOR": "Panna Cotta",
+    "TAGS": [
+      "free-loading",
+      "vile",
+      "endlessly flirting"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 95.5,
+      "status": "PENDING"
+    }
   },
   {
     "INDEX": 2,
@@ -33,7 +53,17 @@
     "EMAIL": "e.wallin@laestrygon.it",
     "LIKES_TIRAMISU": null,
     "VALUE": 19,
-    "SEARCH_FOR": "Taralli"
+    "SEARCH_FOR": "Taralli",
+    "TAGS": [
+      "100% confused",
+      "house-broken",
+      "high-end"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 59.1,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 3,
@@ -45,7 +75,17 @@
     "EMAIL": "u.jansson@kingdom-of-reynes.ch",
     "LIKES_TIRAMISU": true,
     "VALUE": 7,
-    "SEARCH_FOR": "Torrone"
+    "SEARCH_FOR": "Torrone",
+    "TAGS": [
+      "bat-sh*t-crazy",
+      "ultra narrow-minded",
+      "totally angry"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 88.8,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 4,
@@ -57,7 +97,17 @@
     "EMAIL": "p.samuelsson@asphodel-meadows.net",
     "LIKES_TIRAMISU": true,
     "VALUE": 21,
-    "SEARCH_FOR": "Tiramisu"
+    "SEARCH_FOR": "Tiramisu",
+    "TAGS": [
+      "slippery",
+      "ultra cuddly",
+      "utterly arduous"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 47.5,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 5,
@@ -69,7 +119,17 @@
     "EMAIL": "a.wikstroem@asphodel-meadows.it",
     "LIKES_TIRAMISU": true,
     "VALUE": 39,
-    "SEARCH_FOR": "Nutella"
+    "SEARCH_FOR": "Nutella",
+    "TAGS": [
+      "infuriating",
+      "territorial",
+      "free-loading"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 70,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 6,
@@ -81,7 +141,17 @@
     "EMAIL": "j.magnusson@lyonesse.me",
     "LIKES_TIRAMISU": true,
     "VALUE": 23,
-    "SEARCH_FOR": "Sanguinaccio Dolce"
+    "SEARCH_FOR": "Sanguinaccio Dolce",
+    "TAGS": [
+      "underhanded",
+      "devil-like hateful",
+      "stubborn"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 42.4,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 7,
@@ -93,7 +163,17 @@
     "EMAIL": "s.joensson@camelot.it",
     "LIKES_TIRAMISU": false,
     "VALUE": 10,
-    "SEARCH_FOR": "Panna Cotta"
+    "SEARCH_FOR": "Panna Cotta",
+    "TAGS": [
+      "frisky",
+      "frisky",
+      "shivering"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 69.6,
+      "status": "PENDING"
+    }
   },
   {
     "INDEX": 9,
@@ -105,7 +185,17 @@
     "EMAIL": "d.wallin@ram-setu.com",
     "LIKES_TIRAMISU": true,
     "VALUE": 94,
-    "SEARCH_FOR": "Pasticciotto"
+    "SEARCH_FOR": "Pasticciotto",
+    "TAGS": [
+      "territorial",
+      "rebellious",
+      "slippery"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 85.5,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 10,
@@ -117,7 +207,17 @@
     "EMAIL": "h.johansson@asphodel-meadows.net",
     "LIKES_TIRAMISU": null,
     "VALUE": 6,
-    "SEARCH_FOR": "Panna Cotta"
+    "SEARCH_FOR": "Panna Cotta",
+    "TAGS": [
+      "vengeful",
+      "awfully insecure",
+      "underhanded"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 63.9,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 11,
@@ -129,7 +229,17 @@
     "EMAIL": "s.lundqvist@meropis.com",
     "LIKES_TIRAMISU": false,
     "VALUE": 69,
-    "SEARCH_FOR": "Pasticciotto"
+    "SEARCH_FOR": "Pasticciotto",
+    "TAGS": [
+      "devil-like hateful",
+      "ultra narrow-minded",
+      "zippy"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 52.3,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 12,
@@ -141,7 +251,17 @@
     "EMAIL": "v.eklund@xanadu.ch",
     "LIKES_TIRAMISU": false,
     "VALUE": 94,
-    "SEARCH_FOR": "Frutta Martorana"
+    "SEARCH_FOR": "Frutta Martorana",
+    "TAGS": [
+      "bull-headed",
+      "underhanded",
+      "over-demanding"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 46.1,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 13,
@@ -153,7 +273,17 @@
     "EMAIL": "s.soederberg@agartha.es",
     "LIKES_TIRAMISU": true,
     "VALUE": 39,
-    "SEARCH_FOR": "Tiramisu"
+    "SEARCH_FOR": "Tiramisu",
+    "TAGS": [
+      "bull-headed",
+      "ultra narrow-minded",
+      "vengeful"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 8.4,
+      "status": "PENDING"
+    }
   },
   {
     "INDEX": 14,
@@ -165,7 +295,17 @@
     "EMAIL": "h.samuelsson@suddene.es",
     "LIKES_TIRAMISU": false,
     "VALUE": 21,
-    "SEARCH_FOR": "Gianduiotto"
+    "SEARCH_FOR": "Gianduiotto",
+    "TAGS": [
+      "superfluous",
+      "superfluous",
+      "god-mode-greedy"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 49.6,
+      "status": "ON HOLD"
+    }
   },
   {
     "INDEX": 15,
@@ -177,7 +317,17 @@
     "EMAIL": "v.blomqvist@mictlan.me",
     "LIKES_TIRAMISU": false,
     "VALUE": 80,
-    "SEARCH_FOR": "Sanguinaccio Dolce"
+    "SEARCH_FOR": "Sanguinaccio Dolce",
+    "TAGS": [
+      "bat-sh*t-crazy",
+      "twisted",
+      "idiotic"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 23.1,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 16,
@@ -189,7 +339,17 @@
     "EMAIL": "m.berg@lake-parime.me",
     "LIKES_TIRAMISU": true,
     "VALUE": 77,
-    "SEARCH_FOR": "Nutella"
+    "SEARCH_FOR": "Nutella",
+    "TAGS": [
+      "mega religious",
+      "endlessly flirting",
+      "totally angry"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 68.2,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 17,
@@ -201,7 +361,17 @@
     "EMAIL": "s.berglund@jotunheim.net",
     "LIKES_TIRAMISU": false,
     "VALUE": 5,
-    "SEARCH_FOR": "Sanguinaccio Dolce"
+    "SEARCH_FOR": "Sanguinaccio Dolce",
+    "TAGS": [
+      "totally angry",
+      "zippy",
+      "stubborn"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 80.1,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 18,
@@ -213,7 +383,17 @@
     "EMAIL": "o.forsberg@niflhel.com",
     "LIKES_TIRAMISU": true,
     "VALUE": 74,
-    "SEARCH_FOR": "Taralli"
+    "SEARCH_FOR": "Taralli",
+    "TAGS": [
+      "stubborn",
+      "frisky",
+      "absolutely arrogant"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 61.7,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 19,
@@ -225,7 +405,17 @@
     "EMAIL": "n.loefgren@baltia.me",
     "LIKES_TIRAMISU": true,
     "VALUE": 44,
-    "SEARCH_FOR": "Sfogliatella"
+    "SEARCH_FOR": "Sfogliatella",
+    "TAGS": [
+      "stubborn",
+      "awfully insecure",
+      "above hyperactive"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 25.3,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 20,
@@ -237,7 +427,17 @@
     "EMAIL": "f.nystroem@quivira.it",
     "LIKES_TIRAMISU": false,
     "VALUE": 79,
-    "SEARCH_FOR": "Gelato"
+    "SEARCH_FOR": "Gelato",
+    "TAGS": [
+      "infuriating",
+      "ultra cuddly",
+      "hilariously maniacal"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 4.2,
+      "status": "ON HOLD"
+    }
   },
   {
     "INDEX": 21,
@@ -249,7 +449,17 @@
     "EMAIL": "d.bergman@xanadu.net",
     "LIKES_TIRAMISU": false,
     "VALUE": 35,
-    "SEARCH_FOR": "Gianduiotto"
+    "SEARCH_FOR": "Gianduiotto",
+    "TAGS": [
+      "devil-like hateful",
+      "zombie-like",
+      "self-absorbed"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 16.5,
+      "status": "ON HOLD"
+    }
   },
   {
     "INDEX": 22,
@@ -261,7 +471,17 @@
     "EMAIL": "a.loefgren@atlantis.ch",
     "LIKES_TIRAMISU": true,
     "VALUE": 42,
-    "SEARCH_FOR": "Panna Cotta"
+    "SEARCH_FOR": "Panna Cotta",
+    "TAGS": [
+      "idiotic",
+      "slippery",
+      "out-of-control"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 53.8,
+      "status": "NEW"
+    }
   },
   {
     "INDEX": 24,
@@ -273,7 +493,17 @@
     "EMAIL": "p.bergqvist@asphodel-meadows.ch",
     "LIKES_TIRAMISU": true,
     "VALUE": 65,
-    "SEARCH_FOR": "Ricciarelli"
+    "SEARCH_FOR": "Ricciarelli",
+    "TAGS": [
+      "tripping",
+      "superfluous",
+      "territorial"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 91.9,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 26,
@@ -285,7 +515,17 @@
     "EMAIL": "v.danielsson@agartha.me",
     "LIKES_TIRAMISU": false,
     "VALUE": 32,
-    "SEARCH_FOR": "Tartufo"
+    "SEARCH_FOR": "Tartufo",
+    "TAGS": [
+      "super-sneaky",
+      "superfluous",
+      "mega religious"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 87.4,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 27,
@@ -297,7 +537,17 @@
     "EMAIL": "m.arvidsson@irkalla.net",
     "LIKES_TIRAMISU": true,
     "VALUE": 46,
-    "SEARCH_FOR": "Zuccotto"
+    "SEARCH_FOR": "Zuccotto",
+    "TAGS": [
+      "out-of-control",
+      "out-of-control",
+      "infuriating"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 71.4,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 28,
@@ -309,7 +559,17 @@
     "EMAIL": "h.loefgren@valhalla.com",
     "LIKES_TIRAMISU": true,
     "VALUE": 98,
-    "SEARCH_FOR": "Torrone"
+    "SEARCH_FOR": "Torrone",
+    "TAGS": [
+      "bat-sh*t-crazy",
+      "superfluous",
+      "over-demanding"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 16.2,
+      "status": "NEW"
+    }
   },
   {
     "INDEX": 29,
@@ -321,7 +581,17 @@
     "EMAIL": "h.nilsson@islands-of-the-blessed.es",
     "LIKES_TIRAMISU": false,
     "VALUE": 68,
-    "SEARCH_FOR": "Panna Cotta"
+    "SEARCH_FOR": "Panna Cotta",
+    "TAGS": [
+      "superfluous",
+      "house-broken",
+      "self-absorbed"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 19.1,
+      "status": "NEW"
+    }
   },
   {
     "INDEX": 30,
@@ -333,7 +603,17 @@
     "EMAIL": "p.loefgren@summerland.es",
     "LIKES_TIRAMISU": false,
     "VALUE": 50,
-    "SEARCH_FOR": "Tiramisu"
+    "SEARCH_FOR": "Tiramisu",
+    "TAGS": [
+      "totally angry",
+      "endlessly flirting",
+      "infuriating"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 64.5,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 31,
@@ -345,7 +625,17 @@
     "EMAIL": "o.joensson@ys.it",
     "LIKES_TIRAMISU": true,
     "VALUE": 80,
-    "SEARCH_FOR": "Gianduiotto"
+    "SEARCH_FOR": "Gianduiotto",
+    "TAGS": [
+      "awfully insecure",
+      "fully-cruel-hearted",
+      "yapping"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 98.4,
+      "status": "NEW"
+    }
   },
   {
     "INDEX": 32,
@@ -357,7 +647,17 @@
     "EMAIL": "o.henriksson@muspelheim.es",
     "LIKES_TIRAMISU": true,
     "VALUE": 25,
-    "SEARCH_FOR": "Panettone"
+    "SEARCH_FOR": "Panettone",
+    "TAGS": [
+      "devil-like hateful",
+      "high-end",
+      "endlessly flirting"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 77.8,
+      "status": "PENDING"
+    }
   },
   {
     "INDEX": 33,
@@ -369,7 +669,17 @@
     "EMAIL": "h.bjoerklund@samavasarana.ch",
     "LIKES_TIRAMISU": true,
     "VALUE": 80,
-    "SEARCH_FOR": "Torrone"
+    "SEARCH_FOR": "Torrone",
+    "TAGS": [
+      "yapping",
+      "vile",
+      "infuriating"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 75.4,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 34,
@@ -381,7 +691,17 @@
     "EMAIL": "d.nordstroem@hawaiki.me",
     "LIKES_TIRAMISU": true,
     "VALUE": 57,
-    "SEARCH_FOR": "Confetti"
+    "SEARCH_FOR": "Confetti",
+    "TAGS": [
+      "vile",
+      "absolutely arrogant",
+      "rebellious"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 91.1,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 35,
@@ -393,7 +713,17 @@
     "EMAIL": "u.lindqvist@thuvaraiyam-pathi.me",
     "LIKES_TIRAMISU": true,
     "VALUE": 6,
-    "SEARCH_FOR": "Colomba di Pasqua"
+    "SEARCH_FOR": "Colomba di Pasqua",
+    "TAGS": [
+      "shaky",
+      "above hyperactive",
+      "totally-at-the-ready"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 36.2,
+      "status": "NEW"
+    }
   },
   {
     "INDEX": 36,
@@ -405,7 +735,17 @@
     "EMAIL": "z.jakobsson@muspelheim.it",
     "LIKES_TIRAMISU": true,
     "VALUE": 56,
-    "SEARCH_FOR": "Colomba di Pasqua"
+    "SEARCH_FOR": "Colomba di Pasqua",
+    "TAGS": [
+      "house-broken",
+      "totally angry",
+      "tripping"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 88,
+      "status": "PENDING"
+    }
   },
   {
     "INDEX": 37,
@@ -417,7 +757,17 @@
     "EMAIL": "h.nordstroem@kitezh.me",
     "LIKES_TIRAMISU": false,
     "VALUE": 66,
-    "SEARCH_FOR": "Sanguinaccio Dolce"
+    "SEARCH_FOR": "Sanguinaccio Dolce",
+    "TAGS": [
+      "territorial",
+      "totally angry",
+      "totally-at-the-ready"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 57.6,
+      "status": "ON HOLD"
+    }
   },
   {
     "INDEX": 38,
@@ -429,7 +779,17 @@
     "EMAIL": "s.mattsson@muspelheim.net",
     "LIKES_TIRAMISU": false,
     "VALUE": 74,
-    "SEARCH_FOR": "Confetti"
+    "SEARCH_FOR": "Confetti",
+    "TAGS": [
+      "stubborn",
+      "underhanded",
+      "high-end"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 66.8,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 39,
@@ -441,7 +801,17 @@
     "EMAIL": "h.nilsson@pleroma.net",
     "LIKES_TIRAMISU": false,
     "VALUE": 80,
-    "SEARCH_FOR": "Zabaione"
+    "SEARCH_FOR": "Zabaione",
+    "TAGS": [
+      "tripping",
+      "over-demanding",
+      "bat-sh*t-crazy"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 43.2,
+      "status": "PENDING"
+    }
   },
   {
     "INDEX": 41,
@@ -453,7 +823,17 @@
     "EMAIL": "h.sandberg@kunlun-mountain.es",
     "LIKES_TIRAMISU": true,
     "VALUE": 23,
-    "SEARCH_FOR": "Nutella"
+    "SEARCH_FOR": "Nutella",
+    "TAGS": [
+      "zombie-like",
+      "vengeful",
+      "shivering"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 83,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 42,
@@ -465,7 +845,17 @@
     "EMAIL": "a.jakobsson@alomkik.ch",
     "LIKES_TIRAMISU": false,
     "VALUE": 67,
-    "SEARCH_FOR": "Tartufo"
+    "SEARCH_FOR": "Tartufo",
+    "TAGS": [
+      "bat-sh*t-crazy",
+      "super-sneaky",
+      "chocolate-addicted"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 85.2,
+      "status": "PENDING"
+    }
   },
   {
     "INDEX": 43,
@@ -477,7 +867,17 @@
     "EMAIL": "j.lindstroem@biringan-city.net",
     "LIKES_TIRAMISU": false,
     "VALUE": 12,
-    "SEARCH_FOR": "Zabaione"
+    "SEARCH_FOR": "Zabaione",
+    "TAGS": [
+      "high-end",
+      "territorial",
+      "territorial"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 34.2,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 44,
@@ -489,7 +889,17 @@
     "EMAIL": "a.jakobsson@camelot.ch",
     "LIKES_TIRAMISU": true,
     "VALUE": 82,
-    "SEARCH_FOR": "Biscotti"
+    "SEARCH_FOR": "Biscotti",
+    "TAGS": [
+      "vile",
+      "bull-headed",
+      "free-loading"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 59.6,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 45,
@@ -501,7 +911,17 @@
     "EMAIL": "v.fredriksson@tartarus.it",
     "LIKES_TIRAMISU": true,
     "VALUE": 69,
-    "SEARCH_FOR": "Tartufo"
+    "SEARCH_FOR": "Tartufo",
+    "TAGS": [
+      "zombie-like",
+      "ultra narrow-minded",
+      "underhanded"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 31.5,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 46,
@@ -513,7 +933,17 @@
     "EMAIL": "p.joensson@jabulqa.me",
     "LIKES_TIRAMISU": true,
     "VALUE": 68,
-    "SEARCH_FOR": "Semifreddo"
+    "SEARCH_FOR": "Semifreddo",
+    "TAGS": [
+      "over-demanding",
+      "chocolate-addicted",
+      "house-broken"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 55,
+      "status": "ON HOLD"
+    }
   },
   {
     "INDEX": 47,
@@ -525,7 +955,17 @@
     "EMAIL": "p.wallin@pangaia.ch",
     "LIKES_TIRAMISU": true,
     "VALUE": 64,
-    "SEARCH_FOR": "Confetti"
+    "SEARCH_FOR": "Confetti",
+    "TAGS": [
+      "house-broken",
+      "idiotic",
+      "hilariously maniacal"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 43.8,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 48,
@@ -537,7 +977,17 @@
     "EMAIL": "d.lindstroem@baltia.it",
     "LIKES_TIRAMISU": null,
     "VALUE": 87,
-    "SEARCH_FOR": "Zuccotto"
+    "SEARCH_FOR": "Zuccotto",
+    "TAGS": [
+      "bat-sh*t-crazy",
+      "chocolate-addicted",
+      "stubborn"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 57.1,
+      "status": "ON HOLD"
+    }
   },
   {
     "INDEX": 49,
@@ -549,7 +999,17 @@
     "EMAIL": "v.berg@kingdom-of-saguenay.es",
     "LIKES_TIRAMISU": false,
     "VALUE": 94,
-    "SEARCH_FOR": "Bombolone"
+    "SEARCH_FOR": "Bombolone",
+    "TAGS": [
+      "house-broken",
+      "fiercely loyal",
+      "free-loading"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 69.2,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 50,
@@ -561,7 +1021,17 @@
     "EMAIL": "c.hansson@kitezh.it",
     "LIKES_TIRAMISU": false,
     "VALUE": 84,
-    "SEARCH_FOR": "Uovo sbattuto"
+    "SEARCH_FOR": "Uovo sbattuto",
+    "TAGS": [
+      "100% confused",
+      "yapping",
+      "infuriating"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 54.2,
+      "status": "PENDING"
+    }
   },
   {
     "INDEX": 51,
@@ -573,7 +1043,17 @@
     "EMAIL": "u.gustafsson@vaikuntha.me",
     "LIKES_TIRAMISU": false,
     "VALUE": 27,
-    "SEARCH_FOR": "Pasticciotto"
+    "SEARCH_FOR": "Pasticciotto",
+    "TAGS": [
+      "above hyperactive",
+      "above hyperactive",
+      "slippery"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 44.3,
+      "status": "NEW"
+    }
   },
   {
     "INDEX": 52,
@@ -585,7 +1065,17 @@
     "EMAIL": "a.hansson@nysa.it",
     "LIKES_TIRAMISU": true,
     "VALUE": 76,
-    "SEARCH_FOR": "Colomba di Pasqua"
+    "SEARCH_FOR": "Colomba di Pasqua",
+    "TAGS": [
+      "ultra narrow-minded",
+      "totally angry",
+      "frisky"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 16.5,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 54,
@@ -597,7 +1087,17 @@
     "EMAIL": "v.isaksson@cloud-cuckoo-land.it",
     "LIKES_TIRAMISU": false,
     "VALUE": 87,
-    "SEARCH_FOR": "Torta Tre Monti"
+    "SEARCH_FOR": "Torta Tre Monti",
+    "TAGS": [
+      "absolutely arrogant",
+      "fully-cruel-hearted",
+      "twisted"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 56,
+      "status": "PENDING"
+    }
   },
   {
     "INDEX": 55,
@@ -609,7 +1109,17 @@
     "EMAIL": "h.johansson@kyoepelinvuori.net",
     "LIKES_TIRAMISU": true,
     "VALUE": 17,
-    "SEARCH_FOR": "Gelato"
+    "SEARCH_FOR": "Gelato",
+    "TAGS": [
+      "super-sneaky",
+      "idiotic",
+      "twisted"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 56.6,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 56,
@@ -621,7 +1131,17 @@
     "EMAIL": "v.johansson@biarmaland.com",
     "LIKES_TIRAMISU": true,
     "VALUE": 88,
-    "SEARCH_FOR": "Panna Cotta"
+    "SEARCH_FOR": "Panna Cotta",
+    "TAGS": [
+      "idiotic",
+      "high-end",
+      "endlessly flirting"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 14.1,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 58,
@@ -633,7 +1153,17 @@
     "EMAIL": "m.soederberg@panchaia.es",
     "LIKES_TIRAMISU": false,
     "VALUE": 55,
-    "SEARCH_FOR": "Tiramisu"
+    "SEARCH_FOR": "Tiramisu",
+    "TAGS": [
+      "ultra cuddly",
+      "tripping",
+      "superfluous"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 73.7,
+      "status": "ON HOLD"
+    }
   },
   {
     "INDEX": 59,
@@ -645,7 +1175,17 @@
     "EMAIL": "u.bergman@annwn.es",
     "LIKES_TIRAMISU": true,
     "VALUE": 31,
-    "SEARCH_FOR": "Pandoro"
+    "SEARCH_FOR": "Pandoro",
+    "TAGS": [
+      "bat-sh*t-crazy",
+      "yapping",
+      "bat-sh*t-crazy"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 34.7,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 60,
@@ -657,7 +1197,17 @@
     "EMAIL": "m.jansson@kingdom-of-reynes.ch",
     "LIKES_TIRAMISU": false,
     "VALUE": 28,
-    "SEARCH_FOR": "Torrone"
+    "SEARCH_FOR": "Torrone",
+    "TAGS": [
+      "high-end",
+      "god-mode-greedy",
+      "over-demanding"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 31,
+      "status": "ON HOLD"
+    }
   },
   {
     "INDEX": 61,
@@ -669,7 +1219,17 @@
     "EMAIL": "z.larsson@mu.me",
     "LIKES_TIRAMISU": false,
     "VALUE": 39,
-    "SEARCH_FOR": "Ricciarelli"
+    "SEARCH_FOR": "Ricciarelli",
+    "TAGS": [
+      "self-absorbed",
+      "awfully insecure",
+      "totally-at-the-ready"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 37.3,
+      "status": "ON HOLD"
+    }
   },
   {
     "INDEX": 64,
@@ -681,7 +1241,17 @@
     "EMAIL": "h.axelsson@lake-parime.me",
     "LIKES_TIRAMISU": false,
     "VALUE": 89,
-    "SEARCH_FOR": "Biscotti"
+    "SEARCH_FOR": "Biscotti",
+    "TAGS": [
+      "devil-like hateful",
+      "bat-sh*t-crazy",
+      "house-broken"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 49.3,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 65,
@@ -693,7 +1263,17 @@
     "EMAIL": "u.isaksson@pangaia.com",
     "LIKES_TIRAMISU": true,
     "VALUE": 92,
-    "SEARCH_FOR": "Nutella"
+    "SEARCH_FOR": "Nutella",
+    "TAGS": [
+      "bull-headed",
+      "shivering",
+      "totally-at-the-ready"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 25.7,
+      "status": "ON HOLD"
+    }
   },
   {
     "INDEX": 66,
@@ -705,7 +1285,17 @@
     "EMAIL": "a.bjoerklund@zerzura.it",
     "LIKES_TIRAMISU": false,
     "VALUE": 13,
-    "SEARCH_FOR": "Pandoro"
+    "SEARCH_FOR": "Pandoro",
+    "TAGS": [
+      "out-of-control",
+      "yapping",
+      "out-of-control"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 25.3,
+      "status": "PENDING"
+    }
   },
   {
     "INDEX": 67,
@@ -717,7 +1307,17 @@
     "EMAIL": "m.jakobsson@ys.net",
     "LIKES_TIRAMISU": false,
     "VALUE": 99,
-    "SEARCH_FOR": "Sfogliatella"
+    "SEARCH_FOR": "Sfogliatella",
+    "TAGS": [
+      "chocolate-addicted",
+      "ultra cuddly",
+      "absolutely arrogant"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 12.6,
+      "status": "ON HOLD"
+    }
   },
   {
     "INDEX": 68,
@@ -729,7 +1329,17 @@
     "EMAIL": "v.nordstroem@ys.com",
     "LIKES_TIRAMISU": true,
     "VALUE": 34,
-    "SEARCH_FOR": "Panettone"
+    "SEARCH_FOR": "Panettone",
+    "TAGS": [
+      "vile",
+      "house-broken",
+      "mega religious"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 36.6,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 69,
@@ -741,7 +1351,17 @@
     "EMAIL": "l.larsson@suddene.com",
     "LIKES_TIRAMISU": true,
     "VALUE": 56,
-    "SEARCH_FOR": "Torta Tre Monti"
+    "SEARCH_FOR": "Torta Tre Monti",
+    "TAGS": [
+      "vengeful",
+      "shaky",
+      "utterly arduous"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 5.4,
+      "status": "NEW"
+    }
   },
   {
     "INDEX": 70,
@@ -753,7 +1373,17 @@
     "EMAIL": "s.bengtsson@ys.es",
     "LIKES_TIRAMISU": true,
     "VALUE": 44,
-    "SEARCH_FOR": "Struffoli"
+    "SEARCH_FOR": "Struffoli",
+    "TAGS": [
+      "territorial",
+      "devil-like hateful",
+      "above hyperactive"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 5.8,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 74,
@@ -765,7 +1395,17 @@
     "EMAIL": "l.lindgren@garden-of-the-hesperides.it",
     "LIKES_TIRAMISU": null,
     "VALUE": 25,
-    "SEARCH_FOR": "Mustacciuoli"
+    "SEARCH_FOR": "Mustacciuoli",
+    "TAGS": [
+      "shaky",
+      "territorial",
+      "zippy"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 51.3,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 75,
@@ -777,7 +1417,17 @@
     "EMAIL": "v.lundstroem@lintukoto.net",
     "LIKES_TIRAMISU": false,
     "VALUE": 76,
-    "SEARCH_FOR": "Frutta Martorana"
+    "SEARCH_FOR": "Frutta Martorana",
+    "TAGS": [
+      "territorial",
+      "zippy",
+      "zippy"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 86.7,
+      "status": "NEW"
+    }
   },
   {
     "INDEX": 76,
@@ -789,7 +1439,17 @@
     "EMAIL": "o.bergman@shambhala.me",
     "LIKES_TIRAMISU": false,
     "VALUE": 9,
-    "SEARCH_FOR": "Confetti"
+    "SEARCH_FOR": "Confetti",
+    "TAGS": [
+      "100% confused",
+      "high-end",
+      "hilariously maniacal"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 83.7,
+      "status": "PENDING"
+    }
   },
   {
     "INDEX": 77,
@@ -801,7 +1461,17 @@
     "EMAIL": "c.lundqvist@feather-mountain.net",
     "LIKES_TIRAMISU": true,
     "VALUE": 94,
-    "SEARCH_FOR": "Colomba di Pasqua"
+    "SEARCH_FOR": "Colomba di Pasqua",
+    "TAGS": [
+      "zombie-like",
+      "vengeful",
+      "super-sneaky"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 17.6,
+      "status": "ON HOLD"
+    }
   },
   {
     "INDEX": 78,
@@ -813,7 +1483,17 @@
     "EMAIL": "l.fredriksson@kitezh.it",
     "LIKES_TIRAMISU": false,
     "VALUE": 73,
-    "SEARCH_FOR": "Panettone"
+    "SEARCH_FOR": "Panettone",
+    "TAGS": [
+      "self-absorbed",
+      "zombie-like",
+      "absolutely arrogant"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 88.9,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 79,
@@ -825,7 +1505,17 @@
     "EMAIL": "h.holm@aztlan.com",
     "LIKES_TIRAMISU": false,
     "VALUE": 40,
-    "SEARCH_FOR": "Ricciarelli"
+    "SEARCH_FOR": "Ricciarelli",
+    "TAGS": [
+      "yapping",
+      "super-sneaky",
+      "stubborn"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 32.4,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 80,
@@ -837,7 +1527,17 @@
     "EMAIL": "s.gustafsson@el-dorado.me",
     "LIKES_TIRAMISU": true,
     "VALUE": 64,
-    "SEARCH_FOR": "Nutella"
+    "SEARCH_FOR": "Nutella",
+    "TAGS": [
+      "infuriating",
+      "infuriating",
+      "over-demanding"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 13.9,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 81,
@@ -849,7 +1549,17 @@
     "EMAIL": "n.danielsson@naraka.com",
     "LIKES_TIRAMISU": true,
     "VALUE": 64,
-    "SEARCH_FOR": "Mustacciuoli"
+    "SEARCH_FOR": "Mustacciuoli",
+    "TAGS": [
+      "vengeful",
+      "chocolate-addicted",
+      "free-loading"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 42.9,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 83,
@@ -861,7 +1571,17 @@
     "EMAIL": "m.persson@kunlun-mountain.me",
     "LIKES_TIRAMISU": true,
     "VALUE": 77,
-    "SEARCH_FOR": "Tartufo"
+    "SEARCH_FOR": "Tartufo",
+    "TAGS": [
+      "chocolate-addicted",
+      "frisky",
+      "shaky"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 51.8,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 84,
@@ -873,7 +1593,17 @@
     "EMAIL": "v.lundgren@westernesse.es",
     "LIKES_TIRAMISU": false,
     "VALUE": 7,
-    "SEARCH_FOR": "Torta Tre Monti"
+    "SEARCH_FOR": "Torta Tre Monti",
+    "TAGS": [
+      "free-loading",
+      "high-end",
+      "slippery"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 65.8,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 85,
@@ -885,7 +1615,17 @@
     "EMAIL": "s.andersson@garden-of-eden.me",
     "LIKES_TIRAMISU": true,
     "VALUE": 92,
-    "SEARCH_FOR": "Gelato"
+    "SEARCH_FOR": "Gelato",
+    "TAGS": [
+      "twisted",
+      "ultra cuddly",
+      "bull-headed"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 44.6,
+      "status": "NEW"
+    }
   },
   {
     "INDEX": 86,
@@ -897,7 +1637,17 @@
     "EMAIL": "g.arvidsson@garden-of-eden.ch",
     "LIKES_TIRAMISU": false,
     "VALUE": 82,
-    "SEARCH_FOR": "Sanguinaccio Dolce"
+    "SEARCH_FOR": "Sanguinaccio Dolce",
+    "TAGS": [
+      "utterly arduous",
+      "underhanded",
+      "chocolate-addicted"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 89.4,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 87,
@@ -909,7 +1659,17 @@
     "EMAIL": "v.berglund@biringan-city.ch",
     "LIKES_TIRAMISU": false,
     "VALUE": 13,
-    "SEARCH_FOR": "Nutella"
+    "SEARCH_FOR": "Nutella",
+    "TAGS": [
+      "over-demanding",
+      "utterly arduous",
+      "totally-at-the-ready"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 71.1,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 88,
@@ -921,7 +1681,17 @@
     "EMAIL": "h.eliasson@cockaigne.it",
     "LIKES_TIRAMISU": false,
     "VALUE": 23,
-    "SEARCH_FOR": "Panettone"
+    "SEARCH_FOR": "Panettone",
+    "TAGS": [
+      "chocolate-addicted",
+      "tripping",
+      "bat-sh*t-crazy"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 87.1,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 89,
@@ -933,7 +1703,17 @@
     "EMAIL": "g.lindberg@arcadia.net",
     "LIKES_TIRAMISU": false,
     "VALUE": 41,
-    "SEARCH_FOR": "Bombolone"
+    "SEARCH_FOR": "Bombolone",
+    "TAGS": [
+      "bull-headed",
+      "fully-cruel-hearted",
+      "tripping"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 6.6,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 90,
@@ -945,7 +1725,17 @@
     "EMAIL": "p.lundin@hell.me",
     "LIKES_TIRAMISU": true,
     "VALUE": 94,
-    "SEARCH_FOR": "Struffoli"
+    "SEARCH_FOR": "Struffoli",
+    "TAGS": [
+      "free-loading",
+      "utterly arduous",
+      "yapping"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 81.4,
+      "status": "NEW"
+    }
   },
   {
     "INDEX": 91,
@@ -957,7 +1747,17 @@
     "EMAIL": "t.magnusson@yomi.net",
     "LIKES_TIRAMISU": true,
     "VALUE": 71,
-    "SEARCH_FOR": "Taralli"
+    "SEARCH_FOR": "Taralli",
+    "TAGS": [
+      "yapping",
+      "fiercely loyal",
+      "mega religious"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 40.4,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 93,
@@ -969,7 +1769,17 @@
     "EMAIL": "h.claesson@laestrygon.it",
     "LIKES_TIRAMISU": false,
     "VALUE": 77,
-    "SEARCH_FOR": "Panettone"
+    "SEARCH_FOR": "Panettone",
+    "TAGS": [
+      "rebellious",
+      "fully-cruel-hearted",
+      "high-end"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 60.2,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 94,
@@ -981,7 +1791,17 @@
     "EMAIL": "h.holm@summerland.com",
     "LIKES_TIRAMISU": false,
     "VALUE": 5,
-    "SEARCH_FOR": "Sfogliatella"
+    "SEARCH_FOR": "Sfogliatella",
+    "TAGS": [
+      "over-demanding",
+      "superfluous",
+      "totally-at-the-ready"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 50.1,
+      "status": "ON HOLD"
+    }
   },
   {
     "INDEX": 95,
@@ -993,7 +1813,17 @@
     "EMAIL": "p.holm@tir-na-nag.com",
     "LIKES_TIRAMISU": false,
     "VALUE": 8,
-    "SEARCH_FOR": "Semifreddo"
+    "SEARCH_FOR": "Semifreddo",
+    "TAGS": [
+      "underhanded",
+      "endlessly flirting",
+      "vile"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 50.1,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 96,
@@ -1005,7 +1835,17 @@
     "EMAIL": "s.jansson@nysa.net",
     "LIKES_TIRAMISU": true,
     "VALUE": 72,
-    "SEARCH_FOR": "Biscotti"
+    "SEARCH_FOR": "Biscotti",
+    "TAGS": [
+      "stubborn",
+      "bull-headed",
+      "out-of-control"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 80.5,
+      "status": "NEW"
+    }
   },
   {
     "INDEX": 98,
@@ -1017,7 +1857,17 @@
     "EMAIL": "a.forsberg@biarmaland.net",
     "LIKES_TIRAMISU": null,
     "VALUE": 88,
-    "SEARCH_FOR": "Gianduiotto"
+    "SEARCH_FOR": "Gianduiotto",
+    "TAGS": [
+      "utterly arduous",
+      "above hyperactive",
+      "underhanded"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 43.7,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 99,
@@ -1029,7 +1879,17 @@
     "EMAIL": "d.lundqvist@norumbega.it",
     "LIKES_TIRAMISU": false,
     "VALUE": 27,
-    "SEARCH_FOR": "Tiramisu"
+    "SEARCH_FOR": "Tiramisu",
+    "TAGS": [
+      "endlessly flirting",
+      "above hyperactive",
+      "god-mode-greedy"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 6.3,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 100,
@@ -1041,7 +1901,17 @@
     "EMAIL": "h.wallin@new-jerusalem.net",
     "LIKES_TIRAMISU": false,
     "VALUE": 88,
-    "SEARCH_FOR": "Zabaione"
+    "SEARCH_FOR": "Zabaione",
+    "TAGS": [
+      "over-demanding",
+      "vile",
+      "high-end"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 1.5,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 101,
@@ -1053,7 +1923,17 @@
     "EMAIL": "h.svensson@hyperborea.es",
     "LIKES_TIRAMISU": true,
     "VALUE": 71,
-    "SEARCH_FOR": "Panna Cotta"
+    "SEARCH_FOR": "Panna Cotta",
+    "TAGS": [
+      "stubborn",
+      "fiercely loyal",
+      "chocolate-addicted"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 64.4,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 102,
@@ -1065,7 +1945,17 @@
     "EMAIL": "m.mattsson@xanadu.es",
     "LIKES_TIRAMISU": true,
     "VALUE": 84,
-    "SEARCH_FOR": "Pandoro"
+    "SEARCH_FOR": "Pandoro",
+    "TAGS": [
+      "ultra narrow-minded",
+      "endlessly flirting",
+      "tripping"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 93,
+      "status": "PENDING"
+    }
   },
   {
     "INDEX": 103,
@@ -1077,7 +1967,17 @@
     "EMAIL": "h.persson@hawaiki.me",
     "LIKES_TIRAMISU": true,
     "VALUE": 68,
-    "SEARCH_FOR": "Torrone"
+    "SEARCH_FOR": "Torrone",
+    "TAGS": [
+      "ultra narrow-minded",
+      "rebellious",
+      "yapping"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 43.4,
+      "status": "OPEN"
+    }
   },
   {
     "INDEX": 105,
@@ -1089,7 +1989,17 @@
     "EMAIL": "h.lundgren@hawaiki.ch",
     "LIKES_TIRAMISU": true,
     "VALUE": 71,
-    "SEARCH_FOR": "Pasticciotto"
+    "SEARCH_FOR": "Pasticciotto",
+    "TAGS": [
+      "slippery",
+      "shivering",
+      "bat-sh*t-crazy"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 50,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 106,
@@ -1101,7 +2011,17 @@
     "EMAIL": "t.eliasson@islands-of-the-blessed.it",
     "LIKES_TIRAMISU": true,
     "VALUE": 79,
-    "SEARCH_FOR": "Semifreddo"
+    "SEARCH_FOR": "Semifreddo",
+    "TAGS": [
+      "zombie-like",
+      "awfully insecure",
+      "totally angry"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 80.2,
+      "status": "NEW"
+    }
   },
   {
     "INDEX": 107,
@@ -1113,7 +2033,17 @@
     "EMAIL": "m.viklund@kyoepelinvuori.ch",
     "LIKES_TIRAMISU": true,
     "VALUE": 58,
-    "SEARCH_FOR": "Nutella"
+    "SEARCH_FOR": "Nutella",
+    "TAGS": [
+      "chocolate-addicted",
+      "vile",
+      "yapping"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 47.7,
+      "status": "ON HOLD"
+    }
   },
   {
     "INDEX": 108,
@@ -1125,7 +2055,17 @@
     "EMAIL": "a.loefgren@samavasarana.net",
     "LIKES_TIRAMISU": false,
     "VALUE": 20,
-    "SEARCH_FOR": "Panettone"
+    "SEARCH_FOR": "Panettone",
+    "TAGS": [
+      "100% confused",
+      "yapping",
+      "bat-sh*t-crazy"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 45.9,
+      "status": "ARCHIVED"
+    }
   },
   {
     "INDEX": 109,
@@ -1137,7 +2077,17 @@
     "EMAIL": "s.samuelsson@arcadia.net",
     "LIKES_TIRAMISU": true,
     "VALUE": 76,
-    "SEARCH_FOR": "Semifreddo"
+    "SEARCH_FOR": "Semifreddo",
+    "TAGS": [
+      "god-mode-greedy",
+      "utterly arduous",
+      "zombie-like"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 68.6,
+      "status": "PENDING"
+    }
   },
   {
     "INDEX": 110,
@@ -1149,7 +2099,17 @@
     "EMAIL": "h.jansson@mu.net",
     "LIKES_TIRAMISU": false,
     "VALUE": 44,
-    "SEARCH_FOR": "Torta alla Monferrina"
+    "SEARCH_FOR": "Torta alla Monferrina",
+    "TAGS": [
+      "superfluous",
+      "twisted",
+      "ultra narrow-minded"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 25.6,
+      "status": "PENDING"
+    }
   },
   {
     "INDEX": 111,
@@ -1161,7 +2121,17 @@
     "EMAIL": "c.holmberg@el-dorado.es",
     "LIKES_TIRAMISU": null,
     "VALUE": 25,
-    "SEARCH_FOR": "Frutta Martorana"
+    "SEARCH_FOR": "Frutta Martorana",
+    "TAGS": [
+      "stubborn",
+      "awfully insecure",
+      "endlessly flirting"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 96.5,
+      "status": "PENDING"
+    }
   },
   {
     "INDEX": 112,
@@ -1173,7 +2143,17 @@
     "EMAIL": "c.hansson@hawaiki.com",
     "LIKES_TIRAMISU": false,
     "VALUE": 2,
-    "SEARCH_FOR": "Panettone"
+    "SEARCH_FOR": "Panettone",
+    "TAGS": [
+      "totally angry",
+      "house-broken",
+      "totally-at-the-ready"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 80.7,
+      "status": "DONE"
+    }
   },
   {
     "INDEX": 113,
@@ -1185,7 +2165,17 @@
     "EMAIL": "z.karlsson@svartalfaheimr.com",
     "LIKES_TIRAMISU": false,
     "VALUE": 81,
-    "SEARCH_FOR": "Zuccotto"
+    "SEARCH_FOR": "Zuccotto",
+    "TAGS": [
+      "yapping",
+      "absolutely arrogant",
+      "ultra narrow-minded"
+    ],
+    "OBJECT": {
+      "active": false,
+      "score": 14.4,
+      "status": "NEW"
+    }
   },
   {
     "INDEX": 115,
@@ -1197,6 +2187,16 @@
     "EMAIL": "r.soederberg@camelot.es",
     "LIKES_TIRAMISU": false,
     "VALUE": 49,
-    "SEARCH_FOR": "Panettone"
+    "SEARCH_FOR": "Panettone",
+    "TAGS": [
+      "territorial",
+      "zombie-like",
+      "above hyperactive"
+    ],
+    "OBJECT": {
+      "active": true,
+      "score": 7.2,
+      "status": "ARCHIVED"
+    }
   }
 ]
