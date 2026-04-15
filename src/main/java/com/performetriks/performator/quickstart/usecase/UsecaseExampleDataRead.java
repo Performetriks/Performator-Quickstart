@@ -33,10 +33,10 @@ public class UsecaseExampleDataRead extends PFRUsecase {
 		
 		//=======================================
 		// Load Test Data Record
-//		if( ! Globals.DATA.hasNext() ) {
-//			logger.warn(this.getName()+": No test data available.");
-//			return;
-//		}
+		if( ! Globals.DATA.hasNext() ) {
+			logger.warn(this.getName()+": No test data available.");
+			return;
+		}
 		
 		XRRecord record = Globals.DATA.next();
 		
