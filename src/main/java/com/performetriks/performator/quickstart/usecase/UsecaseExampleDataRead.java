@@ -42,21 +42,21 @@ public class UsecaseExampleDataRead extends PFRUsecase {
 		
 		//=======================================
 		// Read Values
-		String user = record.getString("USER");
-		int value = record.getInteger("VALUE");
-		boolean likesTiramisu = record.getBoolean("LIKES_TIRAMISU");
-		JsonObject objectData = record.getJsonObject("OBJECT");
-		JsonArray tags = record.getJsonArray("TAGS");
+		String user 			= record.getString(Globals.DATAFIELDS.USER);
+		int value 				= record.getInteger(Globals.DATAFIELDS.VALUE);
+		boolean likesTiramisu 	= record.getBoolean(Globals.DATAFIELDS.LIKES_TIRAMISU);
+		JsonObject objectData 	= record.getJsonObject(Globals.DATAFIELDS.OBJECT);
+		JsonArray tags 			= record.getJsonArray(Globals.DATAFIELDS.TAGS);
 		
 		//=======================================
 		// Log
 		logger.info("======================================="); 
-		logger.info("Record:        "+ record.toString()); 
-		logger.info("user:          "+ user); 
-		logger.info("value:         "+ value); 
-		logger.info("likesTiramisu: "+ likesTiramisu); 
-		logger.info("objectData:    "+ PFR.JSON.toJSON(objectData)); 
-		logger.info("tags:          "+ PFR.JSON.toJSON(tags)); 
+		logger.info("Record:        " + record.toString()); 
+		logger.info("user:          " + user); 
+		logger.info("value:         " + value); 
+		logger.info("likesTiramisu: " + likesTiramisu); 
+		logger.info("objectData:    " + PFR.JSON.toJSON(objectData)); 
+		logger.info("tags:          " + PFR.JSON.toJSON(tags)); 
 
 		
 	}

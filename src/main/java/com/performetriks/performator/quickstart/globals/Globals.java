@@ -72,6 +72,8 @@ public class Globals {
 		, LIKES_TIRAMISU
 		, VALUE
 		, SEARCH_FOR
+		, OBJECT
+		, TAGS
 		;
 		
 	}
