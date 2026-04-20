@@ -157,7 +157,7 @@ If you want to have a look at the data on the Data Agent, here are some useful A
 
 ```shell
 # retrieves the next record of the DataSource
-http://data-agent-host:7779/api?command=datasourcenext&datasourceName=sharedData
+https://data-agent-host:7779/api?command=datasourcenext&datasourceName=sharedData
 ```
 
 
@@ -166,12 +166,12 @@ There are a few web API endpoints that can be useful:
 
 ```shell
 # returns the status of the agent
-http://agenthost:9876/api?command=status
+https://agenthost:9876/api?command=status
 
 # returns process log of the agentborne process once and discards it, up to the last 10'000 lines
-http://agenthost:9876/api?command=processlog
+https://agenthost:9876/api?command=processlog
 
 # peek the stats that are currently on the agentborne process, will be empty most of the time
-http://agenthost:9876/api?command=statspeek
+https://agenthost:9876/api?command=statspeek
 
 ```
