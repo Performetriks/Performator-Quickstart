@@ -26,6 +26,16 @@ How self-healing works:
 4. When the Agent does not receive a ping for 1 minute, it will stop the Agentborne process and make itself available again.
 ```
 
+### Can't Transfer .jar-File
+You might get an error like the following:
+
+```shell
+09:08:18.967 [main] ERROR com.performetriks.performator.distribute.ZePFRClient -- Issue while loading and transferring jar-file to remote agent.
+java.nio.file.AccessDeniedException: Z:\Repositories\Performator-Test\target\classes
+```
+
+This is in most cases caused when executing the test with Maven and the exec-maven-plugin is not correctly configured. Please check the original pom.xml to find the correct setup.
+
 ### Test aborted, but I need the Data and Logs!
 
 Check the execution directory of your agents. The agent will retain the data for the last 10 test executions in sub directories.
