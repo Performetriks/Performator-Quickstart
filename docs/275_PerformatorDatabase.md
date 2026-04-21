@@ -1,5 +1,5 @@
 # Performator Database
-Following is the documentation of the Performator HTTP plugin.
+Following is the documentation of the Performator Database interface.
  
 
 # Troubleshooting
@@ -29,7 +29,19 @@ db.create().query(""SELECT * from table"")
 # Basics
 
 ### Maven Dependencies
-There is no additional dependency, the `PFRDB` feature is coming from the core dependency:
+
+You will need to define the dependencies that contain the JDBC driver for your database, e.g, PostGres:
+
+```java
+	<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+	<dependency>
+		<groupId>org.postgresql</groupId>
+		<artifactId>postgresql</artifactId>
+		<version>#.#.#</version>
+	</dependency>
+```
+
+There is no additional dependency needed for Performator, the `PFRDB` feature is coming from the core dependency:
 
 ```java
 <!-- https://mvnrepository.com/artifact/com.performetriks/performator -->
@@ -41,16 +53,6 @@ There is no additional dependency, the `PFRDB` feature is coming from the core d
 );
 ```
 
-However, you will need to define the dependencies that contain the JDBS driver for your database, e.g, PostGres:
-
-```java
-	<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-	<dependency>
-		<groupId>org.postgresql</groupId>
-		<artifactId>postgresql</artifactId>
-		<version>#.#.#</version>
-	</dependency>
-```
 
 ### Classes
 Following are the most important classes of the DB testing:

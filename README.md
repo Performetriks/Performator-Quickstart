@@ -18,5 +18,6 @@ https://github.com/Performetriks/Performator-Quickstart/tree/main/docs
 * [Performator Database](./docs/275_PerformatorDatabase.md)
 * [Performator HTTP](./docs/300_PerformatorHTTP.md)
 * [Load Test Agents](./docs/350_LoadAgents.md)
+* [Extending Performator](./docs/800_ExtendingPerformator.md)
 * [Using AI](./docs/900_UsingAI.md)
 
