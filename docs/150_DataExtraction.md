@@ -9,7 +9,7 @@ Here are some examples using what comes built-in with Performator.
 Following example shows you how to extract a list of IDs from a JSON response using `PFR.Text.extractBounds()`:
 
 ```java
-ArrayList<String> ids = PFR.Text.extractBounds("\"PK_ID\":", ",", responseBody);
+ArrayList<String> ids = PFR.Text.extractBounds("<id>", "</id>", responseBody);
 logger.info("List of IDs: "+ String.join(", ", ids));
 ```
 
@@ -18,7 +18,7 @@ Following example shows you how to extract a list of Names from a JSON response 
 The regex functions provided by `PFR.Text.*` will also cache the compiled regular expression to decrease performance overhead.
 
 ```java
-ArrayList<String> names = PFR.Text.extractRegexAll("\"NAME\":\"(.*?)\",", 0, responseBody);
+ArrayList<String> names = PFR.Text.extractRegexAll("<name>(.*?)</name>", 0, responseBody);
 logger.info("List of Names: "+ String.join(", ", names));
 ```
 
@@ -81,5 +81,5 @@ Example Queries:
 | Array: Last ID                          | `Integer id           = ctx.read("$.payload[-1].id");`       |
 | Array: All IDs                          | `List<Integer> IDs    = ctx.read("$.payload[*].id");`        |
 | Array: All IDs with balance > 100       | `List<Integer> IDs    = ctx.read("$.payload[?(@.balance > 100)].id");`        |
-| Array: All IDs in status NEW or OPEN    | `List<Integer> IDs    = ctx.read("$.payload[?(@.status == 'NEW' || @.status == 'OPEN')].id");`        |
+| Array: All IDs in status NEW or OPEN    | `List<Integer> IDs    = ctx.read("$.payload[?(@.status == 'NEW' \|\| @.status == 'OPEN')].id");`        |
 

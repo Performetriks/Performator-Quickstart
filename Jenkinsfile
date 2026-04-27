@@ -13,12 +13,14 @@ pipeline{
 						<h1>Following workload can be simulated, please choose one:</h1>
 					</head>
 					<body>
-						<h2>10%  AverageLoad 100 User,  1000 transactions/hour</h2>
-						<h2>25%  AverageLoad 250 User,  2500 transactions/hour</h2>
-						<h2>50%  AverageLoad 333 User,  5000 transactions/hour</h2>
-						<h2>100% AverageLoad 1000 User, 10000 transactions/hour</h2>
-						<h2>150% AverageLoad 1500 User, 15000 transactions/hour</h2>
-						<h2>200% AverageLoad 2000 User, 20000 transactions/hour</h2>
+						<ul>
+							<li><b>10%</b> -> 100 User,  1000 transactions/hour</li>
+							<li><b>25%</b> -> AverageLoad 250 User,  2500 transactions/hour</li>
+							<li><b>50%</b> -> AverageLoad 500 User,  5000 transactions/hour</li>
+							<li><b>100%</b> -> AverageLoad 1000 User, 10000 transactions/hour</li>
+							<li><b>150%</b> -> AverageLoad 1500 User, 15000 transactions/hour</li>
+							<li><b>200%</b> -> AverageLoad 2000 User, 20000 transactions/hour</li>
+						</ul>
 					</body>
 				</html>
 			''')

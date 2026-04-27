@@ -24,13 +24,12 @@ The plugin is provided as a Maven dependency that can be defined as follows:
     <artifactId>performator-http</artifactId>
     <version>#.#.#</version>
 </dependency>
-);
 ```
 
 ### Classes
 Following are the most important classes of the HTTP plugin:
-* **PFRHttp:** The main class that hold configuration and allows to create HTTP requests with the PFRHttpRequestBuilder.
-* **PFRHttpReponse:** The class that is returned for a HTTP response with various useful functions.
+* **PFRHttp:** The main class that holds configuration and allows to create HTTP requests with the PFRHttpRequestBuilder.
+* **PFRHttpResponse:** The class that is returned for a HTTP response with various useful functions.
 
 ### Debug Logs
 Following methods allow to enable debug logs for the current user(thread).

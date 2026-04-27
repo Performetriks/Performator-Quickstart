@@ -28,7 +28,7 @@ public class PFRTestJenkins extends PFRTest {
 		//--------------------------------------
     	// Get Jenkins Parameters
         int percent = Integer.getInteger("LoadPercent", 10);
-        int durationMinutes = Integer.getInteger("Duration", 10);
+        int durationMinutes = Integer.getInteger("Duration", 2);
         
         String logLevelString = System.getProperty("LogLevel", "INFO");
         Level logLevel = Level.toLevel(logLevelString);
