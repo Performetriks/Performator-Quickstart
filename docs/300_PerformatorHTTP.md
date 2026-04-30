@@ -8,9 +8,36 @@ Following is the documentation of the Performator HTTP plugin.
 If you do a lot of requests, you might need to increase the settings of the connection pool:
 
 ```java
-	PFRHttp.getConnectionManager().setMaxTotal(1000);
-	PFRHttp.getConnectionManager().setDefaultMaxPerRoute((50);
+	PFRHttp.getConnectionManager().setMaxTotal(3000);
+	PFRHttp.getConnectionManager().setDefaultMaxPerRoute((200);
 ```
+
+### Converted HAR File Scripts give "HTTP 401 Unauthorized"
+Some Browsers "sanitize" the HAR file on export and remove HTTP headers like "Authorization". 
+Check the Network traffic in the Dev Tools if it contains any headers that were removed on HAR export.
+
+### Converted HAR File Scripts Requests in wrong order
+Another issue with exported HAR files is that requests might be in the wrong order in the exported files.
+For example, a request with HTTP method "OPTIONS" used to probe if the "actual" request will work, might be listed in the HAR file after the "actual" request, while in the application it would occur first.
+
+### HTTP Response body contains Unreadable Content that looks like it is encrypted
+You are most likely getting a response with an encoding that cannot be handled by Apache Http Client.
+One of those encodings is currently Brotli ("br").
+In most cases this can be handled by removing "br" from your requests header "Accept-Encoding".
+For example, you would change this:
+
+```java
+.header("Accept-Encoding", "gzip, deflate, br, zstd")
+```
+
+To this:
+
+```java
+.header("Accept-Encoding", "gzip, deflate, zstd")
+```
+
+**Note:** Be aware that you might have changes in response times when changing the encoding. 
+The amount of impact depends on the size of the request, caching and such.
 
 # Basics
 
