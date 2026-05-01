@@ -36,7 +36,7 @@ HSR.addMetricRangedWithSLA(record, " - #Count", count, 5);
 **HTTP Converter:** Starting the HTTP Converter of the Performator HTTP Plugin:
 
 ```java
-mvn clean verify -Dpfr_mode=httpconverter
+mvn -f pom-httpconverter.xml clean verify
 ```
 
 

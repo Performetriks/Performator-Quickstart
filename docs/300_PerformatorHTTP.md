@@ -117,7 +117,7 @@ PFRHttp.addCookie(new BasicClientCookie("myCustomCookie", "baked-20-minutes-at-2
 The HTTP plugin comes with a converter that allows you to convert HAR Files and Postman collections into Performator scripts:
 
 ```java
-mvn clean verify -Dpfr_mode=httpconverter
+mvn -f pom-httpconverter.xml clean verify
 ```
 
 ## Javascript Post Processing
