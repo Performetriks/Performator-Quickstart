@@ -5,3 +5,5 @@
 /target/
 /dependency-reduced-pom.xml
 /.idea/jarRepositories.xml
+/littleproxy_cert
+/littleproxy_keystore.jks

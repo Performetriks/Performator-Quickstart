@@ -5,11 +5,11 @@
 	<!-- ================= PROJECT INFORMATION ================== -->
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.performetriks</groupId>
-	<artifactId>exec-httpconverter</artifactId>
+	<artifactId>exec-httprecorder</artifactId>
 	<version>NO-VERSION</version>
 	
-	<name>Performator HTTP Converter</name>
-	<description>This pom file is used to start the http converter.</description>
+	<name>Performator HTTP Recorder</name>
+	<description>This pom file is used to start the http recorder.</description>
 
 	<!-- ================= PROPERTIES ================== -->
 	<properties>
@@ -43,8 +43,16 @@
 		<!-- https://mvnrepository.com/artifact/com.performetriks/performator-http -->
 		<dependency>
 		    <groupId>com.performetriks</groupId>
-		    <artifactId>performator-conversion</artifactId>
+		    <artifactId>performator-httprecorder</artifactId>
 		    <version>1.2.3</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
+		<dependency>
+		    <groupId>org.javassist</groupId>
+		    <artifactId>javassist</artifactId>
+		    <version>3.30.2-GA</version>
+		    <scope>compile</scope>
 		</dependency>
 		
 	</dependencies>
@@ -52,7 +60,7 @@
 
 	<!-- ================= BUILD ================== -->
 	<build>
-		
+
   		<sourceDirectory>src/empty</sourceDirectory>
 
 		<plugins>
@@ -94,7 +102,9 @@
 			                	<transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
 			                    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 			                        <manifestEntries>
-			                            <Main-Class>com.performetriks.performator.conversion.httpconverter.PFRHttpConverter</Main-Class>
+			                        	<Premain-Class>com.performetriks.performator.httprecorder.injection.InjectionAgent</Premain-Class>
+			                        	<Launcher-Agent-Class>com.performetriks.performator.httprecorder.injection.InjectionAgent</Launcher-Agent-Class>
+			                            <Main-Class>com.performetriks.performator.httprecorder.PFRHttpRecorderUI</Main-Class>
 			                        	<Multi-Release>true</Multi-Release>
 			                            <Specification-Title>${project.artifactId}</Specification-Title>
 			                            <Specification-Version>${project.version}</Specification-Version>
@@ -110,38 +120,42 @@
 			</plugin>
 
 			<!-- ================= EXEC ================== -->
-			<plugin>
-		        <groupId>org.codehaus.mojo</groupId>
-		        <artifactId>exec-maven-plugin</artifactId>
-		        <version>3.6.2</version>
-		        <executions>
-		          <execution>
-					<phase>verify</phase>
-		            <goals>
-		              <goal>java</goal> <!-- when using exec:exec we can't automatically propagate -D properties -->
-		            </goals>
-		          </execution>
-		        </executions>
+            <plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.6.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>integration-test</phase>
+						<configuration>
+							<executable>java</executable>
+
+							<arguments>
+								
+								<argument>-javaagent:"${project.build.directory}/${project.build.finalName}.jar"</argument>
+								<argument>--add-opens=java.base/java.lang=ALL-UNNAMED</argument>
+								
+								<argument>-XX:+UnlockExperimentalVMOptions</argument>
+								<argument>-XX:+EnableJVMCI</argument>
+								
+								<argument>-classpath</argument>
+					            <classpath />
+					            
+					            <argument>com.performetriks.performator.httprecorder.PFRHttpRecorderUI</argument>
+					            
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
 				<configuration>
-					<mainClass>com.performetriks.performator.conversion.httpconverter.PFRHttpConverter</mainClass>
-
-					<!-- Prevent Maven from using target/classes -->
-					<includeProjectDependencies>false</includeProjectDependencies>
-					<includePluginDependencies>false</includePluginDependencies>
-
-					<!-- Use ONLY the shaded jar -->
-					<additionalClasspathElements>
-						<additionalClasspathElement>
-							${project.build.directory}/${project.build.finalName}.jar
-						</additionalClasspathElement>
-					</additionalClasspathElements>
-
-					<!-- automatically propagate all -D argument values -->
 					<systemProperties>
-						<projectProperties />
-					</systemProperties>
+				    	<projectProperties /> <!-- automatically propagate all -D argument values -->
+				    </systemProperties>
 				</configuration>
-		    </plugin>
+			</plugin>
 			
 		</plugins>
 
