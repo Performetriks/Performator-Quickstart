@@ -113,17 +113,45 @@ PFRHttp.clearCookies();			// Makes sure we always start with a blank user sessio
 PFRHttp.addCookie(new BasicClientCookie("myCustomCookie", "baked-20-minutes-at-230-degrees-celsius"));
 ```
 
-# Converter
-The HTTP plugin comes with a converter that allows you to convert HAR Files and Postman collections into Performator scripts:
+# Converting and Recording
+
+### Converter
+You can start a HTTP converter app, that allows you to convert HAR Files and Postman collections into Performator scripts.
+Execute the following maven command in the Performator-Quickstart project to start the app:
 
 ```java
 mvn -f pom-httpconverter.xml clean verify
 ```
 
-## Javascript Post Processing
-The Converter comes with the possibility to post-process the generated code.
+### Proxy Recorder
+You can start a HTTP Proxy recorder, that allows you to record your internet traffic and convert it into Performator scripts in real-time.
+Execute the following maven command in the Performator-Quickstart project to start the app:
 
-Following Javascript makes request methods static and replaces all Postman Parameters:
+```java
+mvn -f pom-httprecorder.xml clean verify
+```
+
+### Regex Filtering
+The apps provide a field that exclude any request that match any of the regular expressions separated by comma.
+Here are a few examples to get you started:
+
+```shell
+# exclude any url that ends with specific file formats
+.*pdf, .*xlsx, .*docx
+
+# exclude any url with "image" or "font" anywhere in the URL
+.*image.*, .*font.*
+
+# exclude every domain except webshop.com
+(?!.*webshop.com.*).*
+
+# exclude every domain except webshop.com and myapp.ch
+(?!.*(webshop.com|myapp.ch).*).*,
+```
+### Javascript Post Processing
+The Converter and Proxy Recorder come with the possibility to post-process the generated code.
+
+Following Example javascript makes request methods static and replaces all Postman Parameters:
 
 ```javascript
 function postProcess(code){

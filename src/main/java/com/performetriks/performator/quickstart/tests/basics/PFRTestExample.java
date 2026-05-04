@@ -6,6 +6,7 @@ import com.performetriks.performator.base.PFRTest;
 import com.performetriks.performator.executors.PFRExecStandard;
 import com.performetriks.performator.quickstart.globals.Globals;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleHSR;
+import com.performetriks.performator.quickstart.usecase.UsecaseExampleHTTP;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleSLA;
 
 /***************************************************************************
@@ -35,9 +36,9 @@ public class PFRTestExample extends PFRTest {
 						.percent(percentage)
 					);
 		
-		// this.add(new PFRExecStandard(UsecaseExampleDatabase.class, 50, 10000, 0, 5).percent(percentage) );
+		//this.add(new PFRExecStandard(UsecaseExampleDatabase.class, 50, 10000, 0, 5).percent(percentage) );
 		
-		// this.add(new PFRExecStandard(UsecaseExampleHTTP.class, 7, 1400, 0, 5).percent(percentage) );
+		this.add(new PFRExecStandard(UsecaseExampleHTTP.class, 7, 1400, 0, 5).percent(percentage) );
 		
 		
 		this.maxDuration(Duration.ofSeconds(90));
