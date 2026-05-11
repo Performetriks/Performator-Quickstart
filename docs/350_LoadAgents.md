@@ -80,7 +80,7 @@ Following an example command that starts the agent. Parameters:
 java -Dpfr_mode=agent -Dpfr_port=9876 -Dpfr_agentbornePort=9877 -Dpfr_loglevel=INFO -jar performator-agent-#.#.#.jar
 ```
 
-# Define Agents
+# Define Agents Manually
 Create a PFRAgentPool and define your agents using PFRAgent.
 You can add tags to your agents and deactivate whenever required using `.active(false)`.
 
@@ -90,15 +90,70 @@ You can add tags to your agents and deactivate whenever required using `.active(
 PFRAgentPool pool = new PFRAgentPool(
 		  new PFRAgent("deactivatedAgent", 9876	, "windows", "cloud").active(false)
 		, new PFRAgent("winserver123"    , 9876	, "windows", "cloud")
-		, new PFRAgent("localhost"       , 9876	, "windows", "dev", "test")
-		, new PFRAgent("asusstrix"       , 9876	, "windows", "dev")
-		, new PFRAgent("lenovop16s"      , 9876	, "windows", "test")
+		, new PFRAgent("localhost"       , 9876	, "windows", "DEV", "TEST")
+		, new PFRAgent("asusstrix"       , 9876	, "windows", "DEV")
+		, new PFRAgent("lenovop16s"      , 9876	, "windows", "TEST")
 	);
 
 PFRConfig.setAgentPool(pool);
-PFRConfig.setAgentTags("windows", "dev"); // filter agents that have all of these tags
+PFRConfig.setAgentTags("windows", "DEV"); // filter agents that have all of these tags
 
 ```
+
+# Define Agents with a File
+You can define your agents in a JSON file with the following structure:
+
+```javascript
+[
+  {
+    "host": "deactivatedAgent",
+    "port": 1234,
+    "active": false,
+    "tags": ["cloud","windows"]
+  },
+  {
+    "host": "winserver123",
+    "port": 1234,
+    "active": true,
+    "tags": ["DEV","windows"]
+  },
+  ...
+```
+
+And then load that file directly as an agent pool:
+
+```java
+//-----------------------------
+// Set Agents
+PFRAgentPool pool = new PFRAgentPool(Globals.PACKAGE_DATA, "agents.json");
+
+PFRConfig.setAgentPool(pool);
+PFRConfig.setAgentTags("windows", "DEV"); // filter agents that have all of these tags
+
+```
+
+# Define Agents from a Shared Web Resource
+Being able to load agents from a JSON File, as shown in the previous section, enables us to host such a file on a web server.
+This will allow us to have all the agents managed centrally and not redundant over many projects.
+As most Git repository solutions allow the use of raw links, we can also manage our agents in a version control system.
+
+Here is an example how you can load an agent file from a URL:
+
+```java
+//-----------------------------
+// Set Agents
+JsonArray agentArray = PFRHttp.create("https://raw.githubusercontent.com/Performetriks/Performator-Quickstart/refs/heads/development-branch/src/main/java/com/performetriks/performator/quickstart/data/agents.json")
+		.send()
+		.getBodyAsJsonArray();
+		
+PFRAgentPool pool = new PFRAgentPool(agentArray);
+
+PFRConfig.setAgentPool(pool);
+PFRConfig.setAgentTags("windows", "DEV"); // filter agents that have all of these tags
+
+```
+
+**Note:** You could also put an agent JSON File on a share drive and load it from there.
 
 # Executing a Test with or without Agents
 You use the same command to execute a test with agents as you do execute a regular test. This executes the test with the default `-Dpfr_mode=auto`, which detects if you have defined agents for your test or not.
@@ -140,13 +195,13 @@ PFRDataSource DATA = PFR.Data.newSourceCSV("sharedData", Globals.ENV.getTestdata
 //-----------------------------
 // Set Agents
 PFRAgentPool pool = new PFRAgentPool(
-		, new PFRAgent("localhost", 7777	, "windows", "dev", "test")
-		, new PFRAgent("asusstrix", 7778	, "windows", "dev")
+		, new PFRAgent("localhost", 7777	, "windows", "DEV", "TEST")
+		, new PFRAgent("asusstrix", 7778	, "windows", "DEV")
 		, new PFRAgent("localhost", 7779	, "data")
 	);
 
 PFRConfig.setAgentPool(pool);
-PFRConfig.setAgentTags("windows", "dev"); // filter agents that have all of these tags
+PFRConfig.setAgentTags("windows", "DEV"); // filter agents that have all of these tags
 
 PFRConfig.setDataAgentPool(pool);	// can be same or separate pool, will only pick a single agent, never multiple
 PFRConfig.setDataAgentTags("data"); 
