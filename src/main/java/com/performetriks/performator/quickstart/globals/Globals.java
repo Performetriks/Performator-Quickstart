@@ -22,7 +22,7 @@ import ch.qos.logback.classic.Logger;
 
 public class Globals {
 	 
-	private static final String PACKAGE_DATA = "com.performetriks.performator.quickstart.data";
+	public static final String PACKAGE_DATA = "com.performetriks.performator.quickstart.data";
 	
 	public static final String DIR_RESULTS = "./target/report";
 	public static final int REPORT_INTERVAL_SECONDS = 15;

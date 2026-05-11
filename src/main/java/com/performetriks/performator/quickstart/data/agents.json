@@ -1,0 +1,38 @@
+[
+  {
+    "host": "deactivatedAgent",
+    "port": 1234,
+    "active": false,
+    "tags": ["cloud","windows"]
+  },
+  {
+    "host": "winserver123",
+    "port": 1234,
+    "active": true,
+    "tags": ["cloud","windows"]
+  },
+  {
+    "host": "localhost",
+    "port": 7777,
+    "active": true,
+    "tags": ["DEV","TEST","windows"]
+  },
+  {
+    "host": "asusstrix",
+    "port": 7778,
+    "active": true,
+    "tags": ["DEV", "windows"]
+  },
+  {
+    "host": "lenovop16s",
+    "port": 7778,
+    "active": true,
+    "tags": ["TEST", "windows"]
+  },
+  {
+    "host": "localhost",
+    "port": 7779,
+    "active": true,
+    "tags": ["data"]
+  }
+]

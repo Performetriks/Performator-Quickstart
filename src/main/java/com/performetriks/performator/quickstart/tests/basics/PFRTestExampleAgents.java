@@ -5,12 +5,11 @@ import java.time.Duration;
 import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.base.PFRConfig;
 import com.performetriks.performator.base.PFRTest;
-import com.performetriks.performator.distribute.PFRAgent;
 import com.performetriks.performator.distribute.PFRAgentPool;
 import com.performetriks.performator.executors.PFRExecStandard;
 import com.performetriks.performator.quickstart.globals.Globals;
-import com.performetriks.performator.quickstart.usecase.UsecaseExampleHSR;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleDataRead;
+import com.performetriks.performator.quickstart.usecase.UsecaseExampleHSR;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleSLA;
 
 /***************************************************************************
@@ -41,18 +40,39 @@ public class PFRTestExampleAgents extends PFRTest {
 		;
 		
 		//-----------------------------
-		// Set Agents
-		PFRAgentPool pool = new PFRAgentPool(
-				  new PFRAgent("deactivatedAgent", 1234	, "windows", "cloud").active(false)
-				, new PFRAgent("winserver123", 1234	, "windows", "cloud")
-				, new PFRAgent("localhost", 7777	, "windows", "dev", "test")
-				, new PFRAgent("asusstrix", 7778	, "windows", "dev")
-				, new PFRAgent("lenovop16s", 7778	, "windows", "test")
-				, new PFRAgent("localhost", 7779	, "data")
-			);
+		// Set Agents Manually
+//		PFRAgentPool pool = new PFRAgentPool(
+//				  new PFRAgent("deactivatedAgent", 1234	, "windows", "cloud").active(false)
+//				, new PFRAgent("winserver123", 1234	, "windows", "cloud")
+//				, new PFRAgent("localhost", 7777	, "windows", "DEV", "TEST")
+//				, new PFRAgent("asusstrix", 7778	, "windows", "DEV")
+//				, new PFRAgent("lenovop16s", 7778	, "windows", "TEST")
+//				, new PFRAgent("localhost", 7779	, "data")
+//			);
+		
+		//--------------------------------------------------
+		// Set Agents from JSON Web Resource
+		// Note: This allows to host a JSON file on a web
+		// server and have all the agents managed centrally.
+		// Use constructor new PFRAgentPool(JsonArray) to
+		// load.
+//		JsonArray agentArray = PFRHttp.create("https://www.myserver.com/files/agents.json").send().getBodyAsJsonArray();
+//		PFRAgentPool pool = new PFRAgentPool(agentArray);
+		
+		//--------------------------------------------------
+		// Set Agents from JSON File
+		// Note: This allows to host a JSON file on a web
+		// server and have all the agents managed centrally.
+		// Use constructor new PFRAgentPool(JsonArray) to
+		// load.
+		
+		PFRAgentPool pool = new PFRAgentPool(Globals.PACKAGE_DATA, "agents.json");
+		
+		System.out.println("==== POOL ====");
+		System.out.println( PFR.JSON.toJSONPretty(pool.toJson()) );
 		
 		PFRConfig.setAgentPool(pool);
-		PFRConfig.setAgentTags("windows", "dev"); // filter agents that have all of these tags
+		PFRConfig.setAgentTags("windows", Globals.ENV.toString()); // filter agents that have all of these tags
 		
 		PFRConfig.setDataAgentPool(pool);	// can be same or separate pool
 		PFRConfig.setDataAgentTags("data"); 
