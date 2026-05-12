@@ -37,14 +37,14 @@
 		<dependency>
 		    <groupId>com.performetriks</groupId>
 		    <artifactId>performator</artifactId>
-		    <version>1.2.3</version>
+		    <version>1.2.4</version>
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/com.performetriks/performator-http -->
 		<dependency>
 		    <groupId>com.performetriks</groupId>
 		    <artifactId>performator-conversion</artifactId>
-		    <version>1.2.3</version>
+		    <version>1.2.4</version>
 		</dependency>
 		
 	</dependencies>
