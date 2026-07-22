@@ -7,6 +7,7 @@ List of executors:
 * [Executor Once](#executor-once): Executes a use case once, useful for debugging, checks or functional tests.
 * [Executor Repeat](#executor-repeat): Lets you execute a usecase sequentially with one user for a certain amount of repetitions.
 * [Executor Increase](#executor-increase): Execute a usecase with increasing amount of users until a max amount of users is reached.
+* [Executor Custom](#executor-custom): This executor let's you define and execute custom load patterns.
 * [Executor Sequential](#executor-sequential): This executor let's you execute other executors in sequence.
 
 # Executor Standard
@@ -124,6 +125,67 @@ User 5:   >>>>            oooo|####----------------|#-------------------|#####--
 [... a few moments later ...]
 User N-1: >>>>                                          oooo|####----------------|#-------------------|#####---------------|###-----------------|
 User N:   >>>>                                              oooo|####----------------|#-------------------|#####---------------|###-----------------|
+```
+
+# Executor Custom
+This executor lets you create a custom load pattern by adjusting the number of users executed over time
+This is useful in cases where you need to test very specific need that you can't fulfill with other executors.
+
+The executer comes with various methods to define your load using a Builder pattern:
+
+```java
+new PFRExecCustom(Usecase.class)
+    .rampUp(numUsers, userPerInterval, rampUpInterval)      // no pacing, rapidfire
+    .rampUpPaced(numUsers, userPerInterval, pacingSeconds)  // calculate ramp up interval internally
+    .rampUpExec(numUsers, userPerInterval, execHours)       // calculate pacing and ramp up intevall internally
+    .start(numUsers)             // starts numUsers at same time, no pacing
+    .start(numUsers, execHours)  // starts numUsers at same time, calculate pacing internally
+    .stable(long millis)         // keep stable for defined time
+    .stable(Duration duration)
+    .rampDownGracefully(numUsers, userPerInterval, gracefulSeconds) // stop amount of users gracefully and gradually
+    .rampDown(numUsers, userPerInterval)          // stop amount of users gradually and immediately
+    .stopGracefully(numUsers, long gracefulTime)  // stop amount of users all at once but gracefully
+    .stop(numUsers)          // stop amount of users immediately
+    .killAll()               // kill all users that are currently running
+    .offset(offsetSeconds)   // offset from the test start
+    .percent(50)             // recalculate the load to the defined percent (must be at the end of the builder chain)
+
+```
+
+Following is an example of how to create a custom load pattern:
+
+```java
+this.add(new PFRExecCustom(UsecaseExample.class)
+    .rampUp(10, 2, 3)   // start 10 users, 2 users/interval, 3sec interval
+    .stable(10)         // 10sec stable
+    .rampDown(6, 1, 3)  // ramp down 6 users, 1 users/interval, 3sec interval
+    .stable(10)         // 10sec stable
+    .start(5, 1000)     // start 10 users immediately with 1000 executions/hour
+    .stable(10)         // 10sec stable
+    .stop(3)            // stop 3 users immediately
+    .stable(10)         // 10sec stable
+    .killAll()          // killAll remaining users
+);
+```
+		
+**Executor Pattern:** Above custom executor definition would give you a change of active users over time as follows:
+
+```text
+* = user count
+
+    .rampUp()       .stable()    .rampDown()  .stable()      .stable()        .stable()
+|----------------|--------------|-----------|-----------|  |-------------|  |-------------|
+                  * * * * * * * *                     
+                *                 *                       * * * * * * * * *
+              *                     *                     *               *                 .killAll()
+            *                         *                   *               *                |-|
+          *                             *                 *               * * * * * * * * * *
+        *                                 *               *              |-|                *         
+      *                                     * * * * * * * *               .stop()           *
+    *                                                    |-|                                *
+  *                                                       .start()                          *
+*                                                                                           *
+---------------------------------------------- Time ----------------------------------------------->
 ```
 
 # Executor Sequential
