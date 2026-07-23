@@ -6,7 +6,9 @@ import com.performetriks.performator.base.PFRTest;
 import com.performetriks.performator.executors.PFRExecStandard;
 import com.performetriks.performator.quickstart.globals.Globals;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleHTTP;
+import com.xresch.xrutils.annotation.XRDiscoverable;
 
+@XRDiscoverable
 public class PFRTestExampleHTTP extends PFRTest {
 
 	public PFRTestExampleHTTP() {
