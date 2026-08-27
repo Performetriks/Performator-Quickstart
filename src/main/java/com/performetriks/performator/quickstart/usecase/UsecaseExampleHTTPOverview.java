@@ -5,6 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
+import org.apache.hc.core5.http.Method;
 import org.slf4j.LoggerFactory;
 
 import com.performetriks.performator.base.PFRUsecase;
@@ -76,8 +77,9 @@ public class UsecaseExampleHTTPOverview extends PFRUsecase {
 				.PUT()								// set the request method to PUT
 				.DELETE()							// set the request method to DELETE
 				.METHOD("HEAD")						// set the request method the specified HTTP request method
+				.METHOD(Method.HEAD)				// set the request method the specified HTTP request method
 				
-				.params(getParameters(data))		// add multiple request parameters
+				.params(data.toHashMapStrings())	// add multiple request parameters
 				.param("username", user)			// add a request parameter, might override existing
 				.headers(defaultHeaders())			// add multiple request headers
 				.header("Accept-Language", "de")	// add a request header, might override existing

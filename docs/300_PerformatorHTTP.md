@@ -535,6 +535,27 @@ JsonArray dashboardArray = object.get("payload").getAsJsonArray();
 //logger.info("List of Dashboards: "+ PFR.JSON.toJSONPretty(dashboardArray));
 ```
 
+# Advanced Topics
+
+## Modify Reported Records
+You can modify the records that have already been reported to the Reporting Engine. 
+For example, this can be useful if you want to change the test name and usecase name.
+However, this should be done in a synchronized way, as else there is a chance the records are reported without your modifications.
+
+```java
+
+// !!! POTENTIAL BOTTLENECK !!! Use with caution!
+synchronized (HSRStatsEngine.SYNC_RECORD_MODIFICATION) {
+   
+    r = PFRHttp.create("010_LoginPage", url+"/app/login") 
+      .Get()
+      .send()
+      ;
+    
+    r.getRecord().test("").usecase("CommonSteps");
+}
+```
+
 # Error Handling
 
 ### Try-Catch with throwOnFail()

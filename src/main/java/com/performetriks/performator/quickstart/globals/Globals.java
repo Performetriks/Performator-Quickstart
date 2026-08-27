@@ -128,8 +128,8 @@ public class Globals {
 //		HSRConfig.statsHostMemory(false);
 //		HSRConfig.statsCPU(false);
 //		HSRConfig.statsDiskUsage(false);
-//		HSRConfig.statsDiskIO();
-//		HSRConfig.statsNetworkIO();
+//		HSRConfig.statsDiskIO(false);
+//		HSRConfig.statsNetworkIO(false);
 		
 		//==================================================
 		// Plugin: PFRHttp Settings
