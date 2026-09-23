@@ -1,4 +1,4 @@
-package com.performetriks.performator.quickstart.tests.various;
+package com.performetriks.performator.quickstart.tests.basics;
 
 import java.time.Duration;
 
