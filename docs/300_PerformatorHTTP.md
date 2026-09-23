@@ -480,7 +480,7 @@ response.measureRange("[ByBoardCount]", count, 5);
 If you don't want to measure the relationship between duration and something, but between something(e.g. Input Items Count) and something else(e.g. Output Result Count) you can add a ranged Metric directly to the stats engine:
 
 ``` java
-HSR.addMetricRanged(r.getName()+"-Results_byFilters", newBigDecimal(myResultCount), myFilterCount, 50);	
+HSR.addMetricRanged(r.getName()+"-Results_byFilters", new BigDecimal(myResultCount), myFilterCount, 50);	
 ```
 
 The metric will have a range attached, that gives the statistics for that range:
@@ -498,6 +498,51 @@ The metric will have a range attached, that gives the statistics for that range:
 |070_TableLoadTime 1601-3200  |1153       |30     |2731|9900 |8082|0       |
 |070_TableLoadTime 3201-6400  |1108       |55     |3900|10000|8860|0       |
 |070_TableLoadTime 6401-12800 |301        |100    |4656|9990 |9340|0       |
+```
+
+# Response Methods
+When sending a request, you will get back a response object.
+The response object provides various methods that help you reading the content of the response:
+
+```java
+PFRHttpResponse r = PFRHttp.create(...)).send();
+
+// Success Checks and Error Handling
+r.throwOnFail()             // throws a ResponseFailedException if the response was not successful; otherwise returns this response
+r.printDebugLog()           // prints detailed debug information about the request and response
+r.isSuccess()               // returns true if there was no error, no HTTP error (when auto-fail is enabled), and all checks were successful
+r.checksSuccessful()        // returns true if all response checks were successful
+r.hasError()                // returns true if an error occurred while processing the HTTP request
+r.errorMessage()            // returns the error message, or null if there is none
+r.setStatus(status)         // sets a custom HSRRecordStatus for the HSR record
+
+// Basic Response Info
+r.getURL()                  // returns the URL of the HTTP request
+r.getDuration()             // returns the approximate request execution and response-reading duration in milliseconds, or -1 if unavailable
+r.getName()                 // returns the HSR record name, or null if no record exists
+r.getRecord()               // returns the HSR record associated with the response
+
+// Response Body
+r.getBody()                 // returns the response body as a String, or null on error
+r.getBodyAsJsonElement()    // parses and returns the response body as a JsonElement, or null if it cannot be parsed
+r.getBodyAsJsonObject()     // parses and returns the response body as a JsonObject, or null if it cannot be parsed
+r.getBodyAsJsonArray()      // parses and returns the response body as a JsonArray, or null on error
+r.getBodySize(byteSize)     // returns the response body size converted to the specified ByteSize unit
+r.getBodySize()             // returns the response body size in bytes using UTF-8 encoding
+
+// Response Status
+r.getStatus()               // returns the HTTP status code
+r.getStatusWithReason()     // returns the HTTP status code together with its reason phrase
+r.getStatusReason()         // returns the HTTP status reason phrase
+
+// Response Header
+r.getHeaders()              // returns the response headers as an array of Header objects
+r.getHeadersAsJson()        // returns the response headers as a JsonObject
+r.getHeadersAsMap()         // returns the response headers as a Map<String,String>
+
+// Create Ranged Metrics
+r.measureRange(rangeValue, rangeInitial)          // records a ranged measurement with the duration of this response and no suffix
+r.measureRange(suffix, rangeValue, rangeInitial)  // records a ranged measurement with the duration of this response
 ```
 
 # Extracting Values from Responses
@@ -534,6 +579,7 @@ JsonObject object = r.getBodyAsJsonObject();
 JsonArray dashboardArray = object.get("payload").getAsJsonArray();
 //logger.info("List of Dashboards: "+ PFR.JSON.toJSONPretty(dashboardArray));
 ```
+
 
 # Advanced Topics
 
