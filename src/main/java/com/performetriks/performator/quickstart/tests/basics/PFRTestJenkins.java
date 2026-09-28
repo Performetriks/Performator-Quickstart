@@ -9,6 +9,7 @@ import com.performetriks.performator.quickstart.globals.Globals.Environment;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleHSR;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleSLA;
 import com.xresch.hsr.base.HSRConfig;
+import com.xresch.xrutils.annotation.XRDiscoverable;
 
 import ch.qos.logback.classic.Level;
 
@@ -21,24 +22,39 @@ import ch.qos.logback.classic.Level;
  * @author Reto Scheiwiller
  * 
  ***************************************************************************/
+@XRDiscoverable
 public class PFRTestJenkins extends PFRTest {
 
 	public PFRTestJenkins() {
 		
 		//--------------------------------------
+    	// Example Environment Config
+		String myUser = System.getenv("MYUSER");
+
+		//--------------------------------------
     	// Get Jenkins Parameters
         int percent = Integer.getInteger("LoadPercent", 10);
         int durationMinutes = Integer.getInteger("Duration", 2);
-        
+
         String logLevelString = System.getProperty("LogLevel", "INFO");
         Level logLevel = Level.toLevel(logLevelString);
         
         String environmentString = System.getProperty("Environment", "DEV");
         Environment environment = Environment.valueOf(environmentString);
-
+		
+        //--------------------------------------
+    	// Add HSR Properties
+        HSRConfig.addProperty("[Jenkins] myUser", myUser);
+        HSRConfig.addProperty("[Jenkins] percent", ""+ percent);
+        HSRConfig.addProperty("[Jenkins] durationMinutes", ""+ durationMinutes);
+        HSRConfig.addProperty("[Jenkins] logLevel", logLevelString);
+        HSRConfig.addProperty("[Jenkins] environmentString", environmentString);
+        
     	//--------------------------------------
     	// Print Parameters
+
         System.out.println("============== Jenkins Parameters ==============");
+        System.out.println("myUser:       " 	 + myUser);
         System.out.println("Environment:       " + environment);
         System.out.println("Workload Percent:  " + percent);
         System.out.println("Duration Minutes:  " + durationMinutes);
