@@ -2,12 +2,18 @@ package com.performetriks.performator.quickstart.usecase;
 
 import java.math.BigDecimal;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.performetriks.performator.base.PFRUsecase;
+import com.performetriks.performator.distribute.ZePFRServer;
 import com.xresch.hsr.base.HSR;
 import com.xresch.hsr.stats.HSRRecord.HSRRecordStatus;
 
 public class UsecaseExampleHSR extends PFRUsecase {
-
+	
+	private static final Logger logger = LoggerFactory.getLogger(UsecaseExampleHSR.class);
+	
 	/************************************************************************
 	 * 
 	 ************************************************************************/
@@ -113,12 +119,22 @@ public class UsecaseExampleHSR extends PFRUsecase {
 			count = (HSR.Random.integer(1,10) > 1) ? count : 0;
 			HSR.addMetricRanged("070.4 TableLoadTime", new BigDecimal(duration), count, 50);
 			
+			//-------------------------------
+			// Log an Error to show what happens
+			if( HSR.Random.integer(1,20) > 19 ) {
+				logger.error("Example Error Log: Will be added to report", new Exception("Test Exception") );
+			}
+			
 		HSR.end(HSR.Random.fromArray(HSRRecordStatus.values()));
 		
 		//-------------------------------
-		// Keep it open to test HSR. endAllOpen()
-		HSR.start("999 The Unending Item");
-			Thread.sleep(HSR.Random.integer(15, 115));
+		// Keep it open to test HSR.endAllOpen()
+		if(HSR.Random.integer(1,20) > 19) {
+			HSR.start("999 The Unending Item");
+				Thread.sleep(HSR.Random.integer(15, 115));
+		}
+		
+
 
 	}
 
