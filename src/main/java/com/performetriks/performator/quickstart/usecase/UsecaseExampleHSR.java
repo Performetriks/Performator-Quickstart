@@ -122,7 +122,7 @@ public class UsecaseExampleHSR extends PFRUsecase {
 			//-------------------------------
 			// Log an Error to show what happens
 			if( HSR.Random.integer(1,20) > 19 ) {
-				logger.error("Example Error Log: Will be added to report", new Exception("Test Exception") );
+				logger.error("Example Error Log: Will automatically be added to report.", new Exception("Test Exception") );
 			}
 			
 		HSR.end(HSR.Random.fromArray(HSRRecordStatus.values()));
