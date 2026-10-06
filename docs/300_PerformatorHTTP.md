@@ -76,10 +76,12 @@ PFRHttpResponse r =
 r.printDebugLog();		
 ```
 
+# Requests Configurations
 
 ### Default Timeout
 Following method sets the default response timeout for the current user(thread).
 The default value is 3 minutes when this is not set manually.
+If you want to set this for all your use cases, you can call the method in the constructor of your PFRTest class.
 
 ```java
 public void initializeUser() {
@@ -88,11 +90,10 @@ public void initializeUser() {
 }
 ```
 
-**Note:** If you want to set this for all your use cases, you can call above method in the constructor of your PFRTest class.
-
 ### Default Pause
 Following method sets the default pause after each request for the current user(thread).
 By default there is no pause between requests.
+If you want to set this for all your use cases, you can call the method in the constructor of your PFRTest class.
 
 ```java
 public void initializeUser() {
@@ -101,7 +102,32 @@ public void initializeUser() {
 	// or just a static pause: PFRHttp.defaultPause(100); 
 }
 ```
-**Note:** If you want to set this for all your use cases, you can call above method in the constructor of your PFRTest class.
+
+### Default SLA
+Following method sets a default SLA for the HTTP requests. This is useful if you want to specify a global SLA you want to user every time,
+without having to specify it on every request (can be overridden on a single request).
+If you want to set this for all your use cases, you can call the method in the constructor of your PFRTest class.
+
+```java
+public void initializeUser() {
+	PFRHttp.defaultSLA( new HSRSLA(HSRMetric.p90, Operator.LTE, 500) ); 
+}
+```
+
+### Default Headers
+Following method sets default headers for the HTTP requests. This is useful if you have headers you want to send every time,
+without having to specify them on every request.
+If you want to set this for all your use cases, you can call the method in the constructor of your PFRTest class.
+
+```java
+public void initializeUser() {
+	PFRHttp.defaultHeaders(
+		"myDefaultHeader", "myDefaultValue"
+		"anotherHeader", "anotherValue"
+	);
+}
+```
+
 
 ### Cookie Management
 You can manage cookies for the current user(thread) by using the following methods:
@@ -112,6 +138,7 @@ You can manage cookies for the current user(thread) by using the following metho
 PFRHttp.clearCookies();			// Makes sure we always start with a blank user session
 PFRHttp.addCookie(new BasicClientCookie("myCustomCookie", "baked-20-minutes-at-230-degrees-celsius"));
 ```
+
 
 # Converting and Recording
 
