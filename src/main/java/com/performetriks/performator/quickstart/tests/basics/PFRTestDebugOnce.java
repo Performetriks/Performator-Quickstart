@@ -6,6 +6,7 @@ import com.performetriks.performator.base.PFRTest;
 import com.performetriks.performator.executors.PFRExecOnce;
 import com.performetriks.performator.http.PFRHttp;
 import com.performetriks.performator.quickstart.globals.Globals;
+import com.performetriks.performator.quickstart.usecase.UsecaseExampleHTTP;
 import com.performetriks.performator.quickstart.usecase.UsecaseLoadDataCustom;
 import com.xresch.hsr.base.HSRConfig;
 
@@ -34,13 +35,15 @@ public class PFRTestDebugOnce extends PFRTest {
 		Globals.commonInitialization(false);
 		
 		HSRConfig.setLogLevelRoot(Level.INFO); // or any other level
+		HSRConfig.setLogLevel(Level.TRACE, "org.apache.hc"); // Specific logs, e.g. for Apache HTTP Client
+		
 		PFRHttp.debugLogAll(true); 
 		
 		HSRConfig.setRawDataLogPath("./target/raw.log"); // debug only, performance impact with load!
 		
 		//------------------------------
 		// Use Cases
-		this.add( new PFRExecOnce(UsecaseLoadDataCustom.class, 0) ); // wait for 0 seconds
+		this.add( new PFRExecOnce(UsecaseExampleHTTP.class, 0) ); // wait for 0 seconds
 		
 
 		

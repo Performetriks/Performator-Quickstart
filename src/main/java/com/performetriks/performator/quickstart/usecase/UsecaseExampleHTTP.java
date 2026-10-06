@@ -173,13 +173,13 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 				List<String> allNames = ctx.read("$.payload[*].NAME");
 				String firstName = ctx.read("$.payload[0].NAME");
 				String lastName = ctx.read("$.payload[-1].NAME");
-				Boolean thirdIsShared = ctx.read("$.payload[3].IS_SHARED");
+				Boolean firstIsShared = ctx.read("$.payload[0].IS_SHARED");
 				
 				logger.info("JsonPath: allIDs: " + PFR.JSON.toJSON(allIDs));
 				logger.info("JsonPath: allNames: " + PFR.JSON.toJSON(allNames));
 				logger.info("JsonPath: firstName: " + firstName);
 				logger.info("JsonPath: lastName: " + lastName);
-				logger.info("JsonPath: thirdIsShared: " + thirdIsShared);
+				logger.info("JsonPath: thirdIsShared: " + firstIsShared);
 				
 				//-------------------------------
 				// Extract Bounds example
