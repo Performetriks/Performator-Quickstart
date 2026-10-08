@@ -114,6 +114,7 @@ public class UsecaseExampleHTTP extends PFRUsecase {
 			r = PFRHttp.create("010_Do_Login", url+"/app/login") 
 					.sla(SLA_P90_AND_FAILRATE)
 					.POST()
+					.header("MyHeader", "MyHeaderValue")
 					.param("username", "admin")
 					.param("password", "admin")
 					.param("url", "/app/dashboard/list") //redirect url
