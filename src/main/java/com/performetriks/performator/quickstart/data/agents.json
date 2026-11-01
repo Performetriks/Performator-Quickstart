@@ -18,13 +18,13 @@
     "tags": ["DEV","TEST","windows"]
   },
   {
-    "host": "asusstrix",
+    "host": "localhost",
     "port": 7778,
     "active": true,
     "tags": ["DEV", "windows"]
   },
   {
-    "host": "lenovop16s",
+    "host": "localhost",
     "port": 7778,
     "active": true,
     "tags": ["TEST", "windows"]

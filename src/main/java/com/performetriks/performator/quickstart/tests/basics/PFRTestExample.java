@@ -5,10 +5,9 @@ import java.time.Duration;
 import com.performetriks.performator.base.PFRTest;
 import com.performetriks.performator.executors.PFRExecStandard;
 import com.performetriks.performator.quickstart.globals.Globals;
-import com.performetriks.performator.quickstart.usecase.UsecaseExampleDatabase;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleHSR;
-import com.performetriks.performator.quickstart.usecase.UsecaseExampleHTTP;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleSLA;
+import com.xresch.xrutils.annotation.XRDiscoverable;
 
 /***************************************************************************
  * This example a basic test with two standard scenarios
@@ -19,6 +18,7 @@ import com.performetriks.performator.quickstart.usecase.UsecaseExampleSLA;
  * @author Reto Scheiwiller
  * 
  ***************************************************************************/
+@XRDiscoverable
 public class PFRTestExample extends PFRTest {
 
 	public PFRTestExample() {
@@ -42,8 +42,8 @@ public class PFRTestExample extends PFRTest {
 		//this.add(new PFRExecStandard(UsecaseExampleHTTP.class, 7, 1400, 0, 5).percent(percentage) );
 		
 		
-		this.maxDuration(Duration.ofSeconds(90));
-		this.gracefulStop(Duration.ofSeconds(30));
+		this.maxDuration(Duration.ofSeconds(30));
+		this.gracefulStop(Duration.ofSeconds(1));
 		
 	}
 

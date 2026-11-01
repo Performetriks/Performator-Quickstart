@@ -1,14 +1,11 @@
 package com.performetriks.performator.quickstart.usecase;
 
-import com.google.gson.JsonArray;
-import com.performetriks.performator.base.PFR;
 import com.performetriks.performator.base.PFRUsecase;
-import com.xresch.xrutils.data.XRRecord;
-import com.performetriks.performator.data.PFRDataSource;
 import com.performetriks.performator.http.PFRHttp;
 import com.performetriks.performator.http.PFRHttpResponse;
 import com.performetriks.performator.quickstart.globals.Globals;
 import com.performetriks.performator.quickstart.globals.Globals.DATAFIELDS;
+import com.xresch.xrutils.data.XRRecord;
 
 public class UsecaseCheckTestdata extends PFRUsecase {
 

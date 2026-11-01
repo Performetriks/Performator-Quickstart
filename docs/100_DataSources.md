@@ -47,12 +47,12 @@ There are as well various methods on the record to directly retrieve a specific 
 Here some examples on how to access the different types:
 
 ```java
-XRValue user XRValue		= record.get("USER");
-String user 					= record.getString("USER");
-int value 					= record.getInteger("VALUE");
-boolean likesTiramisu 		= record.getBoolean("LIKES_TIRAMISU");
-JsonObject addressDetails 	= record.getJsonObject("ADDRESS_DETAILS");
-JsonArray tags 				= record.getJsonArray("TAGS");
+XRValue user              = record.get("USER");
+String user               = record.getString("USER");
+int value                 = record.getInteger("VALUE");
+boolean likesTiramisu     = record.getBoolean("LIKES_TIRAMISU");
+JsonObject addressDetails = record.getJsonObject("ADDRESS_DETAILS");
+JsonArray tags            = record.getJsonArray("TAGS");
 ```
 
 ### Generating Random Data

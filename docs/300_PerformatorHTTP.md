@@ -76,10 +76,12 @@ PFRHttpResponse r =
 r.printDebugLog();		
 ```
 
+# Requests Configurations
 
 ### Default Timeout
 Following method sets the default response timeout for the current user(thread).
 The default value is 3 minutes when this is not set manually.
+If you want to set this for all your use cases, you can call the method in the constructor of your PFRTest class.
 
 ```java
 public void initializeUser() {
@@ -88,11 +90,10 @@ public void initializeUser() {
 }
 ```
 
-**Note:** If you want to set this for all your use cases, you can call above method in the constructor of your PFRTest class.
-
 ### Default Pause
 Following method sets the default pause after each request for the current user(thread).
 By default there is no pause between requests.
+If you want to set this for all your use cases, you can call the method in the constructor of your PFRTest class.
 
 ```java
 public void initializeUser() {
@@ -101,7 +102,32 @@ public void initializeUser() {
 	// or just a static pause: PFRHttp.defaultPause(100); 
 }
 ```
-**Note:** If you want to set this for all your use cases, you can call above method in the constructor of your PFRTest class.
+
+### Default SLA
+Following method sets a default SLA for the HTTP requests. This is useful if you want to specify a global SLA you want to user every time,
+without having to specify it on every request (can be overridden on a single request).
+If you want to set this for all your use cases, you can call the method in the constructor of your PFRTest class.
+
+```java
+public void initializeUser() {
+	PFRHttp.defaultSLA( new HSRSLA(HSRMetric.p90, Operator.LTE, 500) ); 
+}
+```
+
+### Default Headers
+Following method sets default headers for the HTTP requests. This is useful if you have headers you want to send every time,
+without having to specify them on every request.
+If you want to set this for all your use cases, you can call the method in the constructor of your PFRTest class.
+
+```java
+public void initializeUser() {
+	PFRHttp.defaultHeaders(
+		"myDefaultHeader", "myDefaultValue"
+		"anotherHeader", "anotherValue"
+	);
+}
+```
+
 
 ### Cookie Management
 You can manage cookies for the current user(thread) by using the following methods:
@@ -112,6 +138,7 @@ You can manage cookies for the current user(thread) by using the following metho
 PFRHttp.clearCookies();			// Makes sure we always start with a blank user session
 PFRHttp.addCookie(new BasicClientCookie("myCustomCookie", "baked-20-minutes-at-230-degrees-celsius"));
 ```
+
 
 # Converting and Recording
 
@@ -480,7 +507,7 @@ response.measureRange("[ByBoardCount]", count, 5);
 If you don't want to measure the relationship between duration and something, but between something(e.g. Input Items Count) and something else(e.g. Output Result Count) you can add a ranged Metric directly to the stats engine:
 
 ``` java
-HSR.addMetricRanged(r.getName()+"-Results_byFilters", newBigDecimal(myResultCount), myFilterCount, 50);	
+HSR.addMetricRanged(r.getName()+"-Results_byFilters", new BigDecimal(myResultCount), myFilterCount, 50);	
 ```
 
 The metric will have a range attached, that gives the statistics for that range:
@@ -498,6 +525,51 @@ The metric will have a range attached, that gives the statistics for that range:
 |070_TableLoadTime 1601-3200  |1153       |30     |2731|9900 |8082|0       |
 |070_TableLoadTime 3201-6400  |1108       |55     |3900|10000|8860|0       |
 |070_TableLoadTime 6401-12800 |301        |100    |4656|9990 |9340|0       |
+```
+
+# Response Methods
+When sending a request, you will get back a response object.
+The response object provides various methods that help you reading the content of the response:
+
+```java
+PFRHttpResponse r = PFRHttp.create(...)).send();
+
+// Success Checks and Error Handling
+r.throwOnFail()             // throws a ResponseFailedException if the response was not successful; otherwise returns this response
+r.printDebugLog()           // prints detailed debug information about the request and response
+r.isSuccess()               // returns true if there was no error, no HTTP error (when auto-fail is enabled), and all checks were successful
+r.checksSuccessful()        // returns true if all response checks were successful
+r.hasError()                // returns true if an error occurred while processing the HTTP request
+r.errorMessage()            // returns the error message, or null if there is none
+r.setStatus(status)         // sets a custom HSRRecordStatus for the HSR record
+
+// Basic Response Info
+r.getURL()                  // returns the URL of the HTTP request
+r.getDuration()             // returns the approximate request execution and response-reading duration in milliseconds, or -1 if unavailable
+r.getName()                 // returns the HSR record name, or null if no record exists
+r.getRecord()               // returns the HSR record associated with the response
+
+// Response Body
+r.getBody()                 // returns the response body as a String, or null on error
+r.getBodyAsJsonElement()    // parses and returns the response body as a JsonElement, or null if it cannot be parsed
+r.getBodyAsJsonObject()     // parses and returns the response body as a JsonObject, or null if it cannot be parsed
+r.getBodyAsJsonArray()      // parses and returns the response body as a JsonArray, or null on error
+r.getBodySize(byteSize)     // returns the response body size converted to the specified ByteSize unit
+r.getBodySize()             // returns the response body size in bytes using UTF-8 encoding
+
+// Response Status
+r.getStatus()               // returns the HTTP status code
+r.getStatusWithReason()     // returns the HTTP status code together with its reason phrase
+r.getStatusReason()         // returns the HTTP status reason phrase
+
+// Response Header
+r.getHeaders()              // returns the response headers as an array of Header objects
+r.getHeadersAsJson()        // returns the response headers as a JsonObject
+r.getHeadersAsMap()         // returns the response headers as a Map<String,String>
+
+// Create Ranged Metrics
+r.measureRange(rangeValue, rangeInitial)          // records a ranged measurement with the duration of this response and no suffix
+r.measureRange(suffix, rangeValue, rangeInitial)  // records a ranged measurement with the duration of this response
 ```
 
 # Extracting Values from Responses
@@ -533,6 +605,28 @@ Here is how you can get the response as a JsonObject and retrieve its "payload" 
 JsonObject object = r.getBodyAsJsonObject();
 JsonArray dashboardArray = object.get("payload").getAsJsonArray();
 //logger.info("List of Dashboards: "+ PFR.JSON.toJSONPretty(dashboardArray));
+```
+
+
+# Advanced Topics
+
+## Modify Reported Records
+You can modify the records that have already been reported to the Reporting Engine. 
+For example, this can be useful if you want to change the test name and usecase name.
+However, this should be done in a synchronized way, as else there is a chance the records are reported without your modifications.
+
+```java
+
+// !!! POTENTIAL BOTTLENECK !!! Use with caution!
+synchronized (HSRStatsEngine.SYNC_RECORD_MODIFICATION) {
+   
+    r = PFRHttp.create("010_LoginPage", url+"/app/login") 
+      .Get()
+      .send()
+      ;
+    
+    r.getRecord().test("").usecase("CommonSteps");
+}
 ```
 
 # Error Handling

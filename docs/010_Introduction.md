@@ -32,6 +32,7 @@ mvn clean verify -Dpfr_test="com.performetriks.performator.quickstart.tests.basi
 * Firewall might not be open, check logs for errors
 * Code that registers reporters might be skipped, check that it is executed.
 * Make sure `HSRConfig.enable(REPORT_INTERVAL_SECONDS);` is called to start the reporting.
+* The max duration you set in your Test with `this.maxDuration(Duration.ofSeconds(180));` might be too low for the reporting to take place or the agents to startup in time.
 
 **JVM Arguments are not passed to program:**
 * Make sure to also forward them in the pom.xml in the exec-maven-plugin section using `<projectProperties />`:

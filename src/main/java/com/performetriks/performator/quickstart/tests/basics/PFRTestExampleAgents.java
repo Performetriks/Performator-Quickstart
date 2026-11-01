@@ -11,6 +11,7 @@ import com.performetriks.performator.quickstart.globals.Globals;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleDataRead;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleHSR;
 import com.performetriks.performator.quickstart.usecase.UsecaseExampleSLA;
+import com.xresch.xrutils.annotation.XRDiscoverable;
 
 /***************************************************************************
  * This example a basic test with two standard scenarios
@@ -21,15 +22,11 @@ import com.performetriks.performator.quickstart.usecase.UsecaseExampleSLA;
  * @author Reto Scheiwiller
  * 
  ***************************************************************************/
+@XRDiscoverable
 public class PFRTestExampleAgents extends PFRTest {
 
 	public PFRTestExampleAgents() {
 		
-		//#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!
-		//#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!
-		// !!! AGENTS ARE STILL CONSIDERED EXPERIMENTAL !!!
-		//#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!
-		//#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!
 		Globals.commonInitialization(true);
 		
 		//-----------------------------
