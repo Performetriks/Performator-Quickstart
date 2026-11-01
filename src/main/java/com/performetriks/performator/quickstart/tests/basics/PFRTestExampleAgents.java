@@ -27,11 +27,6 @@ public class PFRTestExampleAgents extends PFRTest {
 
 	public PFRTestExampleAgents() {
 		
-		//#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!
-		//#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!
-		// !!! AGENTS ARE STILL CONSIDERED EXPERIMENTAL !!!
-		//#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!
-		//#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!
 		Globals.commonInitialization(true);
 		
 		//-----------------------------
